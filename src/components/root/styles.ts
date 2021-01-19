@@ -1,5 +1,6 @@
-import reset from 'styled-reset';
-import { createGlobalStyle } from '#/styles/theme';
+import reset from "styled-reset";
+import { createGlobalStyle } from "#/styles/theme";
+import { fromTablet } from "#/styles/media";
 
 export const Global = createGlobalStyle`
   ${reset}
@@ -23,8 +24,11 @@ export const Global = createGlobalStyle`
   }
 
   html, body, #__next {
-    height: 100%;
-    overflow: hidden;
+
+    @media ${fromTablet} {
+      height: 100%;
+      overflow: hidden;
+    }
   }
 
   select {
