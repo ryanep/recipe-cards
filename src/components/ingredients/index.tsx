@@ -1,36 +1,40 @@
-import { IngredientsProps } from './types';
-import * as styled from './styles';
-import { ChangeEvent, useState } from 'react';
+import { IngredientsProps } from "./types";
+import * as styled from "./styles";
+import { ChangeEvent, useState } from "react";
 
 export const Ingredients = ({ ingredients }: IngredientsProps) => {
-  const [selectedIngredients, setSelectedIngredients] = useState<string[]>([]);
+  const [selectedIngredients, setSelectedIngredients] = useState<number[]>([]);
 
   const handleIngredientChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
+    const ingredientIndex = parseInt(value, 10);
 
-    if (selectedIngredients.includes(value)) {
+    if (selectedIngredients.includes(ingredientIndex)) {
       setSelectedIngredients((ingredients) =>
-        ingredients.filter((ingredient) => ingredient !== value)
+        ingredients.filter((ingredient) => ingredient !== ingredientIndex)
       );
       return;
     }
 
-    setSelectedIngredients((ingredients) => [...ingredients, value]);
+    setSelectedIngredients((ingredients) => [...ingredients, ingredientIndex]);
   };
 
   return (
     <styled.List>
-      {ingredients.map((ingredient) => (
-        <styled.Ingredient>
-          <label>
+      {ingredients.map((ingredient, index) => (
+        <styled.Ingredient
+          key={ingredient.id}
+          isComplete={selectedIngredients.includes(index)}
+        >
+          <styled.Label>
             <input
               type="checkbox"
               onChange={handleIngredientChange}
-              value={ingredient.name}
-              checked={selectedIngredients.includes(ingredient.name)}
+              value={index}
+              checked={selectedIngredients.includes(index)}
             />
             {ingredient.amount} {ingredient.unit} {ingredient.name}
-          </label>
+          </styled.Label>
         </styled.Ingredient>
       ))}
     </styled.List>

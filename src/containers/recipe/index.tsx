@@ -1,89 +1,104 @@
-import { FullWidthLayout } from '#/components/full-width-layout';
-import { Ingredients } from '#/components/ingredients';
-import { Spacer } from '#/components/spacer';
-import { Heading } from '#/components/heading';
-import { Steps } from '#/components/steps';
-import { RecipeSidebar } from '#/components/recipe-sidebar';
+import { FullWidthLayout } from "#/components/full-width-layout";
+import { Ingredients } from "#/components/ingredients";
+import { Spacer } from "#/components/spacer";
+import { Heading } from "#/components/heading";
+import { Steps } from "#/components/steps";
+import { RecipeSidebar } from "#/components/recipe-sidebar";
 
 const recipe = {
   imageUrl:
-    'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/creamy_mushroom_pasta-fc7ab67.jpg',
-  name: 'Creamy mushroom pasta',
+    "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/creamy_mushroom_pasta-fc7ab67.jpg",
+  name: "Creamy mushroom pasta",
   description:
-    'Make this creamy mushroom pasta dish on days when you need a big bowl of comfort. Cream, parmesan, white wine, lemon zest and parsley make this a rich and flavourful dinner.',
+    "Make this creamy mushroom pasta dish on days when you need a big bowl of comfort. Cream, parmesan, white wine, lemon zest and parsley make this a rich and flavourful dinner.",
   ingredients: [
     {
-      name: 'Olive Oil',
+      id: "1",
+      name: "Olive Oil",
       amount: 2,
-      unit: 'tablespoon',
+      unit: "tablespoon",
     },
     {
-      name: 'Butter',
+      id: "2",
+      name: "Butter",
       amount: 1,
-      unit: 'teaspoon',
+      unit: "teaspoon",
     },
     {
-      name: 'Onion',
+      id: "3",
+      name: "Onion",
       amount: 1,
-      unit: 'whole',
+      unit: "whole",
     },
     {
-      name: 'Button Chestnut Mushroom',
+      id: "4",
+      name: "Button Chestnut Mushroom",
       amount: 250,
-      unit: 'grams',
+      unit: "grams",
     },
     {
-      name: 'Garlic Clove',
+      id: "5",
+      name: "Garlic Clove",
       amount: 1,
-      unit: 'whole',
+      unit: "whole",
     },
     {
-      name: 'Dry White Wine',
+      id: "6",
+      name: "Dry White Wine",
       amount: 100,
-      unit: 'milliliters',
+      unit: "milliliters",
     },
     {
-      name: 'Double Cream',
+      id: "7",
+      name: "Double Cream",
       amount: 200,
-      unit: 'milliliters',
+      unit: "milliliters",
     },
     {
-      name: 'Lemon',
+      id: "8",
+      name: "Lemon",
       amount: 1,
-      unit: 'whole',
+      unit: "whole",
     },
     {
-      name: 'Parmesan',
+      id: "9",
+      name: "Parmesan",
       amount: 200,
-      unit: 'grams',
+      unit: "grams",
     },
     {
-      name: 'Tagliatelle',
+      id: "10",
+      name: "Tagliatelle",
       amount: 300,
-      unit: 'grams',
+      unit: "grams",
     },
     {
-      name: 'Parsley',
+      id: "11",
+      name: "Parsley",
       amount: 0.5,
-      unit: 'bunch',
+      unit: "bunch",
     },
   ],
   steps: [
     {
+      id: "1",
       description:
-        'Heat the oil and butter in a medium saucepan. Fry the onion over a low heat for 10 mins or until softened and translucent.',
+        "Heat the oil and butter in a medium saucepan. Fry the onion over a low heat for 10 mins or until softened and translucent.",
     },
     {
+      id: "2",
       description:
-        'Add the mushrooms and cook for 10 mins over a medium heat. Add the garlic and cook for 2 mins. Add the wine and bring to a simmer, reduce the liquid by half.',
+        "Add the mushrooms and cook for 10 mins over a medium heat. Add the garlic and cook for 2 mins. Add the wine and bring to a simmer, reduce the liquid by half.",
     },
     {
+      id: "3",
       description:
-        'Add the double cream and bring to a simmer, then add the lemon zest and parmesan. Season with salt and plenty of black pepper.',
+        "Add the double cream and bring to a simmer, then add the lemon zest and parmesan. Season with salt and plenty of black pepper.",
     },
     {
+      id: "4",
       description:
-        'Meanwhile, cook the pasta following pack instructions. Reserve 100ml of the pasta water. Toss the pasta in the pan with the creamy sauce and enough of the reserved water to loosen. Stir through the parsley, divide into bowls and top with extra cheese, if you like. ',
+        "Meanwhile, cook the pasta following pack instructions. Reserve 100ml of the pasta water. Toss the pasta in the pan with the creamy sauce and enough of the reserved water to loosen. Stir through the parsley, divide into bowls and top with extra cheese, if you like. ",
     },
   ],
 };
