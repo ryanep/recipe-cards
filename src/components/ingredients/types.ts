@@ -5,6 +5,8 @@ export interface IngredientsProps {
     amount: number;
     unit: string;
   }[];
+  selectedIngredients: string[];
+  onIngredientClick: (ingredientId: string) => void;
 }
 
 export interface IngredientStyleProps {

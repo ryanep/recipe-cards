@@ -22,3 +22,30 @@ export const Label = styled.label`
   padding: 1rem;
   margin-bottom: 1rem;
 `;
+
+export const Indicator = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: grey;
+  margin-right: 1rem;
+`;
+
+export const Checkbox = styled.input`
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+
+  &:checked + ${Indicator} {
+    opacity: 0.4;
+    color: white;
+    background-color: green;
+  }
+`;

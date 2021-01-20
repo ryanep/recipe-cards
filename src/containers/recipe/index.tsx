@@ -1,3 +1,4 @@
+import { ChangeEvent, useState } from "react";
 import { FullWidthLayout } from "#/components/full-width-layout";
 import { Ingredients } from "#/components/ingredients";
 import { Spacer } from "#/components/spacer";
@@ -104,6 +105,27 @@ const recipe = {
 };
 
 export const RecipeContainer = () => {
+  const [selectedIngredients, setSelectedIngredients] = useState<string[]>([]);
+  const [selectedStepIndex, setSelectedStepIndex] = useState<number>(-1);
+
+  const handleIngredientClick = (ingredientId: string) => {
+    console.log(ingredientId);
+    if (!selectedIngredients.includes(ingredientId)) {
+      setSelectedIngredients((ingredients) => [...ingredients, ingredientId]);
+      return;
+    }
+
+    setSelectedIngredients((ingredients) =>
+      ingredients.filter((ingredient) => ingredient !== ingredientId)
+    );
+  };
+
+  const handleStepClick = (stepIndex: number) => {
+    setSelectedStepIndex((prevIndex) =>
+      prevIndex === stepIndex ? stepIndex - 1 : stepIndex
+    );
+  };
+
   return (
     <FullWidthLayout
       sidebar={
@@ -116,11 +138,19 @@ export const RecipeContainer = () => {
     >
       <Heading type="h2" as="h3" text="Ingredients" />
       <Spacer size="medium" />
-      <Ingredients ingredients={recipe.ingredients} />
+      <Ingredients
+        ingredients={recipe.ingredients}
+        selectedIngredients={selectedIngredients}
+        onIngredientClick={handleIngredientClick}
+      />
       <Spacer size="medium" />
       <Heading type="h2" as="h3" text="Steps" />
       <Spacer size="medium" />
-      <Steps steps={recipe.steps} />
+      <Steps
+        steps={recipe.steps}
+        selectedStepIndex={selectedStepIndex}
+        onStepClick={handleStepClick}
+      />
     </FullWidthLayout>
   );
 };
