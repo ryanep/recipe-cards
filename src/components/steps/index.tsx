@@ -1,30 +1,23 @@
 import { StepsProps } from "./types";
 import * as styled from "./styles";
-import { ChangeEvent, useState } from "react";
 
-export const Steps = ({ steps }: StepsProps) => {
-  const [currentIndex, setCurrentIndex] = useState(-1);
-
-  const handleStepChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { value } = event.target;
-    const stepIndex = parseInt(value, 10);
-    setCurrentIndex((prevIndex) =>
-      prevIndex === stepIndex ? stepIndex - 1 : stepIndex
-    );
-  };
-
+export const Steps = ({
+  steps,
+  selectedStepIndex,
+  onStepClick,
+}: StepsProps) => {
   return (
     <styled.List>
       {steps.map((step, index) => (
-        <styled.Step key={step.id} isCurrent={index === currentIndex + 1}>
-          Step {index + 1}
+        <styled.Step key={step.id} isCurrent={index === selectedStepIndex + 1}>
           <styled.Label>
-            <input
+            <styled.Checkbox
               type="checkbox"
-              onChange={handleStepChange}
+              onChange={() => onStepClick(index)}
               value={index}
-              checked={index <= currentIndex}
+              checked={index <= selectedStepIndex}
             />
+            <styled.Indicator>{index + 1}</styled.Indicator>
             {step.description}
           </styled.Label>
         </styled.Step>

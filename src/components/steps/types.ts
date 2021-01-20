@@ -3,6 +3,8 @@ export interface StepsProps {
     id: string;
     description: string;
   }[];
+  onStepClick: (stepIndex: number) => void;
+  selectedStepIndex: number;
 }
 
 export interface StepStyleProps {
