@@ -1,5 +1,5 @@
-import { IngredientsProps } from "./types";
-import * as styled from "./styles";
+import * as styled from './styles';
+import { IngredientsProps } from './types';
 
 export const Ingredients = ({
   ingredients,
@@ -14,13 +14,19 @@ export const Ingredients = ({
           isComplete={selectedIngredients.includes(ingredient.id)}
         >
           <styled.Label>
-            <input
+            <styled.Input
               type="checkbox"
               onChange={() => onIngredientClick(ingredient.id)}
               value={index}
               checked={selectedIngredients.includes(ingredient.id)}
             />
-            {ingredient.amount} {ingredient.unit} {ingredient.name}
+            <styled.Checkbox />
+            <div>
+              <styled.Amount>
+                {ingredient.amount} {ingredient.unit}
+              </styled.Amount>
+              <styled.Name>{ingredient.name}</styled.Name>
+            </div>
           </styled.Label>
         </styled.Ingredient>
       ))}
