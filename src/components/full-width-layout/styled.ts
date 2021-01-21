@@ -1,5 +1,5 @@
-import { fromTablet } from "#/styles/media";
-import { styled } from "#/styles/theme";
+import { fromTablet } from '#/styles/media';
+import { styled } from '#/styles/theme';
 
 export const Layout = styled.div`
   height: 100%;
@@ -9,7 +9,7 @@ export const Layout = styled.div`
 
   @media ${fromTablet} {
     display: grid;
-    grid-template-columns: minmax(30rem, 30%) auto;
+    grid-template-columns: minmax(30rem, 25%) auto;
     grid-gap: 2rem;
   }
 `;

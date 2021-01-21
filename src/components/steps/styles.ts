@@ -1,5 +1,5 @@
-import { styled } from "#/styles/theme";
-import type { StepStyleProps } from "./types";
+import { styled } from '#/styles/theme';
+import type { StepStyleProps } from './types';
 
 export const List = styled.ul`
   border: 0.2rem solid grey;
@@ -8,7 +8,7 @@ export const List = styled.ul`
 
 export const Step = styled.li<StepStyleProps>`
   border-bottom: 0.2rem solid grey;
-  color: ${({ isCurrent }) => (isCurrent ? "white" : "grey")};
+  color: ${({ isCurrent }) => (isCurrent ? 'white' : 'grey')};
   font-weight: bold;
 
   &:last-child {
@@ -19,8 +19,8 @@ export const Step = styled.li<StepStyleProps>`
 export const Label = styled.label`
   display: flex;
   align-items: center;
-  padding: 1rem;
-  margin-bottom: 1rem;
+  padding: 1.4rem;
+  cursor: pointer;
 `;
 
 export const Indicator = styled.div`
