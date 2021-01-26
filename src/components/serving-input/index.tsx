@@ -28,7 +28,7 @@ export const ServingInput = ({
           <path d="M512 320c0 17.696-1.536 32-19.232 32h-345.536c-17.664 0-19.232-14.304-19.232-32s1.568-32 19.232-32h345.568c17.664 0 19.2 14.304 19.2 32z" />
         </svg>
       </styled.Button>
-      <styled.Input type="number" value={servings} readOnly />
+      <styled.Input type="number" value={servings} readOnly disabled />
       <styled.Button
         type="button"
         onClick={() => handleChange(servings + 1)}
