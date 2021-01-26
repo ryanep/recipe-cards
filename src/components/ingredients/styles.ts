@@ -1,16 +1,21 @@
+import { fromTablet } from '#/styles/media';
 import { styled } from '#/styles/theme';
 import { IngredientStyleProps } from './types';
 
 export const List = styled.ul`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 0.2rem;
+  grid-template-columns: repeat(1);
   background-color: grey;
   flex-wrap: wrap;
   width: 100%;
   border: 0.2rem solid grey;
   border-radius: 1rem;
   overflow: hidden;
+
+  @media ${fromTablet} {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 0.2rem;
+  }
 `;
 
 export const Ingredient = styled.li<IngredientStyleProps>`

@@ -1,10 +1,7 @@
+import { Ingredient } from '#/types/general';
+
 export interface IngredientsProps {
-  ingredients: {
-    id: string;
-    name: string;
-    amount: number;
-    unit: string;
-  }[];
+  ingredients: Ingredient[];
   selectedIngredients: string[];
   onIngredientClick: (ingredientId: string) => void;
 }

@@ -1,3 +1,4 @@
+import { fromTablet } from '#/styles/media';
 import { styled } from '#/styles/theme';
 
 export const Image = styled.img`
@@ -6,7 +7,11 @@ export const Image = styled.img`
 `;
 
 export const Content = styled.div`
-  padding: ${({ theme }) => theme.sizing.medium};
+  padding: ${({ theme }) => theme.sizing.medium} 0;
+
+  @media ${fromTablet} {
+    padding: ${({ theme }) => theme.sizing.medium};
+  }
 `;
 
 export const Name = styled.h1`
