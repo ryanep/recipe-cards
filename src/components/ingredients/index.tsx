@@ -23,7 +23,10 @@ export const Ingredients = ({
             <styled.Checkbox />
             <div>
               <styled.Amount>
-                {ingredient.amount} {ingredient.unit}
+                {ingredient.amount % 1 !== 0
+                  ? ingredient.amount.toFixed(2)
+                  : ingredient.amount}{' '}
+                {ingredient.unit}
               </styled.Amount>
               <styled.Name>{ingredient.name}</styled.Name>
             </div>

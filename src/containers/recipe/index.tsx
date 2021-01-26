@@ -5,8 +5,9 @@ import { Ingredients } from '#/components/ingredients';
 import { RecipeSidebar } from '#/components/recipe-sidebar';
 import { Spacer } from '#/components/spacer';
 import { Steps } from '#/components/steps';
+import { MeasurementsUnit } from '#/context/settings/types';
 import { useSettingsContext } from '#/hooks/context/settings';
-import { calculateQuantity } from '#/utils/ingredient';
+import { convertScale } from '#/utils/ingredient';
 
 const recipe = {
   imageUrl:
@@ -18,14 +19,14 @@ const recipe = {
     {
       id: '1',
       name: 'Olive Oil',
-      amount: 2,
-      unit: 'tablespoon',
+      amount: 17.5,
+      unit: 'milliliters',
     },
     {
       id: '2',
       name: 'Butter',
-      amount: 1,
-      unit: 'teaspoon',
+      amount: 14,
+      unit: 'grams',
     },
     {
       id: '3',
@@ -59,7 +60,7 @@ const recipe = {
     },
     {
       id: '8',
-      name: 'Lemon',
+      name: 'Lemon (Zest)',
       amount: 1,
       unit: 'whole',
     },
@@ -78,7 +79,7 @@ const recipe = {
     {
       id: '11',
       name: 'Parsley',
-      amount: 0.5,
+      amount: 0.25,
       unit: 'bunch',
     },
   ],
@@ -107,31 +108,35 @@ const recipe = {
 };
 
 export const RecipeContainer = () => {
-  const { servings, changeServings } = useSettingsContext();
+  const { servings, units, changeServings, changeUnits } = useSettingsContext();
   const [selectedIngredients, setSelectedIngredients] = useState<string[]>([]);
   const [selectedStepIndex, setSelectedStepIndex] = useState<number>(-1);
+  const [showIngredients, setShowIngredients] = useState(true);
   const adjustedIngredients = recipe.ingredients.map((ingredient) => {
-    return {
-      ...ingredient,
-      amount: calculateQuantity(ingredient.amount, servings),
-    };
+    return convertScale(ingredient, units, servings);
   });
 
   const handleIngredientClick = (ingredientId: string) => {
     if (!selectedIngredients.includes(ingredientId)) {
-      setSelectedIngredients((ingredients) => [...ingredients, ingredientId]);
+      const newSelectedIngredients = [...selectedIngredients, ingredientId];
+      setSelectedIngredients(newSelectedIngredients);
+      if (newSelectedIngredients.length === adjustedIngredients.length) {
+        setShowIngredients(false);
+      }
       return;
     }
 
-    setSelectedIngredients((ingredients) =>
-      ingredients.filter((ingredient) => ingredient !== ingredientId)
-    );
+    setSelectedIngredients(selectedIngredients);
   };
 
   const handleStepClick = (stepIndex: number) => {
     setSelectedStepIndex((prevIndex) =>
       prevIndex === stepIndex ? stepIndex - 1 : stepIndex
     );
+  };
+
+  const handleUnitChange = (unit: MeasurementsUnit) => {
+    changeUnits(unit);
   };
 
   const handleServingChange = (servingCount: number) => {
@@ -146,17 +151,21 @@ export const RecipeContainer = () => {
           name={recipe.name}
           description={recipe.description}
           servings={servings}
+          units={units}
+          onUnitChange={handleUnitChange}
           onServingChange={handleServingChange}
         />
       }
     >
       <Heading type="h2" as="h3" text="Ingredients" />
       <Spacer size="medium" />
-      <Ingredients
-        ingredients={adjustedIngredients}
-        selectedIngredients={selectedIngredients}
-        onIngredientClick={handleIngredientClick}
-      />
+      {showIngredients && (
+        <Ingredients
+          ingredients={adjustedIngredients}
+          selectedIngredients={selectedIngredients}
+          onIngredientClick={handleIngredientClick}
+        />
+      )}
       <Spacer size="medium" />
       <Heading type="h2" as="h3" text="Steps" />
       <Spacer size="medium" />
