@@ -10,6 +10,7 @@ export const Step = styled.li<StepStyleProps>`
   border-bottom: 0.2rem solid grey;
   color: ${({ isCurrent }) => (isCurrent ? 'white' : 'grey')};
   font-weight: bold;
+  background-color: #000000;
 
   &:last-child {
     border-bottom: 0;
@@ -46,6 +47,6 @@ export const Checkbox = styled.input`
   &:checked + ${Indicator} {
     opacity: 0.4;
     color: white;
-    background-color: green;
+    background-color: #00d000;
   }
 `;

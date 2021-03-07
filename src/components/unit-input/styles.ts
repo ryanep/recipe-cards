@@ -5,7 +5,7 @@ export const Container = styled.div`
   background-color: #ffffff;
   color: #000000;
   font-weight: bold;
-  border-radius: 1rem;
+  border-radius: 0.4rem;
   overflow: hidden;
 `;
 
@@ -31,6 +31,7 @@ export const Input = styled.input`
   width: 0;
   height: 0;
   overflow: hidden;
+  opacity: 0;
 
   &:checked + ${Name} {
     background-color: #3c6b86;
@@ -39,5 +40,6 @@ export const Input = styled.input`
 
   &:focus + ${Name} {
     outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
   }
 `;

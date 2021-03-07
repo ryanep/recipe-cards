@@ -17,7 +17,7 @@ const metricImperialMap: AmountMap = {
     value: 1,
     unit: 'whole',
   },
-  milliliters: {
+  millilitres: {
     value: 0.004,
     unit: 'cups',
   },

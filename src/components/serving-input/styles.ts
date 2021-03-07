@@ -3,7 +3,7 @@ import { styled } from '#/styles/theme';
 export const ServingInput = styled.div`
   display: flex;
   background-color: #ffffff;
-  border-radius: 1rem;
+  border-radius: 0.4rem;
   overflow: hidden;
 `;
 
