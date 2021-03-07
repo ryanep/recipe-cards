@@ -3,15 +3,17 @@ import { styled } from '#/styles/theme';
 
 export const Image = styled.img`
   width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
   border-radius: 1rem;
+
+  @media ${fromTablet} {
+    max-height: 32rem;
+  }
 `;
 
 export const Content = styled.div`
   padding: ${({ theme }) => theme.sizing.medium} 0;
-
-  @media ${fromTablet} {
-    padding: ${({ theme }) => theme.sizing.medium};
-  }
 `;
 
 export const Name = styled.h1`

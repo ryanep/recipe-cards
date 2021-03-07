@@ -11,98 +11,92 @@ import { convertScale } from '#/utils/ingredient';
 
 const recipe = {
   imageUrl:
-    'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/creamy_mushroom_pasta-fc7ab67.jpg',
-  name: 'Creamy mushroom pasta',
+    'https://www.foodiecrush.com/wp-content/uploads/2018/12/Sesame-Soba-Noodles-foodiecrush.com-015-683x1024.jpg',
+  name: 'Sesame Soba Noodles',
   description:
-    'Make this creamy mushroom pasta dish on days when you need a big bowl of comfort. Cream, parmesan, white wine, lemon zest and parsley make this a rich and flavourful dinner.',
+    'This Japanese Sesame Soba Noodles recipe makes a simple Asian side dish or easy main meal that can be served hot or cold, and is on the table in 20 minutes or less.',
   ingredients: [
     {
       id: '1',
-      name: 'Olive Oil',
-      amount: 17.5,
-      unit: 'milliliters',
+      name: 'Buckwheat Noodles',
+      amount: 50,
+      unit: 'grams',
     },
     {
       id: '2',
-      name: 'Butter',
-      amount: 14,
-      unit: 'grams',
+      name: 'Soy Sauce',
+      amount: 15,
+      unit: 'millilitres',
     },
     {
       id: '3',
-      name: 'Onion',
-      amount: 1,
-      unit: 'whole',
+      name: 'Rice Vinegar',
+      amount: 5,
+      unit: 'millilitres',
     },
     {
       id: '4',
-      name: 'Button Chestnut Mushroom',
-      amount: 250,
-      unit: 'grams',
+      name: 'Sesame Oil',
+      amount: 8,
+      unit: 'millilitres',
     },
     {
       id: '5',
-      name: 'Garlic Clove',
-      amount: 1,
-      unit: 'whole',
+      name: 'Freshly Ground Pepper',
+      amount: 0.25,
+      unit: 'grams',
     },
     {
       id: '6',
-      name: 'Dry White Wine',
-      amount: 100,
-      unit: 'milliliters',
+      name: 'Sugar',
+      amount: 1,
+      unit: 'grams',
     },
     {
       id: '7',
-      name: 'Double Cream',
-      amount: 200,
-      unit: 'milliliters',
+      name: 'Canola Oil',
+      amount: 2.5,
+      unit: 'millilitres',
     },
     {
       id: '8',
-      name: 'Lemon (Zest)',
-      amount: 1,
-      unit: 'whole',
+      name: 'Onion (Chopped)',
+      amount: 40,
+      unit: 'grams',
     },
     {
       id: '9',
-      name: 'Parmesan',
-      amount: 200,
+      name: 'Onion (Minced)',
+      amount: 10,
       unit: 'grams',
     },
     {
       id: '10',
-      name: 'Tagliatelle',
-      amount: 300,
+      name: 'Sesame Seeds',
+      amount: 45,
       unit: 'grams',
-    },
-    {
-      id: '11',
-      name: 'Parsley',
-      amount: 0.25,
-      unit: 'bunch',
     },
   ],
   steps: [
     {
       id: '1',
       description:
-        'Heat the oil and butter in a medium saucepan. Fry the onion over a low heat for 10 mins or until softened and translucent.',
+        "Bring a large pot of water to a boil and cook the soba noodles for 4-5 minutes or just until tender, stirring occasionally so the noodles don't clump. Drain in a colander and rinse well under cold water, tossing to remove the starch.",
     },
     {
       id: '2',
       description:
-        'Add the mushrooms and cook for 10 mins over a medium heat. Add the garlic and cook for 2 mins. Add the wine and bring to a simmer, reduce the liquid by half.',
+        'While the noodles are cooking, in a medium bowl, whisk together the soy sauce, sesame oil, rice vinegar, sugar and black pepper. Set aside.',
     },
     {
       id: '3',
       description:
-        'Add the double cream and bring to a simmer, then add the lemon zest and parmesan. Season with salt and plenty of black pepper.',
+        'Heat a large skillet over medium high heat. Add the canola oil and heat until shimmering then add the chopped green onions. Cook, stirring, for 15 to 30 seconds or until fragrant.',
     },
     {
       id: '4',
       description:
-        'Meanwhile, cook the pasta following pack instructions. Reserve 100ml of the pasta water. Toss the pasta in the pan with the creamy sauce and enough of the reserved water to loosen. Stir through the parsley, divide into bowls and top with extra cheese, if you like. ',
+        'Add the soy and sesame mixture and cook for 30 seconds, Add the noodles and toss until the noodles are heated through. Add the remaining minced green onion and half of the sesame seeds. Garnish with the remaining seeds and serve warm or at room temperature.',
     },
   ],
 };
@@ -126,7 +120,10 @@ export const RecipeContainer = () => {
       return;
     }
 
-    setSelectedIngredients(selectedIngredients);
+    const ingredients = selectedIngredients.filter(
+      (ingredient) => ingredient !== ingredientId
+    );
+    setSelectedIngredients(ingredients);
   };
 
   const handleStepClick = (stepIndex: number) => {

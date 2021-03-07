@@ -3,7 +3,7 @@ import { styled } from '#/styles/theme';
 
 export const Layout = styled.div`
   height: 100%;
-  margin: ${({ theme }) => theme.sizing.large};
+  padding: ${({ theme }) => theme.sizing.large};
   border-radius: 1rem;
   overflow: hidden;
 

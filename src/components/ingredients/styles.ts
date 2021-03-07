@@ -5,7 +5,6 @@ import { IngredientStyleProps } from './types';
 export const List = styled.ul`
   display: grid;
   grid-template-columns: repeat(1);
-  background-color: grey;
   flex-wrap: wrap;
   width: 100%;
   border: 0.2rem solid grey;
@@ -14,7 +13,6 @@ export const List = styled.ul`
 
   @media ${fromTablet} {
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 0.2rem;
   }
 `;
 
@@ -24,6 +22,14 @@ export const Ingredient = styled.li<IngredientStyleProps>`
   color: ${({ isComplete }) => (isComplete ? 'grey' : 'white')};
   font-weight: bold;
   cursor: pointer;
+
+  @media ${fromTablet} {
+    border-top: 0.2rem solid grey;
+
+    &:nth-child(-n + 3) {
+      border-top: none;
+    }
+  }
 `;
 
 export const Label = styled.label`
@@ -43,11 +49,20 @@ export const Amount = styled.div`
 `;
 
 export const Checkbox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 0.4rem;
   width: 2rem;
   height: 2rem;
   border: 0.2rem solid grey;
   margin-right: 1rem;
+
+  &::before {
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
 `;
 
 export const Input = styled.input`
@@ -55,9 +70,14 @@ export const Input = styled.input`
   width: 0;
   height: 0;
   overflow: hidden;
+  opacity: 0;
 
   &:checked + ${Checkbox} {
-    border-color: #3e843e;
-    background-color: #3e843e;
+    border-color: #00d000;
+    background-color: #00d000;
+
+    &::before {
+      content: '✓';
+    }
   }
 `;
