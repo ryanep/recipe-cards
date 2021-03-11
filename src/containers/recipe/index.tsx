@@ -1,16 +1,17 @@
 import { useState } from 'react';
-import { FullWidthLayout } from '#/components/full-width-layout';
 import { Heading } from '#/components/heading';
 import { Ingredients } from '#/components/ingredients';
+import { RecipeList } from '#/components/recipe-list';
 import { RecipeSidebar } from '#/components/recipe-sidebar';
+import { SidebarLayout } from '#/components/sidebar-layout';
 import { Spacer } from '#/components/spacer';
 import { Steps } from '#/components/steps';
 import { MeasurementsUnit } from '#/context/settings/types';
 import { useSettingsContext } from '#/hooks/context/settings';
+import type { SanityRecipe } from '#/types/sanity';
 import { convertScale } from '#/utils/ingredient';
-import { createSanityClient } from '#/utils/sanity';
-import type { RecipeContainerProps, SanityRecipe } from './types';
-import { formatRecipe } from './utils';
+import { createSanityClient, formatRecipe } from '#/utils/sanity';
+import type { RecipeContainerProps } from './types';
 
 export const RecipeContainer = ({ recipes, recipe }: RecipeContainerProps) => {
   const { servings, units, changeServings, changeUnits } = useSettingsContext();
@@ -52,7 +53,7 @@ export const RecipeContainer = ({ recipes, recipe }: RecipeContainerProps) => {
   };
 
   return (
-    <FullWidthLayout
+    <SidebarLayout
       sidebar={
         <RecipeSidebar
           imageUrl={recipe.imageUrl}
@@ -82,7 +83,8 @@ export const RecipeContainer = ({ recipes, recipe }: RecipeContainerProps) => {
         selectedStepIndex={selectedStepIndex}
         onStepClick={handleStepClick}
       />
-    </FullWidthLayout>
+      <RecipeList recipes={recipes} />
+    </SidebarLayout>
   );
 };
 

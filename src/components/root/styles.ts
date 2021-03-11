@@ -27,7 +27,7 @@ export const Global = createGlobalStyle`
 
     @media ${fromTablet} {
       height: 100%;
-      overflow: hidden;
+      /* overflow: hidden; */
     }
   }
 
