@@ -1,10 +1,11 @@
 import { Root } from '#/components/root';
 import * as styled from './styles';
-import { FullWidthLayoutProps } from './types';
+import { SidebarLayoutProps } from './types';
 
-export const FullWidthLayout = ({ children }: FullWidthLayoutProps) => (
+export const SidebarLayout = ({ sidebar, children }: SidebarLayoutProps) => (
   <Root>
     <styled.Layout>
+      <aside>{sidebar}</aside>
       <styled.Main>{children}</styled.Main>
     </styled.Layout>
   </Root>

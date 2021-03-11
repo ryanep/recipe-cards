@@ -5,7 +5,6 @@ export const Layout = styled.div`
   height: 100%;
   padding: ${({ theme }) => theme.sizing.large};
   border-radius: 1rem;
-  overflow: hidden;
 
   @media ${fromTablet} {
     display: grid;

@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 
-export interface FullWidthLayoutProps {
+export interface SidebarLayoutProps {
+  sidebar: ReactNode;
   children: ReactNode;
 }
