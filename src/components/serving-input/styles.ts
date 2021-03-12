@@ -2,7 +2,7 @@ import { styled } from '#/styles/theme';
 
 export const ServingInput = styled.div`
   display: flex;
-  background-color: #ffffff;
+  background-color: #333333;
   border-radius: 0.4rem;
   overflow: hidden;
 `;
@@ -10,8 +10,9 @@ export const ServingInput = styled.div`
 export const Input = styled.input`
   flex-grow: 1;
   text-align: center;
-  border-color: #dddddd;
+  border-color: #222222;
   border-style: solid;
+  color: #cccccc;
   border-width: 0 0.2rem;
 `;
 
@@ -25,7 +26,7 @@ export const Button = styled.button`
   cursor: pointer;
 
   svg {
-    fill: #000000;
+    fill: #aaaaaa;
   }
 
   &:disabled {

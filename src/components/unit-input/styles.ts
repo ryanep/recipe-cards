@@ -2,8 +2,8 @@ import { styled } from '#/styles/theme';
 
 export const Container = styled.div`
   display: flex;
-  background-color: #ffffff;
-  color: #000000;
+  background-color: #333333;
+  color: #cccccc;
   font-weight: bold;
   border-radius: 0.4rem;
   overflow: hidden;
@@ -12,7 +12,7 @@ export const Container = styled.div`
 export const Label = styled.label`
   position: relative;
   width: 50%;
-  border-left: 0.2rem solid #dddddd;
+  border-left: 0.2rem solid #222222;
   text-align: center;
 
   &:first-child {
@@ -34,7 +34,7 @@ export const Input = styled.input`
   opacity: 0;
 
   &:checked + ${Name} {
-    background-color: #3c6b86;
+    background-color: #555;
     color: #ffffff;
   }
 
