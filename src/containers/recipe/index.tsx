@@ -13,7 +13,7 @@ import { convertScale } from '#/utils/ingredient';
 import { createSanityClient, formatRecipe } from '#/utils/sanity';
 import type { RecipeContainerProps } from './types';
 
-export const RecipeContainer = ({ recipes, recipe }: RecipeContainerProps) => {
+export const RecipeContainer = ({ recipe }: RecipeContainerProps) => {
   const { servings, units, changeServings, changeUnits } = useSettingsContext();
   const [selectedIngredients, setSelectedIngredients] = useState<string[]>([]);
   const [selectedStepIndex, setSelectedStepIndex] = useState<number>(-1);
@@ -66,7 +66,7 @@ export const RecipeContainer = ({ recipes, recipe }: RecipeContainerProps) => {
         />
       }
     >
-      <Heading type="h2" as="h3" text="Ingredients" />
+      <Heading type="h2" as="h4" text="Ingredients" />
       <Spacer size="medium" />
       {showIngredients && (
         <Ingredients
@@ -76,25 +76,19 @@ export const RecipeContainer = ({ recipes, recipe }: RecipeContainerProps) => {
         />
       )}
       <Spacer size="medium" />
-      <Heading type="h2" as="h3" text="Steps" />
+      <Heading type="h2" as="h4" text="Steps" />
       <Spacer size="medium" />
       <Steps
         steps={recipe.steps}
         selectedStepIndex={selectedStepIndex}
         onStepClick={handleStepClick}
       />
-      <RecipeList recipes={recipes} />
     </SidebarLayout>
   );
 };
 
 RecipeContainer.getInitialProps = async ({ query }: any) => {
   const sanity = createSanityClient();
-  const recipes = await sanity.fetch<SanityRecipe[]>(
-    `
-    *[_type == "recipe"]
-`
-  );
   const sanityRecipe = await sanity.fetch<SanityRecipe>(
     `
     *[_type == "recipe" && _id == $id][0]
@@ -103,7 +97,6 @@ RecipeContainer.getInitialProps = async ({ query }: any) => {
   );
 
   return {
-    recipes: recipes.map((recipe) => formatRecipe(recipe)),
     recipe: formatRecipe(sanityRecipe),
   };
 };

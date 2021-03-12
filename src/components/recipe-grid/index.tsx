@@ -10,7 +10,7 @@ export const RecipeGrid = ({ recipes }: RecipeGridProps) => {
         <Link key={recipe.id} href={`/recipe/${recipe.id}`}>
           <styled.Link href={`/recipe/${recipe.id}`}>
             <styled.Image src={recipe.imageUrl} />
-            <Heading type="h2" text={recipe.name} />
+            <Heading type="h2" as="h4" text={recipe.name} />
           </styled.Link>
         </Link>
       ))}

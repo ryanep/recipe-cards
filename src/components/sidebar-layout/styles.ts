@@ -1,8 +1,11 @@
 import { fromTablet } from '#/styles/media';
 import { styled } from '#/styles/theme';
 
-export const Layout = styled.div`
-  height: 100%;
+export const Layout = styled.div``;
+
+export const Main = styled.main``;
+
+export const Content = styled.div`
   padding: ${({ theme }) => theme.sizing.large};
   border-radius: 1rem;
 
@@ -12,5 +15,3 @@ export const Layout = styled.div`
     grid-gap: 2rem;
   }
 `;
-
-export const Main = styled.main``;
