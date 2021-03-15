@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Heading } from '#/components/heading';
 import { Ingredients } from '#/components/ingredients';
-import { RecipeList } from '#/components/recipe-list';
 import { RecipeSidebar } from '#/components/recipe-sidebar';
 import { SidebarLayout } from '#/components/sidebar-layout';
 import { Spacer } from '#/components/spacer';
