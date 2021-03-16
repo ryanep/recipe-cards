@@ -5,6 +5,15 @@ export const Layout = styled.div``;
 
 export const Main = styled.main``;
 
+export const Sidebar = styled.aside`
+  > div {
+    @media ${fromTablet} {
+      position: sticky;
+      top: 7rem;
+    }
+  }
+`;
+
 export const Content = styled.div`
   padding: ${({ theme }) => theme.sizing.large};
   border-radius: 1rem;
