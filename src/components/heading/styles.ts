@@ -9,12 +9,14 @@ export const Heading = styled.h1<HeadingStyleProps>`
     type === 'h1' &&
     css`
       font-size: 3.6rem;
+      font-weight: 900;
     `}
 
   ${({ type }) =>
     type === 'h2' &&
     css`
       font-size: 2.8rem;
+      font-weight: 900;
     `}
 
     ${({ type }) =>

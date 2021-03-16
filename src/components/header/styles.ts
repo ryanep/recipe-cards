@@ -5,6 +5,7 @@ export const Header = styled.header`
   align-items: center;
   position: sticky;
   top: 0;
+  height: 5rem;
   background-color: rgba(0, 0, 0, 0.9);
   backdrop-filter: blur(0.4rem);
   box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.2);

@@ -26,8 +26,7 @@ export const Global = createGlobalStyle`
   html, body, #__next {
 
     @media ${fromTablet} {
-      height: 100%;
-      /* overflow: hidden; */
+      min-height: 100%;
     }
   }
 
