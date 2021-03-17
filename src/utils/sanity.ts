@@ -13,6 +13,7 @@ export const formatRecipe = (recipe: SanityRecipe) => {
     id: recipe._id,
     name: recipe.name,
     description: recipe.description,
+    rating: recipe.rating,
     imageUrl: recipe.imageUrl,
     ingredients: recipe.ingredients.map((ingredient) => ({
       id: ingredient._key,
