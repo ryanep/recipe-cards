@@ -2,6 +2,7 @@ export interface SanityRecipe {
   _id: string;
   name: string;
   description: string;
+  rating: number;
   imageUrl: string;
   ingredients: {
     _key: string;
