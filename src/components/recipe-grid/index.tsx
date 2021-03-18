@@ -16,6 +16,13 @@ export const RecipeGrid = ({ recipes }: RecipeGridProps) => {
               <Heading type="h2" as="h4" text={recipe.name} />
               <Spacer size="small" />
               <StarRating rating={recipe.rating} />
+              <Spacer size="medium" />
+              <styled.Tags>
+                <styled.Tag>Tag</styled.Tag>
+                <styled.Tag>Tag</styled.Tag>
+                <styled.Tag>Tag</styled.Tag>
+                <styled.Tag>Tag</styled.Tag>
+              </styled.Tags>
             </styled.Info>
           </styled.Link>
         </Link>

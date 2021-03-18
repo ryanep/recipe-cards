@@ -9,7 +9,7 @@ export const SidebarLayout = ({ sidebar, children }: SidebarLayoutProps) => (
       <Header />
       <styled.Content>
         <styled.Sidebar>
-          <div>{sidebar}</div>
+          <styled.Sticky>{sidebar}</styled.Sticky>
         </styled.Sidebar>
         <styled.Main>{children}</styled.Main>
       </styled.Content>
