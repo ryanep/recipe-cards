@@ -5,8 +5,10 @@ export const Layout = styled.div``;
 
 export const Main = styled.main``;
 
+export const Sticky = styled.div``;
+
 export const Sidebar = styled.aside`
-  > div {
+  ${Sticky} {
     @media ${fromTablet} {
       position: sticky;
       top: 7rem;
