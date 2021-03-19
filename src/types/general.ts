@@ -11,6 +11,10 @@ export interface Recipe {
   description: string;
   rating: number;
   imageUrl: string;
+  tags: {
+    id: string;
+    name: string;
+  }[];
   ingredients: {
     id: string;
     name: string;
