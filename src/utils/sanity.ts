@@ -15,6 +15,10 @@ export const formatRecipe = (recipe: SanityRecipe) => {
     description: recipe.description,
     rating: recipe.rating,
     imageUrl: recipe.imageUrl,
+    tags: recipe.tags.map((tag) => ({
+      id: tag.value,
+      name: tag.label,
+    })),
     ingredients: recipe.ingredients.map((ingredient) => ({
       id: ingredient._key,
       name: ingredient.name,

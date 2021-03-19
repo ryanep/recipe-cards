@@ -4,6 +4,10 @@ export interface SanityRecipe {
   description: string;
   rating: number;
   imageUrl: string;
+  tags: {
+    label: string;
+    value: string;
+  }[];
   ingredients: {
     _key: string;
     name: string;
