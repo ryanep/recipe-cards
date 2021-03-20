@@ -45,6 +45,7 @@ export const Global = createGlobalStyle`
     background-color: transparent;
     border: 0;
     padding: 0;
+    appearance: none;
   }
 
   h1, h2 ,h3 ,h4, h5, h6 {

@@ -5,8 +5,8 @@ export const Star = ({ fill }: StarProps) => {
     <svg
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
-      width="14"
-      height="14"
+      width="12"
+      height="12"
       viewBox="0 0 512 512"
       fill="#333333"
     >

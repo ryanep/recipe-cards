@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { useState } from 'react';
 import { Heading } from '#/components/heading';
 import { Ingredients } from '#/components/ingredients';
@@ -65,6 +66,14 @@ export const RecipeContainer = ({ recipe }: RecipeContainerProps) => {
         />
       }
     >
+      <Head>
+        <title>{recipe.name} - Recipes</title>
+        <meta name="description" content={recipe.description} />
+        <meta property="og:title" content={recipe.name} />
+        <meta property="og:description" content={recipe.description} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={recipe.imageUrl} />
+      </Head>
       <Heading type="h2" as="h4" text="Ingredients" />
       <Spacer size="medium" />
       {showIngredients && (
