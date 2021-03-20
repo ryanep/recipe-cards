@@ -17,10 +17,13 @@ export const Image = styled.img`
 export const Info = styled.div`
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   padding: 1rem;
 `;
 
 export const Link = styled.a`
+  display: flex;
+  flex-direction: column;
   color: #ffffff;
   background-color: #000000;
   text-decoration: none;
@@ -33,7 +36,6 @@ export const Link = styled.a`
 
 export const Tags = styled.ul`
   display: flex;
-  gap: 1rem;
   overflow: scroll;
   margin-top: auto;
 `;
@@ -43,4 +45,10 @@ export const Tag = styled.li`
   border-radius: 0.4rem;
   font-size: 1.4rem;
   background-color: #222222;
+  margin-left: 1rem;
+  white-space: nowrap;
+
+  &:first-child {
+    margin-left: 0;
+  }
 `;

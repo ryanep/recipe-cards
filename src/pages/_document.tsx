@@ -6,12 +6,9 @@ import Document, {
   NextScript,
   DocumentInitialProps,
 } from 'next/document';
-import Helmet, { HelmetData } from 'react-helmet';
 import { ServerStyleSheet } from 'styled-components';
 
-interface MyDocumentProps extends DocumentInitialProps {
-  helmet: HelmetData;
-}
+interface MyDocumentProps extends DocumentInitialProps {}
 
 class MyDocument extends Document<MyDocumentProps> {
   static async getInitialProps(ctx: DocumentContext) {
@@ -26,10 +23,8 @@ class MyDocument extends Document<MyDocumentProps> {
         });
 
       const initialProps = await Document.getInitialProps(ctx);
-      const helmet = Helmet.renderStatic();
       return {
         ...initialProps,
-        helmet,
         styles: (
           <>
             {initialProps.styles}
@@ -43,12 +38,10 @@ class MyDocument extends Document<MyDocumentProps> {
   }
 
   render() {
-    const { helmet } = this.props;
     return (
       <Html>
         <Head>
           <link rel="icon" type="image/png" href="/static/favicon.png" />
-          {helmet.title.toComponent()}
         </Head>
         <body>
           <Main />
