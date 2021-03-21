@@ -1,5 +1,7 @@
 import { useFormik } from 'formik';
+import { Spacer } from '#/components/spacer';
 import { StarRatingFilter } from '#/components/star-rating-filter';
+import * as styled from './styles';
 import type { RecipeFiltersProps } from './types';
 
 export const RecipeFilters = ({
@@ -16,8 +18,8 @@ export const RecipeFilters = ({
   return (
     <form onSubmit={formik.handleSubmit}>
       <StarRatingFilter onChange={formik.handleChange} />
-
-      <button type="submit">Filter</button>
+      <Spacer size="medium" />
+      <styled.Button type="submit">Apply filters</styled.Button>
     </form>
   );
 };

@@ -8,9 +8,9 @@ export const Grid = styled.div`
 
 export const Image = styled.img`
   width: 100%;
-  max-height: 40rem;
+  height: 20rem;
   aspect-ratio: 1/1;
-  border-radius: 0.4rem;
+  border-radius: 0.4rem 0.4rem 0 0;
   object-fit: cover;
 `;
 
@@ -38,6 +38,12 @@ export const Tags = styled.ul`
   display: flex;
   overflow: scroll;
   margin-top: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const Tag = styled.li`

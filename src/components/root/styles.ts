@@ -21,10 +21,10 @@ export const Global = createGlobalStyle`
     min-width: 32rem;
     background-color: ${({ theme }) => theme.colours.body.background};
     color: ${({ theme }) => theme.colours.body.color};
+    -webkit-text-size-adjust: none;
   }
 
   html, body, #__next {
-
     @media ${fromTablet} {
       min-height: 100%;
     }
@@ -35,7 +35,7 @@ export const Global = createGlobalStyle`
     display: block;
   }
 
-  button, textarea, input[type=text], input[type=email], input[type=password] {
+  button, textarea, input[type=text], input[type=email], input[type=password], input[type=number] {
     appearance: none;
   }
 

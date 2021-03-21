@@ -6,16 +6,6 @@ import type { StarRatingFilterProps } from './types';
 
 const options = [
   {
-    id: '1',
-    name: '1 Star',
-    value: 1,
-  },
-  {
-    id: '2',
-    name: '2 Star',
-    value: 2,
-  },
-  {
     id: '3',
     name: '3 Stars',
     value: 3,
