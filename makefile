@@ -30,5 +30,9 @@ deploy-website:
 		docker system prune -f --volumes \
 	"
 	${TASK_DONE}
+clean-website:
+	${TASK_STARTED}
+	rm -rf ./${APP_NAME}.tar.gz
+	${TASK_DONE}
 release-website: build-website deploy-website
 release: release-website
