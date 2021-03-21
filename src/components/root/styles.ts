@@ -39,6 +39,15 @@ export const Global = createGlobalStyle`
     appearance: none;
   }
 
+  input[type=number] {
+    -moz-appearance: textfield;
+
+    &::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
+      appearance: none;
+      margin: 0;
+    }
+  }
+
   button, input, textarea, select {
     font-size: inherit;
     font-family: inherit;
