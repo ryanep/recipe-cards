@@ -9,10 +9,7 @@ export const Ingredients = ({
   return (
     <styled.List>
       {ingredients.map((ingredient, index) => (
-        <styled.Ingredient
-          key={ingredient.id}
-          isComplete={selectedIngredients.includes(ingredient.id)}
-        >
+        <styled.Ingredient key={ingredient.id}>
           <styled.Label>
             <styled.Input
               type="checkbox"
@@ -21,7 +18,7 @@ export const Ingredients = ({
               checked={selectedIngredients.includes(ingredient.id)}
             />
             <styled.Checkbox />
-            <div>
+            <styled.Content>
               <styled.Amount>
                 {ingredient.amount % 1 !== 0
                   ? ingredient.amount.toFixed(2)
@@ -29,7 +26,7 @@ export const Ingredients = ({
                 {ingredient.unit}
               </styled.Amount>
               <styled.Name>{ingredient.name}</styled.Name>
-            </div>
+            </styled.Content>
           </styled.Label>
         </styled.Ingredient>
       ))}

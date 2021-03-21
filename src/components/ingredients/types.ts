@@ -5,7 +5,3 @@ export interface IngredientsProps {
   selectedIngredients: string[];
   onIngredientClick: (ingredientId: string) => void;
 }
-
-export interface IngredientStyleProps {
-  isComplete: boolean;
-}

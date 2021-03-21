@@ -16,10 +16,10 @@ export const Steps = ({
             value={index}
             checked={index <= selectedStepIndex}
           />
-          <styled.Indicator>{index + 1}</styled.Indicator>
-          {step.description}
+          <styled.Title>Step {index + 1}</styled.Title>
+          <styled.Content>{step.description}</styled.Content>
         </styled.Label>
       </styled.Step>
-      ))}
+    ))}
   </styled.List>
-  );
+);

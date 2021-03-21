@@ -18,23 +18,20 @@ export const Step = styled.li<StepStyleProps>`
 `;
 
 export const Label = styled.label`
-  display: flex;
-  align-items: center;
+  display: block;
   padding: 1.4rem;
   cursor: pointer;
 `;
 
-export const Indicator = styled.div`
+export const Title = styled.p`
+  text-transform: uppercase;
+  font-weight: 900;
+  color: #6e9ee8;
+`;
+
+export const Content = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  flex-shrink: 0;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  background-color: grey;
-  margin-right: 1rem;
 `;
 
 export const Checkbox = styled.input`
@@ -44,9 +41,7 @@ export const Checkbox = styled.input`
   overflow: hidden;
   opacity: 0;
 
-  &:checked + ${Indicator} {
+  &:checked + ${Title} {
     opacity: 0.4;
-    color: white;
-    background-color: #00d000;
   }
 `;
