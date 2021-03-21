@@ -23,6 +23,7 @@ export const Heading = styled.h1<HeadingStyleProps>`
     type === 'h3' &&
     css`
       font-size: 2.4rem;
+      font-weight: 900;
     `}
 
     ${({ type }) =>

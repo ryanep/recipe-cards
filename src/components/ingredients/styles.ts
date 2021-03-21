@@ -1,6 +1,5 @@
 import { fromTablet } from '#/styles/media';
 import { styled } from '#/styles/theme';
-import { IngredientStyleProps } from './types';
 
 export const List = styled.ul`
   display: grid;
@@ -18,10 +17,10 @@ export const List = styled.ul`
   }
 `;
 
-export const Ingredient = styled.li<IngredientStyleProps>`
+export const Ingredient = styled.li`
   position: relative;
   background-color: black;
-  color: ${({ isComplete }) => (isComplete ? 'grey' : 'white')};
+  color: #ffffff;
   font-weight: bold;
   cursor: pointer;
 `;
@@ -40,6 +39,7 @@ export const Name = styled.div`
 
 export const Amount = styled.div`
   font-size: 1.4rem;
+  color: #8ee28e;
 `;
 
 export const Checkbox = styled.div`
@@ -59,6 +59,8 @@ export const Checkbox = styled.div`
   }
 `;
 
+export const Content = styled.div``;
+
 export const Input = styled.input`
   position: absolute;
   width: 0;
@@ -69,9 +71,14 @@ export const Input = styled.input`
   &:checked + ${Checkbox} {
     border-color: #00d000;
     background-color: #00d000;
+    opacity: 0.6;
 
     &::before {
       content: '✓';
     }
+  }
+
+  &:checked ~ ${Content} {
+    opacity: 0.5;
   }
 `;
