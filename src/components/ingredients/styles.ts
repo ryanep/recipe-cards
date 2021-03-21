@@ -5,10 +5,12 @@ import { IngredientStyleProps } from './types';
 export const List = styled.ul`
   display: grid;
   grid-template-columns: repeat(1);
+  gap: 0.2rem;
   flex-wrap: wrap;
   width: 100%;
   border: 0.2rem solid grey;
-  border-radius: 1rem;
+  background-color: grey;
+  border-radius: 0.4rem;
   overflow: hidden;
 
   @media ${fromTablet} {
@@ -22,14 +24,6 @@ export const Ingredient = styled.li<IngredientStyleProps>`
   color: ${({ isComplete }) => (isComplete ? 'grey' : 'white')};
   font-weight: bold;
   cursor: pointer;
-
-  @media ${fromTablet} {
-    border-top: 0.2rem solid grey;
-
-    &:nth-child(-n + 3) {
-      border-top: none;
-    }
-  }
 `;
 
 export const Label = styled.label`
