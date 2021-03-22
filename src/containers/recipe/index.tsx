@@ -14,6 +14,12 @@ import { createSanityClient, formatRecipe } from '#/utils/sanity';
 import type { RecipeContainerProps } from './types';
 
 export const RecipeContainer = ({ recipe }: RecipeContainerProps) => {
+  const breadcrumbs = [
+    {
+      title: recipe.name,
+      url: `/recipe/${recipe.id}`,
+    },
+  ];
   const { servings, units, changeServings, changeUnits } = useSettingsContext();
   const [selectedIngredients, setSelectedIngredients] = useState<string[]>([]);
   const [selectedStepIndex, setSelectedStepIndex] = useState<number>(-1);
@@ -54,6 +60,7 @@ export const RecipeContainer = ({ recipe }: RecipeContainerProps) => {
 
   return (
     <SidebarLayout
+      breadcrumbs={breadcrumbs}
       sidebar={
         <RecipeSidebar
           imageUrl={recipe.imageUrl}

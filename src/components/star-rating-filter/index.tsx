@@ -27,7 +27,7 @@ export const StarRatingFilter = ({ onChange }: StarRatingFilterProps) => {
     <div>
       <Heading type="h3" as="h5" text="Rating" />
       <Spacer size="small" />
-      <ul>
+      <styled.Options>
         {options
           .slice()
           .reverse()
@@ -45,7 +45,7 @@ export const StarRatingFilter = ({ onChange }: StarRatingFilterProps) => {
               </styled.Label>
             </li>
           ))}
-      </ul>
+      </styled.Options>
     </div>
   );
 };

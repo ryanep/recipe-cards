@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+export const Options = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+`;
+
 export const Label = styled.label`
   display: flex;
   align-items: center;
@@ -18,7 +24,6 @@ export const Checkbox = styled.input`
   margin-right: 1rem;
 
   &:checked {
-    content: '✓';
     background-color: #1f5efe;
     border-color: #194dd2;
   }

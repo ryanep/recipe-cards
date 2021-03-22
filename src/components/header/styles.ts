@@ -14,14 +14,6 @@ export const Header = styled.header`
   z-index: 1;
 `;
 
-export const Link = styled.a`
-  align-items: center;
-  color: #ffffff;
-  font-size: 1.8rem;
-  font-weight: 900;
-  text-decoration: none;
-`;
-
 export const Buttons = styled.div`
   margin-left: auto;
 `;
