@@ -1,8 +1,9 @@
-import Link from 'next/link';
 import { useState } from 'react';
+import { Breadcrumbs } from '#/components/breadcrumbs';
 import * as styled from './styles';
+import { HeaderProps } from './types';
 
-export const Header = () => {
+export const Header = ({ breadcrumbs }: HeaderProps) => {
   const [showSettings, setShowSettings] = useState(false);
 
   const handleSettingsButtonClick = () => {
@@ -11,9 +12,7 @@ export const Header = () => {
 
   return (
     <styled.Header>
-      <Link href="/">
-        <styled.Link href="/">Recipes</styled.Link>
-      </Link>
+      <Breadcrumbs breadcrumbs={breadcrumbs} />
       <styled.Buttons>
         <styled.SettingsButton onClick={handleSettingsButtonClick}>
           <styled.Icon

@@ -3,10 +3,14 @@ import { Root } from '#/components/root';
 import * as styled from './styles';
 import { SidebarLayoutProps } from './types';
 
-export const SidebarLayout = ({ sidebar, children }: SidebarLayoutProps) => (
+export const SidebarLayout = ({
+  sidebar,
+  children,
+  breadcrumbs,
+}: SidebarLayoutProps) => (
   <Root>
     <styled.Layout>
-      <Header />
+      <Header breadcrumbs={breadcrumbs} />
       <styled.Content>
         <styled.Sidebar>
           <styled.Sticky>{sidebar}</styled.Sticky>

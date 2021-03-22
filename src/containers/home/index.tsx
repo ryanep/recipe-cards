@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import type { Breadcrumb } from '#/components/breadcrumbs/types';
 import { Heading } from '#/components/heading';
 import { RecipeFilters } from '#/components/recipe-filters';
 import { RecipeFiltersFormValues } from '#/components/recipe-filters/types';
@@ -8,6 +9,8 @@ import { Spacer } from '#/components/spacer';
 import { SanityRecipe } from '#/types/sanity';
 import { createSanityClient, formatRecipe } from '#/utils/sanity';
 import type { HomeContainerProps, HomePageContext } from './types';
+
+const breadcrumbs: Breadcrumb[] = [];
 
 export const HomeContainer = ({ recipes }: HomeContainerProps) => {
   const router = useRouter();
@@ -27,6 +30,7 @@ export const HomeContainer = ({ recipes }: HomeContainerProps) => {
 
   return (
     <SidebarLayout
+      breadcrumbs={breadcrumbs}
       sidebar={
         <div>
           <Heading type="h2" as="h4" text="Filters" />
