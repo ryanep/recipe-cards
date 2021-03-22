@@ -11,7 +11,7 @@ export const Star = ({ fill }: StarProps) => {
       fill="#333333"
     >
       <linearGradient y2="0%" x2="100%" y1="0%" x1="0%" id="gradient">
-        <stop stopColor="#d2c300" offset={`${fill}%`} />
+        <stop stopColor="#e0e03d" offset={`${fill}%`} />
         <stop stopColor="#333333" offset={`${fill}%`} />
       </linearGradient>
       <path
