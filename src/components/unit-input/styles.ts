@@ -20,7 +20,8 @@ export const Label = styled.label`
   }
 `;
 
-export const Name = styled.div`
+export const Name = styled.span`
+  display: block;
   padding: 1rem;
 `;
 

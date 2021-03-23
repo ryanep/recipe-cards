@@ -1,6 +1,5 @@
 import { Heading } from '#/components/heading';
 import { Spacer } from '#/components/spacer';
-import { StarRating } from '#/components/star-rating';
 import * as styled from './styles';
 import type { StarRatingFilterProps } from './types';
 
@@ -41,7 +40,7 @@ export const StarRatingFilter = ({ onChange }: StarRatingFilterProps) => {
                   type="checkbox"
                   onChange={onChange}
                 />
-                <StarRating rating={option.value} />
+                {option.value} stars
               </styled.Label>
             </li>
           ))}

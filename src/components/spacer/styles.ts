@@ -2,8 +2,8 @@ import { styled, css } from '#/styles/theme';
 import { SpacerStyleProps } from './types';
 
 export const Spacer = styled.div<SpacerStyleProps>`
-  ${({ theme, size, direction }) =>
-    direction === 'vertical'
+  ${({ theme, size, axis }) =>
+    axis === 'vertical'
       ? css`
           width: ${theme.spacing[size]};
           display: inline-block;

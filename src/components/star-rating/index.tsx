@@ -7,7 +7,7 @@ export const StarRating = ({ rating }: StarRatingProps) => {
     <styled.Rating>
       {[...Array(rating)].map((star, index) => (
         /* eslint-disable-next-line react/no-array-index-key */
-        <Star key={index} fill={100} />
+        <Star key={index} />
       ))}
     </styled.Rating>
   );

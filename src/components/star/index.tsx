@@ -1,6 +1,4 @@
-import type { StarProps } from './types';
-
-export const Star = ({ fill }: StarProps) => {
+export const Star = () => {
   return (
     <svg
       version="1.1"
@@ -8,16 +6,9 @@ export const Star = ({ fill }: StarProps) => {
       width="14"
       height="14"
       viewBox="0 0 512 512"
-      fill="#333333"
+      fill="#e0e03d"
     >
-      <linearGradient y2="0%" x2="100%" y1="0%" x1="0%" id="gradient">
-        <stop stopColor="#e0e03d" offset={`${fill}%`} />
-        <stop stopColor="#333333" offset={`${fill}%`} />
-      </linearGradient>
-      <path
-        d="M512 198.525l-176.89-25.704-79.11-160.291-79.108 160.291-176.892 25.704 128 124.769-30.216 176.176 158.216-83.179 158.216 83.179-30.217-176.176 128.001-124.769z"
-        fill="url('#gradient')"
-      />
+      <path d="M512 198.525l-176.89-25.704-79.11-160.291-79.108 160.291-176.892 25.704 128 124.769-30.216 176.176 158.216-83.179 158.216 83.179-30.217-176.176 128.001-124.769z" />
     </svg>
   );
 };

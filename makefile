@@ -10,7 +10,7 @@ TASK_FAILED = @echo ${COLOUR_RED} âœ˜ Task failed: $@ ${COLOUR_END}
 APP_NAME = recipes
 
 build-website:
-	rm -rf ./dist && \
+	rm -rf ./.next && \
 	NODE_ENV=production yarn build && \
 	docker build -t dokku/${APP_NAME}:latest . && \
 	docker save dokku/${APP_NAME}:latest -o ./${APP_NAME}.tar && \

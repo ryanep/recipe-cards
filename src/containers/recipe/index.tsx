@@ -106,7 +106,16 @@ RecipeContainer.getInitialProps = async ({ query }: any) => {
   const sanity = createSanityClient();
   const sanityRecipe = await sanity.fetch<SanityRecipe>(
     `
-    *[_type == "recipe" && _id == $id][0]
+    *[_type == "recipe" && _id == $id]{
+      _id,
+      name,
+      description,
+      ingredients,
+      steps,
+      rating,
+      "imageUrl": imageUrl.asset->url,
+      tags
+    }[0]
 `,
     { id: query.id }
   );

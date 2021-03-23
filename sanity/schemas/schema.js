@@ -49,7 +49,14 @@ export default createSchema({
         {
           title: 'Image URL',
           name: 'imageUrl',
-          type: 'string',
+          type: 'image',
+          fields: [
+            {
+              name: 'caption',
+              type: 'string',
+              title: 'Caption',
+            },
+          ],
         },
         {
           title: 'Ingredients',

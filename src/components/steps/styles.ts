@@ -23,13 +23,13 @@ export const Label = styled.label`
   cursor: pointer;
 `;
 
-export const Title = styled.p`
+export const Title = styled.span`
   text-transform: uppercase;
   font-weight: 900;
   color: #6e9ee8;
 `;
 
-export const Content = styled.div`
+export const Content = styled.span`
   display: flex;
   align-items: center;
 `;
