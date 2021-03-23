@@ -40,7 +40,9 @@ class MyDocument extends Document<MyDocumentProps> {
   render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          <link rel="icon" href="/images/favicon.png" />
+        </Head>
         <body>
           <Main />
           <NextScript />
