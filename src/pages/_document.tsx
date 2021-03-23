@@ -40,11 +40,7 @@ class MyDocument extends Document<MyDocumentProps> {
   render() {
     return (
       <Html lang="en">
-        <Head>
-          <link rel="icon" type="image/png" href="/static/favicon.png" />
-          {/* @ts-ignore */}
-          {this.props.styleTags}
-        </Head>
+        <Head />
         <body>
           <Main />
           <NextScript />

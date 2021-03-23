@@ -28,7 +28,8 @@ deploy-website:
 		dokku cleanup ${APP_NAME} && rm -f ~/${APP_NAME}.tar && \
 		docker image prune -a -f --filter "label=${APP_NAME}" && \
 		docker system prune -f --volumes \
-	"
+	" && \
+	rm -rf ${APP_NAME}.tar.gz
 	${TASK_DONE}
 clean-website:
 	${TASK_STARTED}
