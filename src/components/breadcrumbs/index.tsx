@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Fragment } from 'react';
 import * as styled from './styles';
 import { BreadcrumbsProps } from './types';
 
@@ -9,7 +10,7 @@ export const Breadcrumbs = ({ breadcrumbs }: BreadcrumbsProps) => {
         <styled.Link href="/">All recipes</styled.Link>
       </Link>
       {breadcrumbs.map((breadcrumb) => (
-        <>
+        <Fragment key={breadcrumb.url}>
           <styled.BreadcrumbSeparator
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +23,7 @@ export const Breadcrumbs = ({ breadcrumbs }: BreadcrumbsProps) => {
           <Link key={breadcrumb.url} href={breadcrumb.url}>
             <styled.Link href={breadcrumb.url}>{breadcrumb.title}</styled.Link>
           </Link>
-        </>
+        </Fragment>
       ))}
     </styled.Breadcrumbs>
   );

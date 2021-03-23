@@ -11,7 +11,7 @@ export const RecipeGrid = ({ recipes }: RecipeGridProps) => {
       {recipes.map((recipe) => (
         <Link key={recipe.id} href={`/recipe/${recipe.id}`}>
           <styled.Link href={`/recipe/${recipe.id}`}>
-            <styled.Image src={recipe.imageUrl} />
+            <styled.Image src={recipe.imageUrl} alt={recipe.name} />
             <styled.Info>
               <Heading type="h2" as="h3" text={recipe.name} />
               <Spacer size="small" />

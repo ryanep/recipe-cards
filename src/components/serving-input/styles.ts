@@ -24,6 +24,7 @@ export const Button = styled.button`
   width: 4rem;
   font-weight: bold;
   cursor: pointer;
+  outline-offset: -2px;
 
   svg {
     fill: #aaaaaa;

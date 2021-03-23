@@ -7,5 +7,5 @@ export interface SpacerProps {
 
 export interface SpacerStyleProps {
   size: keyof typeof spacing;
-  direction?: 'horizontal' | 'vertical';
+  axis?: 'horizontal' | 'vertical';
 }

@@ -15,7 +15,7 @@ export const RecipeSidebar = ({
   onServingChange,
 }: RecipeSidebarProps) => (
   <div>
-    <styled.Image src={imageUrl} />
+    <styled.Image src={imageUrl} alt={name} />
     <styled.Content>
       <styled.Name>{name}</styled.Name>
       <Spacer size="medium" />

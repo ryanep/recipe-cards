@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import type { Breadcrumb } from '#/components/breadcrumbs/types';
 import { Heading } from '#/components/heading';
@@ -42,6 +43,9 @@ export const HomeContainer = ({ recipes }: HomeContainerProps) => {
         </div>
       }
     >
+      <Head>
+        <title>Recipes</title>
+      </Head>
       <Heading type="h1" as="h2" text="All recipes" />
       <Spacer size="tiny" />
       <p>Showing all {recipes.length} recipes</p>
@@ -58,7 +62,16 @@ HomeContainer.getInitialProps = async (context: HomePageContext) => {
   const sanity = createSanityClient();
   const recipes = await sanity.fetch<SanityRecipe[]>(
     `
-    *[_type == "recipe" ${ratingFilter}] | order(_createdAt desc)
+    *[_type == "recipe" ${ratingFilter}] {
+      _id,
+      name,
+      description,
+      ingredients,
+      steps,
+      rating,
+      "imageUrl": imageUrl.asset->url,
+      tags
+    } | order(_createdAt desc)
 `
   );
 

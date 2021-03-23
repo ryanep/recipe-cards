@@ -3,7 +3,6 @@ import { styled } from '#/styles/theme';
 
 export const List = styled.ul`
   display: grid;
-  grid-template-columns: repeat(1);
   gap: 0.2rem;
   flex-wrap: wrap;
   width: 100%;
@@ -31,18 +30,19 @@ export const Label = styled.label`
   padding: 1rem;
 `;
 
-export const Name = styled.div`
+export const Name = styled.span`
+  display: block;
   text-overflow: ellipsis;
   white-space: nowrap;
   font-weight: 900;
 `;
 
-export const Amount = styled.div`
+export const Amount = styled.span`
   font-size: 1.4rem;
   color: #8ee28e;
 `;
 
-export const Checkbox = styled.div`
+export const Checkbox = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -59,7 +59,7 @@ export const Checkbox = styled.div`
   }
 `;
 
-export const Content = styled.div``;
+export const Content = styled.span``;
 
 export const Input = styled.input`
   position: absolute;
