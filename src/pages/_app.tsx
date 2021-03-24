@@ -1,3 +1,4 @@
+import '#/i18n';
 import type { AppProps } from 'next/app';
 import { Providers } from '#/components/providers';
 import { Root } from '#/components/root';

@@ -1,46 +1,32 @@
+import { useTranslation } from 'react-i18next';
 import { Heading } from '#/components/heading';
 import { Spacer } from '#/components/spacer';
 import * as styled from './styles';
 import type { StarRatingFilterProps } from './types';
 
-const options = [
-  {
-    id: '3',
-    name: '3 Stars',
-    value: 3,
-  },
-  {
-    id: '4',
-    name: '4 Stars',
-    value: 4,
-  },
-  {
-    id: '5',
-    name: '5 Stars',
-    value: 5,
-  },
-];
+const options = [5, 4, 3];
 
 export const StarRatingFilter = ({ onChange }: StarRatingFilterProps) => {
+  const { t } = useTranslation();
+
   return (
     <div>
-      <Heading type="h3" as="h5" text="Rating" />
+      <Heading type="h3" as="h5" text={t('filters:ratingHeading')} />
       <Spacer size="small" />
       <styled.Options>
         {options
-          .slice()
-          .reverse()
+          .sort((a, b) => b - a)
           .map((option) => (
-            <li key={option.id}>
-              <styled.Label htmlFor={`rating-${option.value}`}>
+            <li key={option}>
+              <styled.Label htmlFor={`rating-${option}`}>
                 <styled.Checkbox
-                  id={`rating-${option.value}`}
+                  id={`rating-${option}`}
                   name="rating"
-                  value={option.value}
+                  value={option}
                   type="checkbox"
                   onChange={onChange}
                 />
-                {option.value} stars
+                {t('common:rating', { count: option })}
               </styled.Label>
             </li>
           ))}
