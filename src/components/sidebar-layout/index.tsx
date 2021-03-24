@@ -9,7 +9,7 @@ export const SidebarLayout = ({
   breadcrumbs,
 }: SidebarLayoutProps) => (
   <Root>
-    <styled.Layout>
+    <div>
       <Header breadcrumbs={breadcrumbs} />
       <styled.Content>
         <styled.Sidebar>
@@ -17,6 +17,6 @@ export const SidebarLayout = ({
         </styled.Sidebar>
         <styled.Main>{children}</styled.Main>
       </styled.Content>
-    </styled.Layout>
+    </div>
   </Root>
 );

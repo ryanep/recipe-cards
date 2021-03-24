@@ -1,8 +1,6 @@
 import { fromTablet } from '#/styles/media';
 import { styled } from '#/styles/theme';
 
-export const Layout = styled.div``;
-
 export const Main = styled.main`
   overflow: hidden;
 `;

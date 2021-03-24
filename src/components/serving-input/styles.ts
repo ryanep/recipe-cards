@@ -25,6 +25,11 @@ export const Button = styled.button`
   font-weight: bold;
   cursor: pointer;
   outline-offset: -2px;
+  transition: 0.3s ease background-color;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
 
   svg {
     fill: #aaaaaa;

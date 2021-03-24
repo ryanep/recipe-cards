@@ -8,7 +8,6 @@ export const List = styled.ul`
 
 export const Step = styled.li<StepStyleProps>`
   border-bottom: 0.2rem solid grey;
-  color: ${({ isCurrent }) => (isCurrent ? 'white' : 'grey')};
   font-weight: bold;
   background-color: #000000;
 
@@ -23,13 +22,19 @@ export const Label = styled.label`
   cursor: pointer;
 `;
 
+export const Content = styled.span`
+  display: block;
+  color: #ffffff;
+  transition: opacity 0.1s ease;
+`;
+
 export const Title = styled.span`
   text-transform: uppercase;
   font-weight: 900;
   color: #6e9ee8;
 `;
 
-export const Content = styled.span`
+export const Description = styled.span`
   display: flex;
   align-items: center;
 `;
@@ -41,7 +46,7 @@ export const Checkbox = styled.input`
   overflow: hidden;
   opacity: 0;
 
-  &:checked + ${Title} {
+  &:checked + ${Content} {
     opacity: 0.4;
   }
 `;

@@ -32,6 +32,7 @@ export const Label = styled.label`
   display: flex;
   align-items: center;
   padding: 1rem;
+  cursor: pointer;
 `;
 
 export const Name = styled.span`
@@ -67,6 +68,7 @@ export const Checkbox = styled.span`
 
 export const Content = styled.span`
   overflow: hidden;
+  transition: opacity 0.1s ease;
 `;
 
 export const Input = styled.input`
@@ -79,7 +81,7 @@ export const Input = styled.input`
   &:checked + ${Checkbox} {
     border-color: #00d000;
     background-color: #00d000;
-    opacity: 0.6;
+    opacity: 0.5;
 
     &::before {
       content: '✓';
