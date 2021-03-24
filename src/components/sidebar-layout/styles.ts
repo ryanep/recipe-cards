@@ -3,7 +3,9 @@ import { styled } from '#/styles/theme';
 
 export const Layout = styled.div``;
 
-export const Main = styled.main``;
+export const Main = styled.main`
+  overflow: hidden;
+`;
 
 export const Sticky = styled.div``;
 

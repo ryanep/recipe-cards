@@ -1,4 +1,4 @@
-import { fromTablet } from '#/styles/media';
+import { fromDesktop, fromTablet } from '#/styles/media';
 import { styled } from '#/styles/theme';
 
 export const List = styled.ul`
@@ -12,7 +12,11 @@ export const List = styled.ul`
   overflow: hidden;
 
   @media ${fromTablet} {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 50%);
+  }
+
+  @media ${fromDesktop} {
+    grid-template-columns: repeat(3, 33.3%);
   }
 `;
 
@@ -34,6 +38,7 @@ export const Name = styled.span`
   display: block;
   text-overflow: ellipsis;
   white-space: nowrap;
+  overflow: hidden;
   font-weight: 900;
 `;
 
@@ -46,6 +51,7 @@ export const Checkbox = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
   border-radius: 0.4rem;
   width: 2rem;
   height: 2rem;
@@ -59,7 +65,9 @@ export const Checkbox = styled.span`
   }
 `;
 
-export const Content = styled.span``;
+export const Content = styled.span`
+  overflow: hidden;
+`;
 
 export const Input = styled.input`
   position: absolute;
