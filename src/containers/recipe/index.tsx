@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Heading } from '#/components/heading';
 import { Ingredients } from '#/components/ingredients';
 import { RecipeSidebar } from '#/components/recipe-sidebar';
@@ -14,6 +15,7 @@ import { createSanityClient, formatRecipe } from '#/utils/sanity';
 import type { RecipeContainerProps } from './types';
 
 export const RecipeContainer = ({ recipe }: RecipeContainerProps) => {
+  const { t } = useTranslation();
   const breadcrumbs = [
     {
       title: recipe.name,
@@ -74,14 +76,14 @@ export const RecipeContainer = ({ recipe }: RecipeContainerProps) => {
       }
     >
       <Head>
-        <title>{recipe.name} - Recipes</title>
+        <title>{t('recipe:pageTitle', { name: recipe.name })}</title>
         <meta name="description" content={recipe.description} />
         <meta property="og:title" content={recipe.name} />
         <meta property="og:description" content={recipe.description} />
         <meta property="og:type" content="website" />
         <meta property="og:image" content={recipe.imageUrl} />
       </Head>
-      <Heading type="h2" as="h4" text="Ingredients" />
+      <Heading type="h2" as="h4" text={t('recipe:ingredients')} />
       <Spacer size="medium" />
       {showIngredients && (
         <Ingredients
@@ -91,7 +93,7 @@ export const RecipeContainer = ({ recipe }: RecipeContainerProps) => {
         />
       )}
       <Spacer size="medium" />
-      <Heading type="h2" as="h4" text="Steps" />
+      <Heading type="h2" as="h4" text={t('recipe:steps')} />
       <Spacer size="medium" />
       <Steps
         steps={recipe.steps}

@@ -1,0 +1,8 @@
+{
+  "rating": "{{count}} star",
+  "rating_plural": "{{count}} stars",
+  "metric": "Metric",
+  "imperial": "Imperial",
+  "measurement": "measurement",
+  "servings": "Servings"
+}

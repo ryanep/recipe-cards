@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import { useTranslation } from 'react-i18next';
 import type { Breadcrumb } from '#/components/breadcrumbs/types';
 import { Heading } from '#/components/heading';
 import { RecipeFilters } from '#/components/recipe-filters';
@@ -14,6 +15,7 @@ import type { HomeContainerProps, HomePageContext } from './types';
 const breadcrumbs: Breadcrumb[] = [];
 
 export const HomeContainer = ({ recipes }: HomeContainerProps) => {
+  const { t } = useTranslation();
   const router = useRouter();
   const initialFilterValues = {
     rating: [],
@@ -34,7 +36,7 @@ export const HomeContainer = ({ recipes }: HomeContainerProps) => {
       breadcrumbs={breadcrumbs}
       sidebar={
         <div>
-          <Heading type="h2" as="h4" text="Filters" />
+          <Heading type="h2" as="h4" text={t('home:filters')} />
           <Spacer size="medium" />
           <RecipeFilters
             initialValues={initialFilterValues}
@@ -44,11 +46,11 @@ export const HomeContainer = ({ recipes }: HomeContainerProps) => {
       }
     >
       <Head>
-        <title>Recipes</title>
+        <title>{t('home:pageTitle')}</title>
       </Head>
-      <Heading type="h1" as="h2" text="All recipes" />
+      <Heading type="h1" as="h2" text={t('home:heading')} />
       <Spacer size="tiny" />
-      <p>Showing all {recipes.length} recipes</p>
+      <p>{t('home:results', { count: recipes.length })}</p>
       <Spacer size="medium" />
       <RecipeGrid recipes={recipes} />
     </SidebarLayout>
