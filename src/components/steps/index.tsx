@@ -16,8 +16,10 @@ export const Steps = ({
             value={index}
             checked={index <= selectedStepIndex}
           />
-          <styled.Title>Step {index + 1}</styled.Title>
-          <styled.Content>{step.description}</styled.Content>
+          <styled.Content>
+            <styled.Title>Step {index + 1}</styled.Title>
+            <styled.Description>{step.description}</styled.Description>
+          </styled.Content>
         </styled.Label>
       </styled.Step>
     ))}
