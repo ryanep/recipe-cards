@@ -1,0 +1,9 @@
+{
+  "*.{ts,tsx}": [
+    "eslint",
+    "prettier --write"
+  ],
+  "*.{md,mdx}": [
+    "alex"
+  ]
+}
