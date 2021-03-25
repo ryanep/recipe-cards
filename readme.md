@@ -8,4 +8,4 @@
 
 ### Screenshot
 
-![Recipe Card Screenshot](docs/screenshot.jpg)
+![Recipe Card Screenshot](docs/screenshot.png)

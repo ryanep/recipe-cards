@@ -1,6 +1,7 @@
 FROM node:14.0.0-alpine
 WORKDIR /app
 COPY package.json ./
+COPY public ./public
 COPY ./.babelrc ./.babelrc
 COPY ./.next ./.next
 EXPOSE 3000
