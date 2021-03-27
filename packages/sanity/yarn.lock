@@ -2533,10 +2533,6 @@ camelcase@^4.1.0:
   version "4.1.0"
   resolved "https://registry.npmjs.org/camelcase/-/camelcase-4.1.0.tgz#d545635be1e33c542649c69173e5de6acfae34dd"
 
-camelcase@^5.0.0:
-  version "5.3.1"
-  resolved "https://registry.npmjs.org/camelcase/-/camelcase-5.3.1.tgz#e3c9b31569e106811df242f715725a1f4c494320"
-
 camelize@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/camelize/-/camelize-1.0.0.tgz#164a5483e630fa4321e5af07020e531831b2609b"
@@ -7200,12 +7196,6 @@ react-icon-base@^2.1.2:
   version "2.1.2"
   resolved "https://registry.npmjs.org/react-icon-base/-/react-icon-base-2.1.2.tgz#a17101dad9c1192652356096860a9ab43a0766c7"
 
-react-icons@^3.11.0:
-  version "3.11.0"
-  resolved "https://registry.npmjs.org/react-icons/-/react-icons-3.11.0.tgz#2ca2903dfab8268ca18ebd8cc2e879921ec3b254"
-  dependencies:
-    camelcase "^5.0.0"
-
 react-input-autosize@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/react-input-autosize/-/react-input-autosize-3.0.0.tgz#6b5898c790d4478d69420b55441fcc31d5c50a85"
@@ -7738,12 +7728,6 @@ sanity-plugin-autocomplete-tags@^1.0.1:
     react "^17.0.0"
     react-select "^3.1.0"
     webpack "^5.1.0"
-
-sanity-plugin-simple-star-rating@^0.1.3:
-  version "0.1.3"
-  resolved "https://registry.npmjs.org/sanity-plugin-simple-star-rating/-/sanity-plugin-simple-star-rating-0.1.3.tgz#428c91ff483878032ec5f2e2f03afe4be922cac5"
-  dependencies:
-    react-icons "^3.11.0"
 
 sax@~1.2.4:
   version "1.2.4"
