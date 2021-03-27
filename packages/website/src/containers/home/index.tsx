@@ -8,8 +8,8 @@ import { RecipeFiltersFormValues } from '#/components/recipe-filters/types';
 import { RecipeGrid } from '#/components/recipe-grid';
 import { SidebarLayout } from '#/components/sidebar-layout';
 import { Spacer } from '#/components/spacer';
-import { SanityRecipe } from '#/types/sanity';
-import { createSanityClient, formatRecipe } from '#/utils/sanity';
+import { createRecipeService } from '#/services/recipe';
+import { createSanityClient } from '#/utils/sanity';
 import type { HomeContainerProps, HomePageContext } from './types';
 
 const breadcrumbs: Breadcrumb[] = [];
@@ -58,26 +58,13 @@ export const HomeContainer = ({ recipes }: HomeContainerProps) => {
 };
 
 HomeContainer.getInitialProps = async (context: HomePageContext) => {
-  const ratingFilter = context.query.rating
-    ? `&& rating in [${context.query.rating}]`
-    : '';
   const sanity = createSanityClient();
-  const recipes = await sanity.fetch<SanityRecipe[]>(
-    `
-    *[_type == "recipe" ${ratingFilter}] {
-      _id,
-      name,
-      description,
-      ingredients,
-      steps,
-      rating,
-      "imageUrl": imageUrl.asset->url,
-      tags
-    } | order(_createdAt desc)
-`
-  );
+  const recipeService = createRecipeService(sanity);
+  const recipes = await recipeService.getRecipes({
+    rating: context.query.rating,
+  });
 
   return {
-    recipes: recipes?.map((recipe) => formatRecipe(recipe)) ?? [],
+    recipes,
   };
 };
