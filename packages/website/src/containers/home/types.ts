@@ -5,8 +5,8 @@ export interface HomeContainerProps {
   recipes: Recipe[];
 }
 
-export type HomePageContext = NextPageContext & {
+export interface HomePageContext extends NextPageContext {
   query: {
     rating?: string[];
   };
-};
+}

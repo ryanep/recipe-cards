@@ -9,10 +9,10 @@ import { Spacer } from '#/components/spacer';
 import { Steps } from '#/components/steps';
 import { MeasurementsUnit } from '#/context/settings/types';
 import { useSettingsContext } from '#/hooks/context/settings';
-import type { SanityRecipe } from '#/types/sanity';
+import { createRecipeService } from '#/services/recipe';
 import { convertScale } from '#/utils/ingredient';
-import { createSanityClient, formatRecipe } from '#/utils/sanity';
-import type { RecipeContainerProps } from './types';
+import { createSanityClient } from '#/utils/sanity';
+import type { RecipeContainerProps, RecipePageContext } from './types';
 
 export const RecipeContainer = ({ recipe }: RecipeContainerProps) => {
   const { t } = useTranslation();
@@ -104,25 +104,12 @@ export const RecipeContainer = ({ recipe }: RecipeContainerProps) => {
   );
 };
 
-RecipeContainer.getInitialProps = async ({ query }: any) => {
+RecipeContainer.getInitialProps = async ({ query }: RecipePageContext) => {
   const sanity = createSanityClient();
-  const sanityRecipe = await sanity.fetch<SanityRecipe>(
-    `
-    *[_type == "recipe" && _id == $id]{
-      _id,
-      name,
-      description,
-      ingredients,
-      steps,
-      rating,
-      "imageUrl": imageUrl.asset->url,
-      tags
-    }[0]
-`,
-    { id: query.id }
-  );
+  const recipeService = createRecipeService(sanity);
+  const recipe = await recipeService.getRecipe(query.id);
 
   return {
-    recipe: formatRecipe(sanityRecipe),
+    recipe,
   };
 };
