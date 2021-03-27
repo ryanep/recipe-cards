@@ -1,13 +1,13 @@
-import type { SanityClient } from '@sanity/client';
-import { SanityRecipe } from '#/types/sanity';
-import { formatRecipe } from '#/utils/sanity';
-import type { RecipeFilters } from './types';
+import type { SanityClient } from "@sanity/client";
+import { SanityRecipe } from "#/types/sanity";
+import { formatRecipe } from "#/utils/sanity";
+import type { RecipeFilters } from "./types";
 
 export const createRecipeService = (sanity: SanityClient) => {
   const getRecipes = async (filters: RecipeFilters) => {
     const ratingFilter = filters.rating
       ? `&& rating in [${filters.rating}]`
-      : '';
+      : "";
 
     const recipes = await sanity.fetch<SanityRecipe[]>(
       `

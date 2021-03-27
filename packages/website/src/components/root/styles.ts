@@ -1,6 +1,6 @@
-import reset from 'styled-reset';
-import { fromTablet } from '#/styles/media';
-import { createGlobalStyle } from '#/styles/theme';
+import reset from "styled-reset";
+import { fromTablet } from "#/styles/media";
+import { createGlobalStyle } from "#/styles/theme";
 
 export const Global = createGlobalStyle`
   ${reset}

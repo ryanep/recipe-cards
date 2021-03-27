@@ -1,5 +1,5 @@
-import { fromTablet } from '#/styles/media';
-import { styled } from '#/styles/theme';
+import { fromTablet } from "#/styles/media";
+import { styled } from "#/styles/theme";
 
 export const Main = styled.main`
   overflow: hidden;

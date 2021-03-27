@@ -1,5 +1,5 @@
-import { fromDesktop, fromTablet } from '#/styles/media';
-import { styled } from '#/styles/theme';
+import { fromDesktop, fromTablet } from "#/styles/media";
+import { styled } from "#/styles/theme";
 
 export const List = styled.ul`
   display: grid;
@@ -84,7 +84,7 @@ export const Input = styled.input`
     opacity: 0.5;
 
     &::before {
-      content: '✓';
+      content: "✓";
     }
   }
 

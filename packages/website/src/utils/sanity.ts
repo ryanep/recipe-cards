@@ -1,10 +1,10 @@
-import sanityClient from '@sanity/client';
-import type { SanityRecipe } from '#/types/sanity';
+import sanityClient from "@sanity/client";
+import type { SanityRecipe } from "#/types/sanity";
 
 export const createSanityClient = () =>
   sanityClient({
-    projectId: '21t4zq9k',
-    dataset: 'production',
+    projectId: "21t4zq9k",
+    dataset: "production",
     useCdn: false,
   });
 

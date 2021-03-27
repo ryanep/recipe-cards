@@ -1,20 +1,20 @@
-import { createContext, useCallback, useMemo, useState } from 'react';
+import { createContext, useCallback, useMemo, useState } from "react";
 import {
   MeasurementsUnit,
   SettingsProviderContext,
   SettingsProviderProps,
-} from './types';
+} from "./types";
 
 export const SettingsContext = createContext<SettingsProviderContext>({
   servings: 2,
-  units: 'metric',
+  units: "metric",
   changeUnits: () => {},
   changeServings: () => {},
 });
 
 export const SettingsProvider = ({ children }: SettingsProviderProps) => {
   const [servings, setServings] = useState(2);
-  const [units, setUnits] = useState<MeasurementsUnit>('metric');
+  const [units, setUnits] = useState<MeasurementsUnit>("metric");
 
   const changeServings = useCallback((servingsCount: number) => {
     setServings(servingsCount);

@@ -1,5 +1,5 @@
-import { MeasurementsUnit } from '#/context/settings/types';
-import { Ingredient } from '#/types/general';
+import { MeasurementsUnit } from "#/context/settings/types";
+import { Ingredient } from "#/types/general";
 
 interface AmountMap {
   [key: string]: {
@@ -11,19 +11,19 @@ interface AmountMap {
 const metricImperialMap: AmountMap = {
   grams: {
     value: 0.03,
-    unit: 'ounce',
+    unit: "ounce",
   },
   whole: {
     value: 1,
-    unit: 'whole',
+    unit: "whole",
   },
   millilitres: {
     value: 0.004,
-    unit: 'cups',
+    unit: "cups",
   },
   bunch: {
     value: 1,
-    unit: 'bunch',
+    unit: "bunch",
   },
 };
 
@@ -32,7 +32,7 @@ export const convertScale = (
   units: MeasurementsUnit,
   servings: number
 ) => {
-  if (units === 'metric') {
+  if (units === "metric") {
     return {
       ...ingredient,
       amount: ingredient.amount * servings,
@@ -53,7 +53,7 @@ export const calculateMeasurement = (
   units: string,
   displayUnit: string
 ) => {
-  if (displayUnit === 'metric') {
+  if (displayUnit === "metric") {
     return `${amount} ${units}`;
   }
 

@@ -1,5 +1,5 @@
-import { styled } from '#/styles/theme';
-import type { StepStyleProps } from './types';
+import { styled } from "#/styles/theme";
+import type { StepStyleProps } from "./types";
 
 export const List = styled.ul`
   border: 0.2rem solid grey;

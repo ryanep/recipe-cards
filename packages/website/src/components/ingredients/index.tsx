@@ -1,5 +1,5 @@
-import * as styled from './styles';
-import { IngredientsProps } from './types';
+import * as styled from "./styles";
+import { IngredientsProps } from "./types";
 
 export const Ingredients = ({
   ingredients,
@@ -22,7 +22,7 @@ export const Ingredients = ({
               <styled.Amount>
                 {ingredient.amount % 1 !== 0
                   ? ingredient.amount.toFixed(2)
-                  : ingredient.amount}{' '}
+                  : ingredient.amount}{" "}
                 {ingredient.unit}
               </styled.Amount>
               <styled.Name>{ingredient.name}</styled.Name>

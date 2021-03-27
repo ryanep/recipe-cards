@@ -1,6 +1,6 @@
-import { useTranslation } from 'react-i18next';
-import * as styled from './styles';
-import { MeasurementUnitInputProps } from './types';
+import { useTranslation } from "react-i18next";
+import * as styled from "./styles";
+import { MeasurementUnitInputProps } from "./types";
 
 export const MeasurementUnitInput = ({
   selectedUnit,
@@ -15,10 +15,10 @@ export const MeasurementUnitInput = ({
           type="radio"
           id="measurement-metric"
           name="measurement"
-          checked={selectedUnit === 'metric'}
-          onChange={() => onUnitChange('metric')}
+          checked={selectedUnit === "metric"}
+          onChange={() => onUnitChange("metric")}
         />
-        <styled.Name>{t('common:metric')}</styled.Name>
+        <styled.Name>{t("common:metric")}</styled.Name>
       </styled.Label>
 
       <styled.Label htmlFor="measurement-imperial">
@@ -26,10 +26,10 @@ export const MeasurementUnitInput = ({
           type="radio"
           id="measurement-imperial"
           name="measurement"
-          checked={selectedUnit === 'imperial'}
-          onChange={() => onUnitChange('imperial')}
+          checked={selectedUnit === "imperial"}
+          onChange={() => onUnitChange("imperial")}
         />
-        <styled.Name>{t('common:imperial')}</styled.Name>
+        <styled.Name>{t("common:imperial")}</styled.Name>
       </styled.Label>
     </styled.Container>
   );

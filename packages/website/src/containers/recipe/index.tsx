@@ -1,18 +1,18 @@
-import Head from 'next/head';
-import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Heading } from '#/components/heading';
-import { Ingredients } from '#/components/ingredients';
-import { RecipeSidebar } from '#/components/recipe-sidebar';
-import { SidebarLayout } from '#/components/sidebar-layout';
-import { Spacer } from '#/components/spacer';
-import { Steps } from '#/components/steps';
-import { MeasurementsUnit } from '#/context/settings/types';
-import { useSettingsContext } from '#/hooks/context/settings';
-import { createRecipeService } from '#/services/recipe';
-import { convertScale } from '#/utils/ingredient';
-import { createSanityClient } from '#/utils/sanity';
-import type { RecipeContainerProps, RecipePageContext } from './types';
+import Head from "next/head";
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { Heading } from "#/components/heading";
+import { Ingredients } from "#/components/ingredients";
+import { RecipeSidebar } from "#/components/recipe-sidebar";
+import { SidebarLayout } from "#/components/sidebar-layout";
+import { Spacer } from "#/components/spacer";
+import { Steps } from "#/components/steps";
+import { MeasurementsUnit } from "#/context/settings/types";
+import { useSettingsContext } from "#/hooks/context/settings";
+import { createRecipeService } from "#/services/recipe";
+import { convertScale } from "#/utils/ingredient";
+import { createSanityClient } from "#/utils/sanity";
+import type { RecipeContainerProps, RecipePageContext } from "./types";
 
 export const RecipeContainer = ({ recipe }: RecipeContainerProps) => {
   const { t } = useTranslation();
@@ -76,14 +76,14 @@ export const RecipeContainer = ({ recipe }: RecipeContainerProps) => {
       }
     >
       <Head>
-        <title>{t('recipe:pageTitle', { name: recipe.name })}</title>
+        <title>{t("recipe:pageTitle", { name: recipe.name })}</title>
         <meta name="description" content={recipe.description} />
         <meta property="og:title" content={recipe.name} />
         <meta property="og:description" content={recipe.description} />
         <meta property="og:type" content="website" />
         <meta property="og:image" content={recipe.imageUrl} />
       </Head>
-      <Heading type="h2" as="h4" text={t('recipe:ingredients')} />
+      <Heading type="h2" as="h4" text={t("recipe:ingredients")} />
       <Spacer size="medium" />
       {showIngredients && (
         <Ingredients
@@ -93,7 +93,7 @@ export const RecipeContainer = ({ recipe }: RecipeContainerProps) => {
         />
       )}
       <Spacer size="medium" />
-      <Heading type="h2" as="h4" text={t('recipe:steps')} />
+      <Heading type="h2" as="h4" text={t("recipe:steps")} />
       <Spacer size="medium" />
       <Steps
         steps={recipe.steps}

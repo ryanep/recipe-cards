@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode } from "react";
 
 export interface SettingsProviderProps {
   children: ReactNode;
@@ -11,4 +11,4 @@ export interface SettingsProviderContext {
   changeServings: (servings: number) => void;
 }
 
-export type MeasurementsUnit = 'metric' | 'imperial';
+export type MeasurementsUnit = "metric" | "imperial";

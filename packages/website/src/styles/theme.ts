@@ -1,7 +1,7 @@
-import * as styledComponents from 'styled-components';
-import { colours } from './colours';
-import { sizing } from './sizing';
-import { spacing } from './spacing';
+import * as styledComponents from "styled-components";
+import { colours } from "./colours";
+import { sizing } from "./sizing";
+import { spacing } from "./spacing";
 
 export const theme = {
   colours,

@@ -1,4 +1,4 @@
-import { Ingredient } from '#/types/general';
+import { Ingredient } from "#/types/general";
 
 export interface IngredientsProps {
   ingredients: Ingredient[];

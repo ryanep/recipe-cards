@@ -1,10 +1,10 @@
-import { useTranslation } from 'react-i18next';
-import { Heading } from '#/components/heading';
-import { ServingInput } from '#/components/serving-input';
-import { Spacer } from '#/components/spacer';
-import { MeasurementUnitInput } from '../unit-input';
-import * as styled from './styles';
-import { RecipeSidebarProps } from './types';
+import { useTranslation } from "react-i18next";
+import { Heading } from "#/components/heading";
+import { ServingInput } from "#/components/serving-input";
+import { Spacer } from "#/components/spacer";
+import { MeasurementUnitInput } from "../unit-input";
+import * as styled from "./styles";
+import { RecipeSidebarProps } from "./types";
 
 export const RecipeSidebar = ({
   imageUrl,
@@ -25,14 +25,14 @@ export const RecipeSidebar = ({
         <Spacer size="medium" />
         <styled.Description>{description}</styled.Description>
         <Spacer size="large" />
-        <Heading type="h2" as="h4" text={t('common:measurement')} />
+        <Heading type="h2" as="h4" text={t("common:measurement")} />
         <Spacer size="medium" />
         <MeasurementUnitInput
           selectedUnit={units}
           onUnitChange={onUnitChange}
         />
         <Spacer size="large" />
-        <Heading type="h2" as="h4" text={t('common:servings')} />
+        <Heading type="h2" as="h4" text={t("common:servings")} />
         <Spacer size="medium" />
         <ServingInput
           servings={servings}
