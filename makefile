@@ -8,8 +8,10 @@ TASK_DONE = @echo ${COLOUR_GREEN} âœ“ Task succeeded: $@ ${COLOUR_END}
 TASK_FAILED = @echo ${COLOUR_RED} âœ˜ Task failed: $@ ${COLOUR_END}
 
 APP_NAME = recipes
+WEBSITE_NAME = website
 
 build-website:
+	cd ./packages/${WEBSITE_NAME} && \
 	rm -rf ./.next && \
 	NODE_ENV=production yarn build && \
 	docker build -t dokku/${APP_NAME}:latest . && \
@@ -17,6 +19,7 @@ build-website:
 	gzip -f ./${APP_NAME}.tar
 deploy-website:
 	${TASK_STARTED}
+	cd ./packages/${WEBSITE_NAME} && \
 	scp -o StrictHostKeyChecking=no ./${APP_NAME}.tar.gz ${DO_USER}@${DO_IP}:~/ && \
 	ssh -o StrictHostKeyChecking=no ${DO_USER}@${DO_IP} " \
 		gunzip -f ~/${APP_NAME}.tar.gz && \
@@ -33,6 +36,7 @@ deploy-website:
 	${TASK_DONE}
 clean-website:
 	${TASK_STARTED}
+	cd ./packages/${WEBSITE_NAME} && \
 	rm -rf ./${APP_NAME}.tar.gz
 	${TASK_DONE}
 release-website: build-website deploy-website

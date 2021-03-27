@@ -1,5 +1,4 @@
 import * as styledComponents from 'styled-components';
-
 import { colours } from './colours';
 import { sizing } from './sizing';
 import { spacing } from './spacing';
@@ -18,6 +17,6 @@ const {
   createGlobalStyle,
   keyframes,
   ThemeProvider,
-} = styledComponents as styledComponents.ThemedStyledComponentsModule<Theme>;
+} = (styledComponents as unknown) as styledComponents.ThemedStyledComponentsModule<Theme>;
 
 export { styled, css, createGlobalStyle, keyframes, ThemeProvider };
