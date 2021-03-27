@@ -8,8 +8,8 @@ export const List = styled.ul`
 
 export const Step = styled.li<StepStyleProps>`
   border-bottom: 0.2rem solid grey;
-  font-weight: bold;
   background-color: #000000;
+  font-weight: bold;
 
   &:last-child {
     border-bottom: 0;
@@ -24,14 +24,14 @@ export const Label = styled.label`
 
 export const Content = styled.span`
   display: block;
-  color: #ffffff;
   transition: opacity 0.1s ease;
+  color: #ffffff;
 `;
 
 export const Title = styled.span`
-  text-transform: uppercase;
-  font-weight: 900;
   color: #6e9ee8;
+  font-weight: 900;
+  text-transform: uppercase;
 `;
 
 export const Description = styled.span`

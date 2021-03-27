@@ -2,11 +2,11 @@ import { styled } from "#/styles/theme";
 
 export const Container = styled.div`
   display: flex;
+  overflow: hidden;
+  border-radius: 0.4rem;
   background-color: #333333;
   color: #cccccc;
   font-weight: bold;
-  border-radius: 0.4rem;
-  overflow: hidden;
 `;
 
 export const Label = styled.label`
@@ -27,8 +27,8 @@ export const Name = styled.span`
 
 export const Input = styled.input`
   position: absolute;
-  left: 0;
   top: 0;
+  left: 0;
   width: 0;
   height: 0;
   overflow: hidden;

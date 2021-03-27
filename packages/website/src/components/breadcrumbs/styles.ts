@@ -7,8 +7,8 @@ export const Breadcrumbs = styled.div`
 `;
 
 export const BreadcrumbSeparator = styled.svg`
-  font-size: 1.8rem;
   fill: #cccccc;
+  font-size: 1.8rem;
 `;
 
 export const Link = styled.a`

@@ -5,8 +5,8 @@ export const Spacer = styled.div<SpacerStyleProps>`
   ${({ theme, size, axis }) =>
     axis === "vertical"
       ? css`
-          width: ${theme.spacing[size]};
           display: inline-block;
+          width: ${theme.spacing[size]};
         `
       : css`
           height: ${theme.spacing[size]};

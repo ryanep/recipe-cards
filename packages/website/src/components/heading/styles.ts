@@ -2,8 +2,8 @@ import styled, { css } from "styled-components";
 import { HeadingStyleProps } from "./types";
 
 export const Heading = styled.h1<HeadingStyleProps>`
-  line-height: 1.2;
   font-weight: bold;
+  line-height: 1.2;
 
   ${({ tag }) =>
     tag === "h1" &&
@@ -30,8 +30,8 @@ export const Heading = styled.h1<HeadingStyleProps>`
     tag === "h4" &&
     css`
       font-size: 1.8rem;
-      text-transform: uppercase;
       font-weight: 900;
+      text-transform: uppercase;
     `}
 
     ${({ tag }) =>
