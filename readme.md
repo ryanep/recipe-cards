@@ -6,6 +6,6 @@
 
 ## Getting started
 
-### Screenshot
+## Screenshot
 
 ![Recipe Card Screenshot](docs/screenshot.png)
