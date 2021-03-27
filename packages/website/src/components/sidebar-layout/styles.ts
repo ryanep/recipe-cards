@@ -22,7 +22,7 @@ export const Content = styled.div`
 
   @media ${fromTablet} {
     display: grid;
-    grid-template-columns: minmax(30rem, 25%) auto;
     grid-gap: 2rem;
+    grid-template-columns: minmax(30rem, 25%) auto;
   }
 `;

@@ -3,13 +3,13 @@ import { styled } from "#/styles/theme";
 
 export const List = styled.ul`
   display: grid;
-  gap: 0.2rem;
   flex-wrap: wrap;
   width: 100%;
-  border: 0.2rem solid grey;
-  background-color: grey;
-  border-radius: 0.4rem;
   overflow: hidden;
+  border: 0.2rem solid grey;
+  border-radius: 0.4rem;
+  background-color: grey;
+  gap: 0.2rem;
 
   @media ${fromTablet} {
     grid-template-columns: repeat(2, 50%);
@@ -37,27 +37,27 @@ export const Label = styled.label`
 
 export const Name = styled.span`
   display: block;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   overflow: hidden;
   font-weight: 900;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 export const Amount = styled.span`
-  font-size: 1.4rem;
   color: #8ee28e;
+  font-size: 1.4rem;
 `;
 
 export const Checkbox = styled.span`
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-  border-radius: 0.4rem;
   width: 2rem;
   height: 2rem;
-  border: 0.2rem solid grey;
   margin-right: 1rem;
+  border: 0.2rem solid grey;
+  border-radius: 0.4rem;
 
   &::before {
     color: #ffffff;
@@ -80,8 +80,8 @@ export const Input = styled.input`
 
   &:checked + ${Checkbox} {
     border-color: #00d000;
-    background-color: #00d000;
     opacity: 0.5;
+    background-color: #00d000;
 
     &::before {
       content: "✓";

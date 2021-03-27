@@ -6,7 +6,7 @@ export const Global = createGlobalStyle`
   ${reset}
 
   *, *::before, *::after {
-    box-sizing: border-box
+    box-sizing: border-box;
   }
 
   html {
@@ -18,8 +18,8 @@ export const Global = createGlobalStyle`
   body {
     font-size: 1.6rem;
     line-height: 1.5;
-    min-width: 32rem;
     background-color: ${({ theme }) => theme.colours.body.background};
+    min-width: 32rem;
     color: ${({ theme }) => theme.colours.body.color};
     -webkit-text-size-adjust: none;
   }

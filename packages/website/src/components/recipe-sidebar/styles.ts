@@ -17,8 +17,8 @@ export const Content = styled.div`
 `;
 
 export const Name = styled.h1`
-  font-weight: 900;
   font-size: 3.6rem;
+  font-weight: 900;
 `;
 
 export const Description = styled.p`

@@ -24,10 +24,10 @@ export const Info = styled.div`
 export const Link = styled.a`
   display: flex;
   flex-direction: column;
-  color: #ffffff;
-  background-color: #000000;
-  text-decoration: none;
   transition: background-color 0.3s ease;
+  background-color: #000000;
+  color: #ffffff;
+  text-decoration: none;
 
   &:hover {
     background-color: #111111;
@@ -36,8 +36,8 @@ export const Link = styled.a`
 
 export const Tags = styled.ul`
   display: flex;
-  overflow: scroll;
   margin-top: auto;
+  overflow: scroll;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
 
@@ -47,11 +47,11 @@ export const Tags = styled.ul`
 `;
 
 export const Tag = styled.li`
+  margin-left: 1rem;
   padding: 0.2rem 0.4rem;
   border-radius: 0.4rem;
-  font-size: 1.4rem;
   background-color: #222222;
-  margin-left: 1rem;
+  font-size: 1.4rem;
   white-space: nowrap;
 
   &:first-child {
