@@ -1,5 +1,5 @@
-import * as styled from './styles';
-import { ServingInputProps } from './types';
+import * as styled from "./styles";
+import { ServingInputProps } from "./types";
 
 export const ServingInput = ({
   servings,

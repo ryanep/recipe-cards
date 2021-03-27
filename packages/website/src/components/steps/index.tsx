@@ -1,5 +1,5 @@
-import * as styled from './styles';
-import { StepsProps } from './types';
+import * as styled from "./styles";
+import { StepsProps } from "./types";
 
 export const Steps = ({
   steps,

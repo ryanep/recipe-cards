@@ -1,6 +1,6 @@
-import { Breadcrumbs } from '#/components/breadcrumbs';
-import * as styled from './styles';
-import { HeaderProps } from './types';
+import { Breadcrumbs } from "#/components/breadcrumbs";
+import * as styled from "./styles";
+import { HeaderProps } from "./types";
 
 export const Header = ({ breadcrumbs }: HeaderProps) => {
   return (

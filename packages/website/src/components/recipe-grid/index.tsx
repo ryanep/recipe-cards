@@ -1,9 +1,9 @@
-import Link from 'next/link';
-import { Heading } from '#/components/heading';
-import { Spacer } from '#/components/spacer';
-import { StarRating } from '#/components/star-rating';
-import * as styled from './styles';
-import type { RecipeGridProps } from './types';
+import Link from "next/link";
+import { Heading } from "#/components/heading";
+import { Spacer } from "#/components/spacer";
+import { StarRating } from "#/components/star-rating";
+import * as styled from "./styles";
+import type { RecipeGridProps } from "./types";
 
 export const RecipeGrid = ({ recipes }: RecipeGridProps) => {
   return (

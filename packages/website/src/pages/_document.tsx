@@ -5,8 +5,8 @@ import Document, {
   Main,
   NextScript,
   DocumentInitialProps,
-} from 'next/document';
-import { ServerStyleSheet } from 'styled-components';
+} from "next/document";
+import { ServerStyleSheet } from "styled-components";
 
 interface MyDocumentProps extends DocumentInitialProps {}
 

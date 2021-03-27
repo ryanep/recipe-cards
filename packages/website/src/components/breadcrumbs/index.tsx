@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import { Fragment } from 'react';
-import * as styled from './styles';
-import { BreadcrumbsProps } from './types';
+import Link from "next/link";
+import { Fragment } from "react";
+import * as styled from "./styles";
+import { BreadcrumbsProps } from "./types";
 
 export const Breadcrumbs = ({ breadcrumbs }: BreadcrumbsProps) => {
   return (

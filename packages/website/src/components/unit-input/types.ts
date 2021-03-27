@@ -1,4 +1,4 @@
-import { MeasurementsUnit } from '#/context/settings/types';
+import { MeasurementsUnit } from "#/context/settings/types";
 
 export interface MeasurementUnitInputProps {
   selectedUnit: MeasurementsUnit;

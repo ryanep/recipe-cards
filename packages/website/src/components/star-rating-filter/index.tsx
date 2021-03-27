@@ -1,8 +1,8 @@
-import { useTranslation } from 'react-i18next';
-import { Heading } from '#/components/heading';
-import { Spacer } from '#/components/spacer';
-import * as styled from './styles';
-import type { StarRatingFilterProps } from './types';
+import { useTranslation } from "react-i18next";
+import { Heading } from "#/components/heading";
+import { Spacer } from "#/components/spacer";
+import * as styled from "./styles";
+import type { StarRatingFilterProps } from "./types";
 
 const options = [5, 4, 3];
 
@@ -11,7 +11,7 @@ export const StarRatingFilter = ({ onChange }: StarRatingFilterProps) => {
 
   return (
     <div>
-      <Heading type="h3" as="h5" text={t('filters:ratingHeading')} />
+      <Heading type="h3" as="h5" text={t("filters:ratingHeading")} />
       <Spacer size="small" />
       <styled.Options>
         {options
@@ -26,7 +26,7 @@ export const StarRatingFilter = ({ onChange }: StarRatingFilterProps) => {
                   type="checkbox"
                   onChange={onChange}
                 />
-                {t('common:rating', { count: option })}
+                {t("common:rating", { count: option })}
               </styled.Label>
             </li>
           ))}

@@ -1,6 +1,6 @@
-import { Star } from '#/components/star';
-import * as styled from './styles';
-import type { StarRatingProps } from './types';
+import { Star } from "#/components/star";
+import * as styled from "./styles";
+import type { StarRatingProps } from "./types";
 
 export const StarRating = ({ rating }: StarRatingProps) => {
   return (
