@@ -1,0 +1,14 @@
+ls:
+  .js: kebab-case
+  .jsx: kebab-case
+  .ts: kebab-case
+  .d.ts: kebab-case
+  .tsx: kebab-case
+  .json: kebab-case
+  .md: kebab-case
+ignore:
+  - node_modules
+  - ./packages/website/.next
+  - ./packages/website/src/pages
+  - ./packages/website/node_modules
+  - ./packages/sanity/node_modules
