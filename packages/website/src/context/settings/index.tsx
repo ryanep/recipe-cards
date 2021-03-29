@@ -1,35 +1,34 @@
-import { createContext, useCallback, useMemo, useState } from "react";
+import { createContext, useMemo } from "react";
+import { useLocalStorage } from "#/hooks/misc/local-storage";
 import {
   MeasurementsUnit,
   SettingsProviderContext,
   SettingsProviderProps,
 } from "./types";
 
-export const SettingsContext = createContext<SettingsProviderContext>({
-  servings: 2,
-  units: "metric",
-  changeUnits: () => {},
-  changeServings: () => {},
-});
+export const SettingsContext = createContext<
+  SettingsProviderContext | undefined
+>(undefined);
+
+const defaultServings = 2;
+const defaultUnits = "metric";
 
 export const SettingsProvider = ({ children }: SettingsProviderProps) => {
-  const [servings, setServings] = useState(2);
-  const [units, setUnits] = useState<MeasurementsUnit>("metric");
-
-  const changeServings = useCallback((servingsCount: number) => {
-    setServings(servingsCount);
-  }, []);
-
-  const changeUnits = useCallback((measurementUnit: MeasurementsUnit) => {
-    setUnits(measurementUnit);
-  }, []);
+  const [servings, setServings] = useLocalStorage<number>(
+    "servings",
+    defaultServings
+  );
+  const [units, setUnits] = useLocalStorage<MeasurementsUnit>(
+    "units",
+    defaultUnits
+  );
 
   const value = useMemo(
     () => ({
       servings,
       units,
-      changeUnits,
-      changeServings,
+      changeUnits: setUnits,
+      changeServings: setServings,
     }),
     [servings, units]
   );
