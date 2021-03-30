@@ -7,6 +7,7 @@ export interface HomeContainerProps {
 
 export interface HomePageContext extends NextPageContext {
   query: {
+    name?: string;
     rating?: string[];
   };
 }

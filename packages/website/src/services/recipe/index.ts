@@ -5,13 +5,14 @@ import type { RecipeFilters } from "./types";
 
 export const createRecipeService = (sanity: SanityClient) => {
   const getRecipes = async (filters: RecipeFilters) => {
+    const nameFilter = filters.name ? `&& name match "*${filters.name}*"` : "";
     const ratingFilter = filters.rating
       ? `&& rating in [${filters.rating}]`
       : "";
 
     const recipes = await sanity.fetch<SanityRecipe[]>(
       `
-    *[_type == "recipe" ${ratingFilter}] {
+    *[_type == "recipe" ${ratingFilter} ${nameFilter}] {
       _id,
       name,
       description,
