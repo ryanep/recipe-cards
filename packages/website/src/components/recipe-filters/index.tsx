@@ -20,8 +20,8 @@ export const RecipeFilters = ({
 
   return (
     <form onSubmit={formik.handleSubmit}>
-      <label htmlFor="name">
-        <Heading type="h3" as="h5" text={t("filters:nameHeading")} />
+      <styled.Label htmlFor="name">
+        {t("filters:nameHeading")}
         <Spacer size="small" />
         <styled.Input
           id="name"
@@ -30,7 +30,7 @@ export const RecipeFilters = ({
           onChange={formik.handleChange}
           autoComplete="off"
         />
-      </label>
+      </styled.Label>
       <Spacer size="medium" />
       <Heading type="h3" as="h5" text={t("filters:ratingHeading")} />
       <Spacer size="small" />

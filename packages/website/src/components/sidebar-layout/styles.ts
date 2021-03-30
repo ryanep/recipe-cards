@@ -17,6 +17,9 @@ export const Sidebar = styled.aside`
 `;
 
 export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   padding: ${({ theme }) => theme.sizing.large};
   border-radius: 1rem;
 
