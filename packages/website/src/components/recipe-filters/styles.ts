@@ -10,3 +10,12 @@ export const Button = styled.button`
   font-weight: bold;
   cursor: pointer;
 `;
+
+export const Input = styled.input`
+  display: block;
+  width: 100%;
+  padding: 1.2rem;
+  border-radius: 0.4rem;
+  background-color: #333;
+  color: #ffffff;
+`;

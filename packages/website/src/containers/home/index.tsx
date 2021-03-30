@@ -18,6 +18,7 @@ export const HomeContainer = ({ recipes }: HomeContainerProps) => {
   const { t } = useTranslation();
   const router = useRouter();
   const initialFilterValues = {
+    name: "",
     rating: [],
   };
 
@@ -61,6 +62,7 @@ HomeContainer.getInitialProps = async (context: HomePageContext) => {
   const sanity = createSanityClient();
   const recipeService = createRecipeService(sanity);
   const recipes = await recipeService.getRecipes({
+    name: context.query.name,
     rating: context.query.rating,
   });
 
