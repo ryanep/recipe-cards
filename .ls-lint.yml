@@ -13,3 +13,4 @@ ignore:
   - ./packages/website/src/pages
   - ./packages/website/node_modules
   - ./packages/sanity/node_modules
+  - ./packages/sanity/dist
