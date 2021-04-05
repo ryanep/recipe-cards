@@ -1027,6 +1027,11 @@
     get-random-values "^1.2.0"
     lodash "^4.17.15"
 
+"@sanity/cli@^2.7.4":
+  version "2.7.4"
+  resolved "https://registry.yarnpkg.com/@sanity/cli/-/cli-2.7.4.tgz#0ea624735d3663f0a0193f760131d482080dce12"
+  integrity sha512-cQLyPdb1FRdOCn3qJK7nuQhOcDVtyX4WjNSe1Ywt1jINIYCrj1JW3YvUC4MHaUqwdBHwRQLnHwVwZHotunxhxg==
+
 "@sanity/client@2.2.6", "@sanity/client@^2.0.1":
   version "2.2.6"
   resolved "https://registry.npmjs.org/@sanity/client/-/client-2.2.6.tgz#81588e9a626e26cfecd21409d08a8474ad5210d8"
