@@ -1,5 +1,5 @@
 {
-  "name": "recipes",
+  "name": "@recipe-cards/sanity",
   "version": "1.0.0",
   "private": true,
   "description": "Recipe cards Sanity",
@@ -10,7 +10,7 @@
   "license": "UNLICENSED",
   "author": "Ryan Elliott-Potter <ryan@ryanep.com>",
   "scripts": {
-    "start": "sanity start",
+    "dev": "sanity start --port 3001 --host 0.0.0.0",
     "build": "sanity build",
     "deploy": "sanity deploy"
   },
