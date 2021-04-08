@@ -1,7 +1,7 @@
 {
   "name": "@recipe-cards/website",
   "version": "1.0.0",
-  "repository": "https://github.com/ryanep/recipe.git",
+  "repository": "https://github.com/ryanep/recipe-cards.git",
   "license": "MIT",
   "author": "Ryan Elliott-Potter <ryan@ryanep.com>",
   "scripts": {
