@@ -5,7 +5,7 @@
   "description": "Recipe cards Sanity",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ryanep/recipe.git"
+    "url": "https://github.com/ryanep/recipe-cards.git"
   },
   "license": "UNLICENSED",
   "author": "Ryan Elliott-Potter <ryan@ryanep.com>",
