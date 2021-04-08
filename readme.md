@@ -25,3 +25,7 @@ To start both the website and sanity, run `yarn dev` from the root folder.
 ## Screenshot
 
 ![Recipe Card Screenshot](docs/screenshot.png)
+
+## License
+
+Licensed under the MIT license.
