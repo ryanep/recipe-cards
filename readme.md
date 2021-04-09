@@ -8,7 +8,7 @@
 
 ## Introduction
 
-Recipe Cards provides a clean and interactive interface to make it easier to find and follow recipes. This repository is a monorepo containing two packages, the front-end application and Sanity installation.
+Recipe Cards provides a clean and interactive interface to make it easier to find and follow recipes. This repository is a monorepo containing two packages; the front-end application and Sanity installation.
 
 ## Features
 
