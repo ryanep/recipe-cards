@@ -1,4 +1,4 @@
 export interface RecipeFilters {
-  name?: string | undefined;
-  rating?: string[] | undefined;
+  name: string | undefined;
+  rating: string[] | undefined;
 }
