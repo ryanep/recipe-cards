@@ -1,48 +1,40 @@
-import styled, { css } from "styled-components";
-import { HeadingStyleProps } from "./types";
+import styled from "styled-components";
+import { HeadingStyleProps, HeadingTag } from "./types";
+
+const getFontSize = (tag: HeadingTag) => {
+  switch (tag) {
+    case "h1":
+      return "3.6rem";
+    case "h2":
+      return "2.8rem";
+    case "h3":
+      return "2.4rem";
+    case "h4":
+      return "1.8rem";
+    case "h5":
+      return "1.6rem";
+    case "h6":
+      return "1.4rem";
+    default:
+      return "1.4rem;";
+  }
+};
+
+const getFontWeight = (tag: HeadingTag) => {
+  switch (tag) {
+    case "h1":
+    case "h2":
+    case "h3":
+    case "h4":
+      return "900";
+    default:
+      return "700";
+  }
+};
 
 export const Heading = styled.h1<HeadingStyleProps>`
-  font-weight: bold;
+  font-size: ${({ tag }) => getFontSize(tag)};
+  font-weight: ${({ tag }) => getFontWeight(tag)};
   line-height: 1.2;
-
-  ${({ tag }) =>
-    tag === "h1" &&
-    css`
-      font-size: 3.6rem;
-      font-weight: 900;
-    `}
-
-  ${({ tag }) =>
-    tag === "h2" &&
-    css`
-      font-size: 2.8rem;
-      font-weight: 900;
-    `}
-
-    ${({ tag }) =>
-    tag === "h3" &&
-    css`
-      font-size: 2.4rem;
-      font-weight: 900;
-    `}
-
-    ${({ tag }) =>
-    tag === "h4" &&
-    css`
-      font-size: 1.8rem;
-      font-weight: 900;
-      text-transform: uppercase;
-    `}
-
-    ${({ tag }) =>
-    tag === "h5" &&
-    css`
-      font-size: 1.6rem;
-    `}
-
-    ${({ tag }) =>
-    tag === "h6" &&
-    css`
-      font-size: 1.4rem;
-    `}
+  text-transform: ${({ tag }) => (tag === "h4" ? "uppercase" : undefined)};
 `;

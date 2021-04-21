@@ -9,7 +9,7 @@ export const StarRatingFilter = ({ onChange }: StarRatingFilterProps) => {
 
   return (
     <styled.Options>
-      {options
+      {[...options]
         .sort((a, b) => b - a)
         .map((option) => (
           <li key={option}>

@@ -2,10 +2,12 @@ import { spacing } from "#/styles/spacing";
 
 export interface SpacerProps {
   size: keyof typeof spacing;
-  direction?: "horizontal" | "vertical";
+  direction?: SpacerAxis;
 }
 
 export interface SpacerStyleProps {
   size: keyof typeof spacing;
-  axis?: "horizontal" | "vertical";
+  axis?: SpacerAxis;
 }
+
+type SpacerAxis = "horizontal" | "vertical";
