@@ -1,63 +1,29 @@
+import { AmountMap } from "#/constants/units";
 import { MeasurementsUnit } from "#/context/settings/types";
 import { Ingredient } from "#/types/general";
 
-interface AmountMap {
-  [key: string]: {
-    value: number;
-    unit: string;
+export const calculateServings = (servings: number) => (
+  ingredient: Ingredient
+) => {
+  return {
+    ...ingredient,
+    amount: ingredient.amount * servings,
   };
-}
-
-const metricImperialMap: AmountMap = {
-  grams: {
-    value: 0.03,
-    unit: "ounce",
-  },
-  whole: {
-    value: 1,
-    unit: "whole",
-  },
-  millilitres: {
-    value: 0.004,
-    unit: "cups",
-  },
-  bunch: {
-    value: 1,
-    unit: "bunch",
-  },
 };
 
-export const convertScale = (
-  ingredient: Ingredient,
-  units: MeasurementsUnit,
-  servings: number
-) => {
-  if (units === "metric") {
-    return {
-      ...ingredient,
-      amount: ingredient.amount * servings,
-    };
+export const adjustUnits = (
+  unitMap: AmountMap,
+  selectedUnits: MeasurementsUnit
+) => (ingredient: Ingredient) => {
+  if (selectedUnits === MeasurementsUnit.Metric) {
+    return ingredient;
   }
 
-  const mappedUnit = metricImperialMap[ingredient.unit];
-  const convertedAmount = ingredient.amount * mappedUnit.value * servings;
+  const mappedUnit = unitMap[ingredient.unit];
+  const convertedAmount = ingredient.amount * mappedUnit.value;
   return {
     ...ingredient,
     amount: convertedAmount,
     unit: mappedUnit.unit,
   };
-};
-
-export const calculateMeasurement = (
-  amount: number,
-  units: string,
-  displayUnit: string
-) => {
-  if (displayUnit === "metric") {
-    return `${amount} ${units}`;
-  }
-
-  const mappedUnit = metricImperialMap[displayUnit];
-  const convertedAmount = amount * mappedUnit.value;
-  return `${convertedAmount} ${mappedUnit.unit}`;
 };

@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { pipe } from "ramda";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Heading } from "#/components/heading";
@@ -7,10 +8,11 @@ import { RecipeSidebar } from "#/components/recipe-sidebar";
 import { SidebarLayout } from "#/components/sidebar-layout";
 import { Spacer } from "#/components/spacer";
 import { Steps } from "#/components/steps";
+import { metricImperialMap } from "#/constants/units";
 import { MeasurementsUnit } from "#/context/settings/types";
 import { useSettingsContext } from "#/hooks/context/settings";
 import { createRecipeService } from "#/services/recipe";
-import { convertScale } from "#/utils/ingredient";
+import { calculateServings, adjustUnits } from "#/utils/ingredient";
 import { createSanityClient } from "#/utils/sanity";
 import type { RecipeContainerProps, RecipePageContext } from "./types";
 
@@ -26,9 +28,12 @@ export const RecipeContainer = ({ recipe }: RecipeContainerProps) => {
   const [selectedIngredients, setSelectedIngredients] = useState<string[]>([]);
   const [selectedStepIndex, setSelectedStepIndex] = useState<number>(-1);
   const [showIngredients, setShowIngredients] = useState(true);
-  const adjustedIngredients = recipe.ingredients.map((ingredient) => {
-    return convertScale(ingredient, units, servings);
-  });
+  const adjustedIngredients = recipe.ingredients.map((ingredient) =>
+    pipe(
+      calculateServings(servings),
+      adjustUnits(metricImperialMap, units)
+    )(ingredient)
+  );
 
   const handleIngredientClick = (ingredientId: string) => {
     if (!selectedIngredients.includes(ingredientId)) {
