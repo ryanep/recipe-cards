@@ -11,7 +11,7 @@ export const SettingsContext = createContext<
 >(undefined);
 
 const defaultServings = 2;
-const defaultUnits = "metric";
+const defaultUnits = MeasurementsUnit.Metric;
 
 export const SettingsProvider = ({ children }: SettingsProviderProps) => {
   const [servings, setServings] = useLocalStorage<number>(

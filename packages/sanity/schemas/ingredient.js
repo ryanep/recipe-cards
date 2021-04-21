@@ -24,6 +24,8 @@ export const ingredient = {
           { title: "Whole", value: "whole" },
           { title: "Millilitres", value: "millilitres" },
           { title: "Bunch", value: "bunch" },
+          { title: "Tablespoon", value: "tablespoon" },
+          { title: "Teaspoon", value: "teaspoon" },
         ],
       },
     },

@@ -11,4 +11,7 @@ export interface SettingsProviderContext {
   changeServings: (servings: number) => void;
 }
 
-export type MeasurementsUnit = "metric" | "imperial";
+export enum MeasurementsUnit {
+  Metric = "metric",
+  Imperial = "imperial",
+}

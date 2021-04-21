@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { MeasurementsUnit } from "#/context/settings/types";
 import * as styled from "./styles";
 import { MeasurementUnitInputProps } from "./types";
 
@@ -15,8 +16,8 @@ export const MeasurementUnitInput = ({
           type="radio"
           id="measurement-metric"
           name="measurement"
-          checked={selectedUnit === "metric"}
-          onChange={() => onUnitChange("metric")}
+          checked={selectedUnit === MeasurementsUnit.Metric}
+          onChange={() => onUnitChange(MeasurementsUnit.Metric)}
         />
         <styled.Name>{t("common:metric")}</styled.Name>
       </styled.Label>
@@ -26,8 +27,8 @@ export const MeasurementUnitInput = ({
           type="radio"
           id="measurement-imperial"
           name="measurement"
-          checked={selectedUnit === "imperial"}
-          onChange={() => onUnitChange("imperial")}
+          checked={selectedUnit === MeasurementsUnit.Imperial}
+          onChange={() => onUnitChange(MeasurementsUnit.Imperial)}
         />
         <styled.Name>{t("common:imperial")}</styled.Name>
       </styled.Label>
