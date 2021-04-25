@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import * as styled from "./styles";
 import { IngredientsProps } from "./types";
 
@@ -6,6 +7,8 @@ export const Ingredients = ({
   selectedIngredients,
   onIngredientClick,
 }: IngredientsProps) => {
+  const { t } = useTranslation();
+
   return (
     <styled.List>
       {ingredients.map((ingredient, index) => (
@@ -20,10 +23,9 @@ export const Ingredients = ({
             <styled.Checkbox />
             <styled.Content>
               <styled.Amount>
-                {ingredient.amount % 1 !== 0
-                  ? ingredient.amount.toFixed(2)
-                  : ingredient.amount}{" "}
-                {ingredient.unit}
+                {t(`units:${ingredient.unit}`, {
+                  count: ingredient.amount,
+                })}
               </styled.Amount>
               <styled.Name>{ingredient.name}</styled.Name>
             </styled.Content>
