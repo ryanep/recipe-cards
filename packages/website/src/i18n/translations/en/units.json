@@ -1,0 +1,17 @@
+{
+  "grams": "{{count, measurement}} gram",
+  "grams_plural": "{{count, measurement}} grams",
+  "whole": "{{count, measurement}} whole",
+  "millilitres": "{{count, measurement}} millilitre",
+  "millilitres_plural": "{{count, measurement}} millilitres",
+  "bunch": "{{count, measurement}} bunch",
+  "bunch_plural": "{{count, measurement}} bunches",
+  "tablespoon": "{{count, measurement}} tablespoon",
+  "tablespoon_plural": "{{count, measurement}} tablespoons",
+  "teaspoon": "{{count, measurement}} teaspoon",
+  "teaspoon_plural": "{{count, measurement}} teaspoons",
+  "ounce": "{{count, measurement}} ounce",
+  "ounce_plural": "{{count, measurement}} ounces",
+  "cup": "{{count, measurement}} cup",
+  "cup_plural": "{{count, measurement}} cups"
+}
