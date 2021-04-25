@@ -10,6 +10,17 @@
       {
         "changelogFile": "changelog.md"
       }
+    ],
+    "@semantic-release/npm",
+    [
+      "@semantic-release/git",
+      {
+        "assets": [
+          "package.json",
+          "changelog.md"
+        ],
+        "message": "chore: release v${nextRelease.version}"
+      }
     ]
   ]
 }
