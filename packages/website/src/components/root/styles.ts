@@ -69,4 +69,12 @@ export const Global = createGlobalStyle`
     color: ${({ theme }) => theme.colours.primary};
     font-weight: bold;
   }
+
+  summary {
+    list-style: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
 `;
