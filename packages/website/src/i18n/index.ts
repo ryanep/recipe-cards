@@ -9,14 +9,11 @@ i18n.use(initReactI18next).init({
   interpolation: {
     escapeValue: false,
     format: (value: number, format) => {
-      switch (format) {
-        case "measurement":
-          return value % 1 !== 0
-            ? value.toFixed(2).toString()
-            : value.toString();
-        default:
-          return value.toString();
+      if (format === "measurement") {
+        return value % 1 !== 0 ? value.toFixed(2).toString() : value.toString();
       }
+
+      return value.toString();
     },
   },
 });
