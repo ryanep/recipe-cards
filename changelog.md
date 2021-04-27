@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/ryanep/recipe-cards/compare/v1.1.0...v1.2.0) (2021-04-27)
+
+
+### Features
+
+* add header settings dropdown with manage recipes link ([a286b6f](https://github.com/ryanep/recipe-cards/commit/a286b6f59dc9b5cdbf768bb44195572e6326d92d))
+
 # [1.1.0](https://github.com/ryanep/recipe-cards/compare/v1.0.0...v1.1.0) (2021-04-25)
 
 ### Bug Fixes
