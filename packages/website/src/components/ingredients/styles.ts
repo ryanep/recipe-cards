@@ -37,10 +37,13 @@ export const Label = styled.label`
 
 export const Name = styled.span`
   display: block;
-  overflow: hidden;
-  font-weight: 900;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+
+  @media ${fromTablet} {
+    overflow: hidden;
+    font-weight: 900;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 `;
 
 export const Amount = styled.span`
