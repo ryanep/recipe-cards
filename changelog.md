@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/ryanep/recipe-cards/compare/v1.2.0...v1.2.1) (2021-06-06)
+
+
+### Bug Fixes
+
+* fix ingredient name wrapping on mobile ([fc8b5fc](https://github.com/ryanep/recipe-cards/commit/fc8b5fc394529334efe79e0faed91c00a1aa3bd7))
+
 # [1.2.0](https://github.com/ryanep/recipe-cards/compare/v1.1.0...v1.2.0) (2021-04-27)
 
 
