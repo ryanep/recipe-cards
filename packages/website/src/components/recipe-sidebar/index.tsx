@@ -19,7 +19,7 @@ export const RecipeSidebar = ({
 
   return (
     <div>
-      <styled.Image src={imageUrl} alt={name} />
+      <styled.Image src={`${imageUrl}?w=500`} alt={name} />
       <styled.Content>
         <styled.Name>{name}</styled.Name>
         <Spacer size="medium" />
