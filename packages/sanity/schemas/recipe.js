@@ -7,17 +7,20 @@ export const recipe = {
       title: "Name",
       name: "name",
       type: "string",
+      validation: (Rule) => Rule.required().max(100),
     },
     {
       title: "Description",
       name: "description",
       type: "string",
+      validation: (Rule) => Rule.required(),
     },
     {
       title: "Rating",
       name: "rating",
       type: "number",
       description: "Apply a rating out of 5 stars",
+      validation: (Rule) => Rule.required(),
       options: {
         list: [
           { title: "1 Star", value: 1 },
@@ -37,6 +40,10 @@ export const recipe = {
       title: "Image URL",
       name: "imageUrl",
       type: "image",
+      options: {
+        hotspot: true,
+      },
+      validation: (Rule) => Rule.required(),
       fields: [
         {
           name: "caption",
@@ -49,12 +56,14 @@ export const recipe = {
       title: "Ingredients",
       name: "ingredients",
       type: "array",
+      validation: (Rule) => Rule.required(),
       of: [{ type: "ingredient" }],
     },
     {
       title: "Steps",
       name: "steps",
       type: "array",
+      validation: (Rule) => Rule.required(),
       of: [{ type: "step" }],
     },
   ],
