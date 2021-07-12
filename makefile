@@ -39,5 +39,12 @@ clean-website:
 	cd ./packages/${WEBSITE_NAME} && \
 	rm -rf ./${APP_NAME}.tar.gz
 	${TASK_DONE}
+release-version:
+	CI=true \
+	GIT_AUTHOR_NAME="Ryan Elliott-Potter" \
+	GIT_AUTHOR_EMAIL="ryan@ryanep.com" \
+	GIT_COMMITTER_NAME="Ryan Elliott-Potter" \
+	GIT_COMMITTER_EMAIL="ryan@ryanep.com" \
+	npx semantic-release
 release-website: build-website deploy-website
 release: release-website
