@@ -1,0 +1,8 @@
+myNextApplication:
+  component: "@sls-next/serverless-component"
+  inputs:
+    cloudfront:
+      aliases: ['recipes.ryanep.com']
+      certificate:
+        cloudFrontDefaultCertificate: false
+        acmCertificateArn: arn:aws:acm:us-east-1:992080571933:certificate/a881ed23-c6fe-4ee1-8a2f-2b7769412ee3

@@ -12,5 +12,7 @@ ignore:
   - ./packages/website/.next
   - ./packages/website/src/pages
   - ./packages/website/node_modules
+  - ./packages/website/.serverless
+  - ./packages/website/.serverless_nextjs
   - ./packages/sanity/node_modules
   - ./packages/sanity/dist
