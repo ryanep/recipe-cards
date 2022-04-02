@@ -16,20 +16,21 @@
     "lint": "eslint './**/*.{ts,tsx}'"
   },
   "dependencies": {
-    "@sanity/base": "^2.12.2",
-    "@sanity/components": "^2.2.6",
-    "@sanity/core": "^2.12.2",
-    "@sanity/default-layout": "^2.12.2",
-    "@sanity/default-login": "^2.11.1",
-    "@sanity/desk-tool": "^2.12.2",
-    "@sanity/vision": "^2.11.2",
+    "@sanity/base": "^2.29.3",
+    "@sanity/components": "^2.14.0",
+    "@sanity/core": "^2.29.3",
+    "@sanity/default-layout": "^2.29.3",
+    "@sanity/default-login": "^2.29.3",
+    "@sanity/desk-tool": "^2.29.4",
+    "@sanity/vision": "^2.29.3",
     "prop-types": "^15.7",
     "react": "^17.0",
     "react-dom": "^17.0",
-    "sanity-plugin-autocomplete-tags": "^1.0.1"
+    "sanity-plugin-autocomplete-tags": "^1.0.1",
+    "styled-components": "^5.2.0"
   },
   "devDependencies": {
-    "@sanity/cli": "^2.12.2",
+    "@sanity/cli": "^2.29.3",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.32.0"
   }
