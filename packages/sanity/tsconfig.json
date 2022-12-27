@@ -1,4 +1,8 @@
 {
+  "compilerOptions": {
+    "strict": true,
+    "strictNullChecks": true
+  },
   "include": [
     "./node_modules/@sanity/base/types/**/*.ts",
     "./**/*.ts",

@@ -1,12 +1,14 @@
-export const step = {
-  title: "Step",
-  name: "step",
-  type: "document",
+import { defineType } from "sanity";
+
+export const step = defineType({
   fields: [
     {
-      title: "Description",
       name: "description",
+      title: "Description",
       type: "text",
     },
   ],
-};
+  name: "step",
+  title: "Step",
+  type: "document",
+});

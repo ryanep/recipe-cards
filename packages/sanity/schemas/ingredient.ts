@@ -1,22 +1,19 @@
-export const ingredient = {
-  title: "Ingredient",
-  name: "ingredient",
-  type: "document",
+import { defineType } from "sanity";
+
+export const ingredient = defineType({
   fields: [
     {
-      title: "Name",
       name: "name",
+      title: "Name",
       type: "string",
     },
     {
-      title: "Amount",
       name: "amount",
+      title: "Amount",
       type: "number",
     },
     {
-      title: "Unit",
       name: "unit",
-      type: "string",
       options: {
         layout: "radio",
         list: [
@@ -28,6 +25,11 @@ export const ingredient = {
           { title: "Teaspoon", value: "teaspoon" },
         ],
       },
+      title: "Unit",
+      type: "string",
     },
   ],
-};
+  name: "ingredient",
+  title: "Ingredient",
+  type: "document",
+});

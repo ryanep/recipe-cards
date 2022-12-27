@@ -10,28 +10,27 @@
   "license": "UNLICENSED",
   "author": "Ryan Elliott-Potter <ryan@ryanep.com>",
   "scripts": {
-    "dev": "sanity start --port 3001 --host 0.0.0.0",
+    "dev": "sanity dev --port 3001 --host 0.0.0.0",
+    "start": "sanity start --port 3001 --host 0.0.0.0",
     "build": "sanity build",
     "deploy": "sanity deploy",
     "lint": "eslint './**/*.{ts,tsx}'"
   },
   "dependencies": {
-    "@sanity/base": "^2.29.3",
     "@sanity/components": "^2.14.0",
-    "@sanity/core": "^2.29.3",
-    "@sanity/default-layout": "^2.29.3",
-    "@sanity/default-login": "^2.29.3",
-    "@sanity/desk-tool": "^2.29.4",
-    "@sanity/vision": "^2.29.3",
-    "prop-types": "^15.7",
-    "react": "^17.0",
-    "react-dom": "^17.0",
+    "@sanity/vision": "^3.1.2",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sanity": "^3.1.2",
     "sanity-plugin-autocomplete-tags": "^1.0.1",
-    "styled-components": "^5.2.0"
+    "styled-components": "^5.3.6"
   },
   "devDependencies": {
-    "@sanity/cli": "^2.29.3",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.32.0"
+    "@rushstack/eslint-patch": "^1.2.0",
+    "@ryanep/eslint-config": "^0.0.15",
+    "@ryanep/prettier-config": "^1.0.2",
+    "@sanity/cli": "^3.1.2",
+    "eslint": "^8.30.0"
   }
 }

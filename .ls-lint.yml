@@ -16,3 +16,6 @@ ignore:
   - ./packages/website/.serverless_nextjs
   - ./packages/sanity/node_modules
   - ./packages/sanity/dist
+  - ./packages/sanity/sanity.config.ts
+  - ./packages/sanity/sanity.cli.ts
+  - ./packages/sanity/.eslintrc.js

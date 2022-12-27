@@ -1,26 +1,22 @@
-export const recipe = {
-  title: "Recipe",
-  name: "recipe",
-  type: "document",
+import { defineType } from "sanity";
+
+export const recipe = defineType({
   fields: [
     {
-      title: "Name",
       name: "name",
+      title: "Name",
       type: "string",
       validation: (Rule) => Rule.required().max(100),
     },
     {
-      title: "Description",
       name: "description",
+      title: "Description",
       type: "string",
       validation: (Rule) => Rule.required(),
     },
     {
-      title: "Rating",
-      name: "rating",
-      type: "number",
       description: "Apply a rating out of 5 stars",
-      validation: (Rule) => Rule.required(),
+      name: "rating",
       options: {
         list: [
           { title: "1 Star", value: 1 },
@@ -30,41 +26,47 @@ export const recipe = {
           { title: "5 Stars", value: 5 },
         ],
       },
-    },
-    {
-      name: "tags",
-      title: "Tags",
-      type: "tags",
-    },
-    {
-      title: "Image URL",
-      name: "imageUrl",
-      type: "image",
-      options: {
-        hotspot: true,
-      },
+      title: "Rating",
+      type: "number",
       validation: (Rule) => Rule.required(),
+    },
+    // {
+    //   name: "tags",
+    //   title: "Tags",
+    //   type: "tags",
+    // },
+    {
       fields: [
         {
           name: "caption",
-          type: "string",
           title: "Caption",
+          type: "string",
         },
       ],
+      name: "imageUrl",
+      options: {
+        hotspot: true,
+      },
+      title: "Image URL",
+      type: "image",
+      validation: (Rule) => Rule.required(),
     },
     {
-      title: "Ingredients",
       name: "ingredients",
+      of: [{ type: "ingredient" }],
+      title: "Ingredients",
       type: "array",
       validation: (Rule) => Rule.required(),
-      of: [{ type: "ingredient" }],
     },
     {
-      title: "Steps",
       name: "steps",
+      of: [{ type: "step" }],
+      title: "Steps",
       type: "array",
       validation: (Rule) => Rule.required(),
-      of: [{ type: "step" }],
     },
   ],
-};
+  name: "recipe",
+  title: "Recipe",
+  type: "document",
+});
