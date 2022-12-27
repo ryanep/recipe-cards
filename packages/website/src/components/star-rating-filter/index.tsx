@@ -17,9 +17,9 @@ export const StarRatingFilter = ({ onChange }: StarRatingFilterProps) => {
               <styled.Checkbox
                 id={`rating-${option}`}
                 name="rating"
-                value={option}
-                type="checkbox"
                 onChange={onChange}
+                type="checkbox"
+                value={option}
               />
               {t("common:rating", { count: option })}
             </styled.Label>

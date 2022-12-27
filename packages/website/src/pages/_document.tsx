@@ -1,28 +1,23 @@
-import Document, {
-  DocumentContext,
-  Html,
-  Head,
-  Main,
-  NextScript,
-  DocumentInitialProps,
-} from "next/document";
+import Document, { Html, Head, Main, NextScript } from "next/document";
 import { ServerStyleSheet } from "styled-components";
+import type { DocumentContext, DocumentInitialProps } from "next/document";
 
-interface MyDocumentProps extends DocumentInitialProps {}
+type MyDocumentProps = DocumentInitialProps;
 
 class MyDocument extends Document<MyDocumentProps> {
-  static async getInitialProps(ctx: DocumentContext) {
+  static async getInitialProps(context: DocumentContext) {
     const sheet = new ServerStyleSheet();
-    const originalRenderPage = ctx.renderPage;
+    const originalRenderPage = context.renderPage;
 
     try {
-      ctx.renderPage = () =>
+      context.renderPage = () =>
         originalRenderPage({
           enhanceApp: (App) => (props) =>
+            // eslint-disable-next-line react/jsx-props-no-spreading
             sheet.collectStyles(<App {...props} />),
         });
 
-      const initialProps = await Document.getInitialProps(ctx);
+      const initialProps = await Document.getInitialProps(context);
       return {
         ...initialProps,
         styles: (
@@ -41,7 +36,7 @@ class MyDocument extends Document<MyDocumentProps> {
     return (
       <Html lang="en">
         <Head>
-          <link rel="icon" href="/images/favicon.png" />
+          <link href="/images/favicon.png" rel="icon" />
         </Head>
         <body>
           <Main />

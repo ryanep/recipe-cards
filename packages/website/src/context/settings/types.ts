@@ -1,17 +1,17 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 export interface SettingsProviderProps {
   children: ReactNode;
 }
 
 export interface SettingsProviderContext {
+  changeServings: (servings: number) => void;
+  changeUnits: (units: MeasurementsUnit) => void;
   servings: number;
   units: MeasurementsUnit;
-  changeUnits: (units: MeasurementsUnit) => void;
-  changeServings: (servings: number) => void;
 }
 
 export enum MeasurementsUnit {
-  Metric = "metric",
   Imperial = "imperial",
+  Metric = "metric",
 }

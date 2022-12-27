@@ -1,10 +1,7 @@
 import { createContext, useMemo } from "react";
 import { useLocalStorage } from "#/hooks/misc/local-storage";
-import {
-  MeasurementsUnit,
-  SettingsProviderContext,
-  SettingsProviderProps,
-} from "./types";
+import { MeasurementsUnit } from "./types";
+import type { SettingsProviderContext, SettingsProviderProps } from "./types";
 
 export const SettingsContext = createContext<
   SettingsProviderContext | undefined
@@ -25,12 +22,12 @@ export const SettingsProvider = ({ children }: SettingsProviderProps) => {
 
   const value = useMemo(
     () => ({
+      changeServings: setServings,
+      changeUnits: setUnits,
       servings,
       units,
-      changeUnits: setUnits,
-      changeServings: setServings,
     }),
-    [servings, units]
+    [servings, units, setServings, setUnits]
   );
 
   return (

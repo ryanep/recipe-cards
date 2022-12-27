@@ -9,11 +9,11 @@ export const RecipeGrid = ({ recipes }: RecipeGridProps) => {
   return (
     <styled.Grid>
       {recipes.map((recipe) => (
-        <Link key={recipe.id} href={`/recipe/${recipe.id}`}>
+        <Link href={`/recipe/${recipe.id}`} key={recipe.id}>
           <styled.Link href={`/recipe/${recipe.id}`}>
-            <styled.Image src={`${recipe.imageUrl}?w=300`} alt={recipe.name} />
+            <styled.Image alt={recipe.name} src={`${recipe.imageUrl}?w=300`} />
             <styled.Info>
-              <Heading type="h2" as="h3" text={recipe.name} />
+              <Heading as="h3" text={recipe.name} type="h2" />
               <Spacer size="small" />
               <StarRating rating={recipe.rating} />
               <Spacer size="medium" />

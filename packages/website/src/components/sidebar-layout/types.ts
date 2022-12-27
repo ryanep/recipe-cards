@@ -1,8 +1,10 @@
-import { ReactNode } from "react";
-import type { Breadcrumb } from "#/components/breadcrumbs/types";
+import type { ReactNode } from "react";
 
 export interface SidebarLayoutProps {
-  sidebar: ReactNode;
+  breadcrumbs: {
+    title: string;
+    url: string;
+  }[];
   children: ReactNode;
-  breadcrumbs: Breadcrumb[];
+  sidebar: ReactNode;
 }

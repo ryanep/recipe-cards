@@ -3,9 +3,11 @@ import * as styled from "./styles";
 import type { StarRatingProps } from "./types";
 
 export const StarRating = ({ rating }: StarRatingProps) => {
+  const stars = Array.from({ length: rating });
+
   return (
     <styled.Rating>
-      {[...Array(rating)].map((star, index) => (
+      {stars.map((star, index) => (
         /* eslint-disable-next-line react/no-array-index-key */
         <Star key={index} />
       ))}

@@ -1,11 +1,11 @@
 import { useTranslation } from "react-i18next";
 import * as styled from "./styles";
-import { IngredientsProps } from "./types";
+import type { IngredientsProps } from "./types";
 
 export const Ingredients = ({
   ingredients,
-  selectedIngredients,
   onIngredientClick,
+  selectedIngredients,
 }: IngredientsProps) => {
   const { t } = useTranslation();
 
@@ -15,10 +15,12 @@ export const Ingredients = ({
         <styled.Ingredient key={ingredient.id}>
           <styled.Label>
             <styled.Input
-              type="checkbox"
-              onChange={() => onIngredientClick(ingredient.id)}
-              value={index}
               checked={selectedIngredients.includes(ingredient.id)}
+              onChange={() => {
+                onIngredientClick(ingredient.id);
+              }}
+              type="checkbox"
+              value={index}
             />
             <styled.Checkbox />
             <styled.Content>

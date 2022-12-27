@@ -1,10 +1,10 @@
 export interface StepsProps {
-  steps: {
-    id: string;
-    description: string;
-  }[];
   onStepClick: (stepIndex: number) => void;
   selectedStepIndex: number;
+  steps: {
+    description: string;
+    id: string;
+  }[];
 }
 
 export interface StepStyleProps {

@@ -1,12 +1,12 @@
 import { Header } from "#/components/header";
 import { Root } from "#/components/root";
 import * as styled from "./styles";
-import { SidebarLayoutProps } from "./types";
+import type { SidebarLayoutProps } from "./types";
 
 export const SidebarLayout = ({
-  sidebar,
-  children,
   breadcrumbs,
+  children,
+  sidebar,
 }: SidebarLayoutProps) => (
   <Root>
     <div>

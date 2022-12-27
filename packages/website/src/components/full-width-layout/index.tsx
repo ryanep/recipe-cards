@@ -1,11 +1,11 @@
 import { Header } from "#/components/header";
 import { Root } from "#/components/root";
 import * as styled from "./styles";
-import { FullWidthLayoutProps } from "./types";
+import type { FullWidthLayoutProps } from "./types";
 
 export const FullWidthLayout = ({
-  children,
   breadcrumbs,
+  children,
 }: FullWidthLayoutProps) => (
   <Root>
     <styled.Layout>

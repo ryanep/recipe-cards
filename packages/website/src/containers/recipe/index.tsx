@@ -9,7 +9,7 @@ import { SidebarLayout } from "#/components/sidebar-layout";
 import { Spacer } from "#/components/spacer";
 import { Steps } from "#/components/steps";
 import { metricImperialMap } from "#/constants/units";
-import { MeasurementsUnit } from "#/context/settings/types";
+import type { MeasurementsUnit } from "#/context/settings/types";
 import { useSettingsContext } from "#/hooks/context/settings";
 import { createRecipeService } from "#/services/recipe";
 import { calculateServings, adjustUnits } from "#/utils/ingredient";
@@ -24,7 +24,7 @@ export const RecipeContainer = ({ recipe }: RecipeContainerProps) => {
       url: `/recipe/${recipe.id}`,
     },
   ];
-  const { servings, units, changeServings, changeUnits } = useSettingsContext();
+  const { changeServings, changeUnits, servings, units } = useSettingsContext();
   const [selectedIngredients, setSelectedIngredients] = useState<string[]>([]);
   const [selectedStepIndex, setSelectedStepIndex] = useState<number>(-1);
   const [showIngredients, setShowIngredients] = useState(true);
@@ -52,8 +52,8 @@ export const RecipeContainer = ({ recipe }: RecipeContainerProps) => {
   };
 
   const handleStepClick = (stepIndex: number) => {
-    setSelectedStepIndex((prevIndex) =>
-      prevIndex === stepIndex ? stepIndex - 1 : stepIndex
+    setSelectedStepIndex((previousIndex) =>
+      previousIndex === stepIndex ? stepIndex - 1 : stepIndex
     );
   };
 
@@ -70,40 +70,40 @@ export const RecipeContainer = ({ recipe }: RecipeContainerProps) => {
       breadcrumbs={breadcrumbs}
       sidebar={
         <RecipeSidebar
+          description={recipe.description}
           imageUrl={recipe.imageUrl}
           name={recipe.name}
-          description={recipe.description}
+          onServingChange={handleServingChange}
+          onUnitChange={handleUnitChange}
           servings={servings}
           units={units}
-          onUnitChange={handleUnitChange}
-          onServingChange={handleServingChange}
         />
       }
     >
       <Head>
         <title>{t("recipe:pageTitle", { name: recipe.name })}</title>
-        <meta name="description" content={recipe.description} />
-        <meta property="og:title" content={recipe.name} />
-        <meta property="og:description" content={recipe.description} />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content={recipe.imageUrl} />
+        <meta content={recipe.description} name="description" />
+        <meta content={recipe.name} property="og:title" />
+        <meta content={recipe.description} property="og:description" />
+        <meta content="website" property="og:type" />
+        <meta content={recipe.imageUrl} property="og:image" />
       </Head>
-      <Heading type="h2" as="h4" text={t("recipe:ingredients")} />
+      <Heading as="h4" text={t("recipe:ingredients")} type="h2" />
       <Spacer size="medium" />
-      {showIngredients && (
+      {showIngredients ? (
         <Ingredients
           ingredients={adjustedIngredients}
-          selectedIngredients={selectedIngredients}
           onIngredientClick={handleIngredientClick}
+          selectedIngredients={selectedIngredients}
         />
-      )}
+      ) : null}
       <Spacer size="medium" />
-      <Heading type="h2" as="h4" text={t("recipe:steps")} />
+      <Heading as="h4" text={t("recipe:steps")} type="h2" />
       <Spacer size="medium" />
       <Steps
-        steps={recipe.steps}
-        selectedStepIndex={selectedStepIndex}
         onStepClick={handleStepClick}
+        selectedStepIndex={selectedStepIndex}
+        steps={recipe.steps}
       />
     </SidebarLayout>
   );

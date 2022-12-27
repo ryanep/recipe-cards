@@ -1,7 +1,7 @@
 export interface HeadingProps {
-  type: HeadingTag;
   as?: HeadingTag;
   text: string;
+  type: HeadingTag;
 }
 
 export interface HeadingStyleProps {

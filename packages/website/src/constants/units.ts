@@ -1,33 +1,34 @@
-export interface AmountMap {
-  [key: string]: {
-    value: number;
+export type AmountMap = Record<
+  string,
+  {
     unit: string;
-  };
-}
+    value: number;
+  }
+>;
 
 export const metricImperialMap: AmountMap = {
-  grams: {
-    value: 0.03,
-    unit: "ounce",
-  },
-  whole: {
+  bunch: {
+    unit: "bunch",
     value: 1,
-    unit: "whole",
+  },
+  grams: {
+    unit: "ounce",
+    value: 0.03,
   },
   millilitres: {
-    value: 0.004,
     unit: "cup",
-  },
-  bunch: {
-    value: 1,
-    unit: "bunch",
+    value: 0.004,
   },
   tablespoon: {
-    value: 1,
     unit: "tablespoon",
+    value: 1,
   },
   teaspoon: {
-    value: 1,
     unit: "teaspoon",
+    value: 1,
+  },
+  whole: {
+    unit: "whole",
+    value: 1,
   },
 };

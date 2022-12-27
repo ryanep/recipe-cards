@@ -13,8 +13,12 @@ export const RecipeFilters = ({
   const { t } = useTranslation();
   const formik = useFormik({
     initialValues,
-    onSubmit: (values) => {
-      onSubmit(values);
+    onSubmit: async (values) => {
+      try {
+        await onSubmit(values);
+      } catch (error: unknown) {
+        console.log("Form submit failed. Please try again.", error);
+      }
     },
   });
 
@@ -24,15 +28,15 @@ export const RecipeFilters = ({
         {t("filters:nameHeading")}
         <Spacer size="small" />
         <styled.Input
+          autoComplete="off"
           id="name"
-          type="text"
           name="name"
           onChange={formik.handleChange}
-          autoComplete="off"
+          type="text"
         />
       </styled.Label>
       <Spacer size="medium" />
-      <Heading type="h3" as="h5" text={t("filters:ratingHeading")} />
+      <Heading as="h5" text={t("filters:ratingHeading")} type="h3" />
       <Spacer size="small" />
       <StarRatingFilter onChange={formik.handleChange} />
       <Spacer size="medium" />

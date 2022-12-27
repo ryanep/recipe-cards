@@ -1,28 +1,28 @@
 export interface Ingredient {
+  amount: number;
   id: string;
   name: string;
-  amount: number;
   unit: string;
 }
 
 export interface Recipe {
-  id: string;
-  name: string;
   description: string;
-  rating: number;
+  id: string;
   imageUrl: string;
+  ingredients: {
+    amount: number;
+    id: string;
+    name: string;
+    unit: string;
+  }[];
+  name: string;
+  rating: number;
+  steps: {
+    description: string;
+    id: string;
+  }[];
   tags: {
     id: string;
     name: string;
-  }[];
-  ingredients: {
-    id: string;
-    name: string;
-    amount: number;
-    unit: string;
-  }[];
-  steps: {
-    id: string;
-    description: string;
   }[];
 }

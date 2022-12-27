@@ -4,41 +4,41 @@ import { ServingInput } from "#/components/serving-input";
 import { Spacer } from "#/components/spacer";
 import { MeasurementUnitInput } from "../unit-input";
 import * as styled from "./styles";
-import { RecipeSidebarProps } from "./types";
+import type { RecipeSidebarProps } from "./types";
 
 export const RecipeSidebar = ({
+  description,
   imageUrl,
   name,
-  description,
+  onServingChange,
+  onUnitChange,
   servings,
   units,
-  onUnitChange,
-  onServingChange,
 }: RecipeSidebarProps) => {
   const { t } = useTranslation();
 
   return (
     <div>
-      <styled.Image src={`${imageUrl}?w=500`} alt={name} />
+      <styled.Image alt={name} src={`${imageUrl}?w=500`} />
       <styled.Content>
         <styled.Name>{name}</styled.Name>
         <Spacer size="medium" />
         <styled.Description>{description}</styled.Description>
         <Spacer size="large" />
-        <Heading type="h2" as="h4" text={t("common:measurement")} />
+        <Heading as="h4" text={t("common:measurement")} type="h2" />
         <Spacer size="medium" />
         <MeasurementUnitInput
-          selectedUnit={units}
           onUnitChange={onUnitChange}
+          selectedUnit={units}
         />
         <Spacer size="large" />
-        <Heading type="h2" as="h4" text={t("common:servings")} />
+        <Heading as="h4" text={t("common:servings")} type="h2" />
         <Spacer size="medium" />
         <ServingInput
-          servings={servings}
-          onChange={onServingChange}
-          min={1}
           max={12}
+          min={1}
+          onChange={onServingChange}
+          servings={servings}
         />
       </styled.Content>
     </div>

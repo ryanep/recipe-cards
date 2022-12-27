@@ -7,8 +7,10 @@ export const useLocalStorage = <TValue>(
   const [storedValue, setStoredValue] = useState<TValue>(() => {
     try {
       const item = window.localStorage.getItem(key);
-      return item ? JSON.parse(item) : initialValue;
-    } catch (error) {
+      const data = item ? (JSON.parse(item) as TValue) : initialValue;
+
+      return data;
+    } catch {
       return initialValue;
     }
   });
@@ -17,7 +19,7 @@ export const useLocalStorage = <TValue>(
     try {
       setStoredValue(value);
       window.localStorage.setItem(key, JSON.stringify(value));
-    } catch (error) {
+    } catch {
       /* eslint-disable-next-line no-console */
       console.error("Failed to set local storage value.");
     }

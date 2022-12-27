@@ -1,10 +1,8 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useTranslation } from "react-i18next";
-import type { Breadcrumb } from "#/components/breadcrumbs/types";
 import { Heading } from "#/components/heading";
 import { RecipeFilters } from "#/components/recipe-filters";
-import { RecipeFiltersFormValues } from "#/components/recipe-filters/types";
 import { RecipeGrid } from "#/components/recipe-grid";
 import { SidebarLayout } from "#/components/sidebar-layout";
 import { Spacer } from "#/components/spacer";
@@ -12,7 +10,7 @@ import { createRecipeService } from "#/services/recipe";
 import { createSanityClient } from "#/utils/sanity";
 import type { HomeContainerProps, HomePageContext } from "./types";
 
-const breadcrumbs: Breadcrumb[] = [];
+const breadcrumbs: { title: string; url: string }[] = [];
 
 export const HomeContainer = ({ recipes }: HomeContainerProps) => {
   const { t } = useTranslation();
@@ -22,11 +20,11 @@ export const HomeContainer = ({ recipes }: HomeContainerProps) => {
     rating: [],
   };
 
-  const handleFiltersSubmit = async (values: RecipeFiltersFormValues) => {
-    router.replace({
+  const handleFiltersSubmit = async (values: { rating: number[] }) => {
+    await router.replace({
       pathname: "/",
       query: {
-        ...values,
+        rating: values.rating,
       },
     });
     return true;
@@ -37,7 +35,7 @@ export const HomeContainer = ({ recipes }: HomeContainerProps) => {
       breadcrumbs={breadcrumbs}
       sidebar={
         <div>
-          <Heading type="h2" as="h4" text={t("home:filters")} />
+          <Heading as="h4" text={t("home:filters")} type="h2" />
           <Spacer size="medium" />
           <RecipeFilters
             initialValues={initialFilterValues}
@@ -49,7 +47,7 @@ export const HomeContainer = ({ recipes }: HomeContainerProps) => {
       <Head>
         <title>{t("home:pageTitle")}</title>
       </Head>
-      <Heading type="h1" as="h2" text={t("home:heading")} />
+      <Heading as="h2" text={t("home:heading")} type="h1" />
       <Spacer size="tiny" />
       <p>{t("home:results", { count: recipes.length })}</p>
       <Spacer size="medium" />

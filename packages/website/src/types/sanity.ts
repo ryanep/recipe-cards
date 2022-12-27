@@ -1,21 +1,21 @@
 export interface SanityRecipe {
   _id: string;
-  name: string;
   description: string;
-  rating: number;
   imageUrl: string;
-  tags: {
-    label: string;
-    value: string;
-  }[];
   ingredients: {
     _key: string;
-    name: string;
     amount: number;
+    name: string;
     unit: string;
   }[];
+  name: string;
+  rating: number;
   steps: {
     _key: string;
     description: string;
+  }[];
+  tags: {
+    label: string;
+    value: string;
   }[];
 }

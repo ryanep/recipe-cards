@@ -3,32 +3,32 @@ import type { SanityRecipe } from "#/types/sanity";
 
 export const createSanityClient = () =>
   sanityClient({
-    projectId: "21t4zq9k",
-    dataset: "production",
     apiVersion: "2021-03-31",
+    dataset: "production",
+    projectId: "21t4zq9k",
     useCdn: false,
   });
 
 export const formatRecipe = (recipe: SanityRecipe) => {
   return {
-    id: recipe._id,
-    name: recipe.name,
     description: recipe.description,
-    rating: recipe.rating,
+    id: recipe._id,
     imageUrl: recipe.imageUrl,
+    ingredients: recipe.ingredients.map((ingredient) => ({
+      amount: ingredient.amount,
+      id: ingredient._key,
+      name: ingredient.name,
+      unit: ingredient.unit,
+    })),
+    name: recipe.name,
+    rating: recipe.rating,
+    steps: recipe.steps.map((step) => ({
+      description: step.description,
+      id: step._key,
+    })),
     tags: recipe.tags.map((tag) => ({
       id: tag.value,
       name: tag.label,
-    })),
-    ingredients: recipe.ingredients.map((ingredient) => ({
-      id: ingredient._key,
-      name: ingredient.name,
-      amount: ingredient.amount,
-      unit: ingredient.unit,
-    })),
-    steps: recipe.steps.map((step) => ({
-      id: step._key,
-      description: step.description,
     })),
   };
 };

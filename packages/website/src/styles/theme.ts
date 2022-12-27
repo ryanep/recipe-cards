@@ -5,18 +5,18 @@ import { spacing } from "./spacing";
 
 export const theme = {
   colours,
-  spacing,
   sizing,
+  spacing,
 };
 
 export type Theme = typeof theme;
 
 const {
-  default: styled,
-  css,
-  createGlobalStyle,
-  keyframes,
   ThemeProvider,
-} = (styledComponents as unknown) as styledComponents.ThemedStyledComponentsModule<Theme>;
+  createGlobalStyle,
+  css,
+  default: styled,
+  keyframes,
+} = styledComponents as unknown as styledComponents.ThemedStyledComponentsModule<Theme>;
 
 export { styled, css, createGlobalStyle, keyframes, ThemeProvider };

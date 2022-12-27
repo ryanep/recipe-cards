@@ -1,5 +1,5 @@
-import { NextPageContext } from "next";
-import { Recipe } from "#/types/general";
+import type { Recipe } from "#/types/general";
+import type { NextPageContext } from "next";
 
 export interface RecipeContainerProps {
   recipe: Recipe;

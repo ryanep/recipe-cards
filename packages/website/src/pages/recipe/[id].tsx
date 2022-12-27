@@ -1,3 +1,1 @@
-import { RecipeContainer } from "#/containers/recipe";
-
-export default RecipeContainer;
+export { RecipeContainer as default } from "#/containers/recipe";

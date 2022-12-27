@@ -1,10 +1,10 @@
 import { styled } from "#/styles/theme";
-import { SpacerStyleProps } from "./types";
+import type { SpacerStyleProps } from "./types";
 
 export const Spacer = styled.div<SpacerStyleProps>`
   display: ${({ axis }) => (axis === "vertical" ? "inline-block" : undefined)};
-  width: ${({ axis, theme, size }) =>
+  width: ${({ axis, size, theme }) =>
     axis === "vertical" ? theme.spacing[size] : undefined};
-  height: ${({ axis, theme, size }) =>
+  height: ${({ axis, size, theme }) =>
     axis === "horizontal" ? theme.spacing[size] : undefined};
 `;

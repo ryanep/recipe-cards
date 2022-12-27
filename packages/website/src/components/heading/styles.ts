@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { HeadingStyleProps, HeadingTag } from "./types";
+import type { HeadingStyleProps, HeadingTag } from "./types";
 
 const getFontSize = (tag: HeadingTag) => {
   switch (tag) {

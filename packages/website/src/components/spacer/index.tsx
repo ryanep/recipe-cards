@@ -1,6 +1,6 @@
 import * as styled from "./styles";
-import { SpacerProps } from "./types";
+import type { SpacerProps } from "./types";
 
-export const Spacer = ({ size, direction = "horizontal" }: SpacerProps) => (
-  <styled.Spacer size={size} axis={direction} />
+export const Spacer = ({ direction = "horizontal", size }: SpacerProps) => (
+  <styled.Spacer axis={direction} size={size} />
 );

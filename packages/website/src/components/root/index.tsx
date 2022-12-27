@@ -1,5 +1,5 @@
 import * as styled from "./styles";
-import { RootProps } from "./types";
+import type { RootProps } from "./types";
 
 export const Root = ({ children }: RootProps) => (
   <>

@@ -1,20 +1,22 @@
 import * as styled from "./styles";
-import { StepsProps } from "./types";
+import type { StepsProps } from "./types";
 
 export const Steps = ({
-  steps,
-  selectedStepIndex,
   onStepClick,
+  selectedStepIndex,
+  steps,
 }: StepsProps) => (
   <styled.List>
     {steps.map((step, index) => (
-      <styled.Step key={step.id} isCurrent={index === selectedStepIndex + 1}>
+      <styled.Step isCurrent={index === selectedStepIndex + 1} key={step.id}>
         <styled.Label>
           <styled.Checkbox
-            type="checkbox"
-            onChange={() => onStepClick(index)}
-            value={index}
             checked={index <= selectedStepIndex}
+            onChange={() => {
+              onStepClick(index);
+            }}
+            type="checkbox"
+            value={index}
           />
           <styled.Content>
             <styled.Title>Step {index + 1}</styled.Title>

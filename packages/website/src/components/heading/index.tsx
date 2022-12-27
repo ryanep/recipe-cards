@@ -1,8 +1,8 @@
 import * as styled from "./styles";
-import { HeadingProps } from "./types";
+import type { HeadingProps } from "./types";
 
-export const Heading = ({ type, as, text }: HeadingProps) => (
-  <styled.Heading tag={as ?? type} as={type}>
+export const Heading = ({ as, text, type }: HeadingProps) => (
+  <styled.Heading as={type} tag={as ?? type}>
     {text}
   </styled.Heading>
 );

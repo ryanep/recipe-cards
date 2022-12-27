@@ -1,6 +1,6 @@
 import { Breadcrumbs } from "#/components/breadcrumbs";
 import * as styled from "./styles";
-import { HeaderProps } from "./types";
+import type { HeaderProps } from "./types";
 
 export const Header = ({ breadcrumbs }: HeaderProps) => {
   return (
@@ -12,8 +12,8 @@ export const Header = ({ breadcrumbs }: HeaderProps) => {
           <li>
             <styled.DropdownLink
               href="https://recipe-cards.sanity.studio"
-              target="_blank"
               rel="noopener"
+              target="_blank"
             >
               Manage recipes
             </styled.DropdownLink>
