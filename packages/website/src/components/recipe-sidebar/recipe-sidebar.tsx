@@ -1,8 +1,8 @@
 import { useTranslation } from "react-i18next";
 import { Heading } from "#/components/heading";
+import { MeasurementUnitInput } from "#/components/measurement-unit-input";
 import { ServingInput } from "#/components/serving-input";
 import { Spacer } from "#/components/spacer";
-import { MeasurementUnitInput } from "../unit-input";
 import * as styled from "./styles";
 import type { RecipeSidebarProps } from "./types";
 
