@@ -14,6 +14,7 @@
     "start": "sanity start --port 3001 --host 0.0.0.0",
     "build": "sanity build",
     "deploy": "sanity deploy",
+    "fmt": "prettier --write ./**/*.{ts,tsx}",
     "lint": "eslint './**/*.{ts,tsx}'"
   },
   "dependencies": {

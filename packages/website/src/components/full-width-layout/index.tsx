@@ -8,11 +8,12 @@ export const FullWidthLayout = ({
   children,
 }: FullWidthLayoutProps) => (
   <Root>
-    <styled.Layout>
+    <div>
       <Header breadcrumbs={breadcrumbs} />
+
       <styled.Content>
-        <styled.Main>{children}</styled.Main>
+        <main>{children}</main>
       </styled.Content>
-    </styled.Layout>
+    </div>
   </Root>
 );

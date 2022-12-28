@@ -9,27 +9,21 @@ class MyDocument extends Document<MyDocumentProps> {
     const sheet = new ServerStyleSheet();
     const originalRenderPage = context.renderPage;
 
-    try {
-      context.renderPage = () =>
-        originalRenderPage({
-          enhanceApp: (App) => (props) =>
-            // eslint-disable-next-line react/jsx-props-no-spreading
-            sheet.collectStyles(<App {...props} />),
-        });
+    context.renderPage = () =>
+      originalRenderPage({
+        enhanceApp: (App) => (props) =>
+          // eslint-disable-next-line react/jsx-props-no-spreading
+          sheet.collectStyles(<App {...props} />),
+      });
 
-      const initialProps = await Document.getInitialProps(context);
-      return {
-        ...initialProps,
-        styles: (
-          <>
-            {initialProps.styles}
-            {sheet.getStyleElement()}
-          </>
-        ),
-      };
-    } finally {
-      sheet.seal();
-    }
+    const initialProps = await Document.getInitialProps(context);
+
+    sheet.seal();
+
+    return {
+      ...initialProps,
+      styles: sheet.getStyleElement(),
+    };
   }
 
   render() {

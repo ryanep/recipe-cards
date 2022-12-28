@@ -1,11 +1,12 @@
 {
   "name": "@recipe-cards/website",
   "version": "1.0.0",
+  "private": true,
   "repository": "https://github.com/ryanep/recipe-cards.git",
   "license": "MIT",
   "author": "Ryan Elliott-Potter <ryan@ryanep.com>",
   "scripts": {
-    "dev": "next dev",
+    "dev": "NODE_OPTIONS='--openssl-legacy-provider' next dev",
     "build": "NODE_ENV=production next build",
     "start": "next start",
     "fmt": "prettier --write ./**/*.{ts,tsx}",
@@ -18,8 +19,8 @@
     "i18next": "^20.3.1",
     "next": "^10.2.3",
     "ramda": "^0.27.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-i18next": "^11.10.0",
     "styled-components": "4.4.1",
     "styled-reset": "^4.3.4"
@@ -29,7 +30,8 @@
     "@ryanep/prettier-config": "^1.0.2",
     "@types/node": "^15.12.1",
     "@types/ramda": "^0.27.40",
-    "@types/react": "^17.0.9",
+    "@types/react": "18.0.1",
+    "@types/react-dom": "^18.0.10",
     "@types/react-helmet": "^6.1.1",
     "@types/styled-components": "^5.1.7",
     "@typescript-eslint/eslint-plugin": "^4.26.0",
@@ -46,7 +48,7 @@
     "stylelint-config-recommended": "^5.0.0",
     "stylelint-config-styled-components": "^0.1.1",
     "ts-node": "^10.0.0",
-    "typescript": "^4.3.2",
+    "typescript": "^4.9.4",
     "typescript-transform-paths": "^2.2.4"
   }
 }
