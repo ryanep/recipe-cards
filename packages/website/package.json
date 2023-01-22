@@ -7,7 +7,7 @@
   "author": "Ryan Elliott-Potter <ryan@ryanep.com>",
   "scripts": {
     "dev": "NODE_OPTIONS='--openssl-legacy-provider' next dev",
-    "build": "NODE_ENV=production next build",
+    "build": "NODE_OPTIONS='--openssl-legacy-provider' NODE_ENV=production next build",
     "start": "next start",
     "fmt": "prettier --write ./**/*.{ts,tsx}",
     "lint": "eslint './**/*.{ts,tsx}'",
@@ -28,6 +28,13 @@
   "devDependencies": {
     "@ryanep/eslint-config": "^0.0.15",
     "@ryanep/prettier-config": "^1.0.2",
+    "@sls-next/aws-cloudfront": "3.7.0-alpha.9",
+    "@sls-next/aws-lambda": "3.7.0-alpha.9",
+    "@sls-next/aws-s3": "3.7.0-alpha.9",
+    "@sls-next/aws-sqs": "^3.7.0-alpha.12",
+    "@sls-next/cdk-construct": "3.7.0-alpha.9",
+    "@sls-next/domain": "3.7.0-alpha.9",
+    "@sls-next/serverless-component": "3.7.0-alpha.9",
     "@types/node": "^15.12.1",
     "@types/ramda": "^0.27.40",
     "@types/react": "18.0.1",
