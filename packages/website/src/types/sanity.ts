@@ -14,7 +14,7 @@ export interface SanityRecipe {
     _key: string;
     description: string;
   }[];
-  tags: {
+  tags?: {
     label: string;
     value: string;
   }[];

@@ -17,11 +17,13 @@ export const RecipeGrid = ({ recipes }: RecipeGridProps) => {
               <Spacer size="small" />
               <StarRating rating={recipe.rating} />
               <Spacer size="medium" />
-              <styled.Tags>
-                {recipe.tags.map((tag) => (
-                  <styled.Tag key={tag.id}>{tag.name}</styled.Tag>
-                ))}
-              </styled.Tags>
+              {recipes.length > 0 ? (
+                <styled.Tags>
+                  {recipe.tags.map((tag) => (
+                    <styled.Tag key={tag.id}>{tag.name}</styled.Tag>
+                  ))}
+                </styled.Tags>
+              ) : null}
             </styled.Info>
           </styled.Link>
         </Link>

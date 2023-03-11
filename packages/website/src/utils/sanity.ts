@@ -26,9 +26,11 @@ export const formatRecipe = (recipe: SanityRecipe) => {
       description: step.description,
       id: step._key,
     })),
-    tags: recipe.tags.map((tag) => ({
-      id: tag.value,
-      name: tag.label,
-    })),
+    tags: recipe.tags
+      ? recipe.tags.map((tag) => ({
+          id: tag.value,
+          name: tag.label,
+        }))
+      : [],
   };
 };
