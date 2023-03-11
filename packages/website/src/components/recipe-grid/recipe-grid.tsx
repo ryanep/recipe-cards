@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { Heading } from "#/components/heading";
+import { Link } from "#/components/link";
 import { Spacer } from "#/components/spacer";
 import { StarRating } from "#/components/star-rating";
 import * as styled from "./styles";

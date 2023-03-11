@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { Fragment } from "react";
+import { Link } from "#/components/link";
 import * as styled from "./styles";
 import type { BreadcrumbsProps } from "./types";
 
