@@ -12,10 +12,10 @@ TASK_FAILED = @echo ${COLOUR_RED} âœ˜ Task failed: $@ ${COLOUR_END}
 release:
 	${TASK_STARTED}
 	cd ./packages/website && \
-	NODE_ENV=production npx serverless --verbose
+	NODE_ENV=production npx --yes serverless --verbose
 	${TASK_FAILED}
 remove:
 	${TASK_STARTED}
 	cd ./packages/website && \
-	NODE_ENV=production npx serverless remove --verbose
+	NODE_ENV=production npx --yes serverless remove --verbose
 	${TASK_FAILED}

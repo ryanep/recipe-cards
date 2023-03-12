@@ -2,6 +2,7 @@ myNextApplication:
   component: "./node_modules/@sls-next/serverless-component"
   inputs:
     cloudfront:
+      distributionId: E3NAL7M4HW5DT9
       aliases: ["recipes.ryanep.com"]
       certificate:
         cloudFrontDefaultCertificate: false
