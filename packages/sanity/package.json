@@ -25,7 +25,9 @@
     "react-dom": "^18.2.0",
     "sanity": "^3.1.2",
     "sanity-plugin-autocomplete-tags": "^1.0.1",
-    "styled-components": "^5.3.6"
+    "sanity-plugin-tags": "^2.0.1",
+    "styled-components": "^5.3.6",
+    "tags": "^2.0.10"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.2.0",

@@ -30,11 +30,11 @@ export const recipe = defineType({
       type: "number",
       validation: (Rule) => Rule.required(),
     },
-    // {
-    //   name: "tags",
-    //   title: "Tags",
-    //   type: "tags",
-    // },
+    {
+      name: "tags",
+      title: "Tags",
+      type: "tags",
+    },
     {
       fields: [
         {
