@@ -1,0 +1,24 @@
+{
+  "name": "Run application",
+  "appPort": ["3000:3000"],
+  "build": {
+    "dockerfile": "./dockerfile",
+    "args": { "VARIANT": "20" }
+  },
+  "postCreateCommand": "npm install",
+  "remoteUser": "node",
+  "features": {
+    "git": "latest"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "prisma.prisma",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "waderyan.gitblame",
+        "bradlc.vscode-tailwindcss"
+      ]
+    }
+  }
+}

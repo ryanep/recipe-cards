@@ -4,5 +4,6 @@
   "metric": "Metric",
   "imperial": "Imperial",
   "measurement": "measurement",
-  "servings": "Servings"
+  "servings": "Servings",
+  "test": "test localised string"
 }
