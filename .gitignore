@@ -1,6 +1,3 @@
-node_modules
-dist
-.next
-.serverless
-.serverless_nextjs
-.sanity
+/node_modules
+/out
+/.next

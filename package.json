@@ -5,26 +5,56 @@
   "repository": "https://github.com/ryanep/recipe-cards.git",
   "license": "MIT",
   "author": "Ryan Elliott-Potter <me@ryanep.com>",
-  "workspaces": [
-    "./packages/*"
-  ],
   "scripts": {
-    "dev": "lerna run --parallel dev"
+    "dev": "next dev",
+    "build": "NODE_ENV=production next build",
+    "start": "next start",
+    "fmt": "prettier --write ./**/*.{ts,tsx}",
+    "lint": "eslint './**/*.{ts,tsx}'",
+    "lint:css": "stylelint ./src/**/styles.ts"
+  },
+  "dependencies": {
+    "@sanity/client": "^2.10.5",
+    "formik": "^2.2.9",
+    "i18next": "^20.3.1",
+    "next": "^14.2.2",
+    "ramda": "^0.27.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-i18next": "^11.10.0",
+    "styled-components": "4.4.1",
+    "styled-reset": "^4.3.4"
   },
   "devDependencies": {
     "@commitlint/cli": "^12.0.1",
     "@commitlint/config-conventional": "^12.0.1",
+    "@ryanep/eslint-config": "^0.0.15",
+    "@ryanep/prettier-config": "^1.0.2",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/commit-analyzer": "^8.0.1",
     "@semantic-release/git": "^9.0.0",
     "@semantic-release/npm": "^7.1.1",
     "@semantic-release/release-notes-generator": "^9.0.2",
+    "@types/node": "^15.12.1",
+    "@types/ramda": "^0.27.40",
+    "@types/react-dom": "^18.0.10",
+    "@types/react-helmet": "^6.1.1",
+    "@types/react": "18.0.1",
+    "@types/styled-components": "^5.1.7",
+    "@typescript-eslint/eslint-plugin": "^4.26.0",
+    "@typescript-eslint/parser": "^4.26.0",
     "alex": "^9.1.0",
+    "babel-plugin-styled-components": "^1.12.0",
+    "eslint": "^8.30.0",
     "husky": "^4.3.8",
     "lerna": "^4.0.0",
-    "lint-staged": "^10.5.4",
-    "prettier": "^2.2.1",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.3.1",
+    "react-is": "^17.0.1",
+    "simple-git-hooks": "^2.4.1",
     "sort-package-json": "^1.49.0",
-    "stylelint": "^13.12.0"
+    "ts-node": "^10.0.0",
+    "typescript-transform-paths": "^2.2.4",
+    "typescript": "^4.9.4"
   }
 }
