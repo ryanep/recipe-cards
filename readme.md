@@ -20,7 +20,7 @@ Recipe Cards provides a clean and interactive interface to make it easier to fin
 
 ## Getting started
 
-To start both the website and sanity, run `yarn dev` from the root folder.
+To start both the website and sanity, run `npm run dev` from the root folder.
 
 ## Screenshot
 
