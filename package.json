@@ -4,7 +4,7 @@
   "private": true,
   "repository": "https://github.com/ryanep/recipe-cards.git",
   "license": "MIT",
-  "author": "Ryan Elliott-Potter <ryan@ryanep.com>",
+  "author": "Ryan Elliott-Potter <me@ryanep.com>",
   "workspaces": [
     "./packages/*"
   ],
@@ -14,7 +14,6 @@
   "devDependencies": {
     "@commitlint/cli": "^12.0.1",
     "@commitlint/config-conventional": "^12.0.1",
-    "@ls-lint/ls-lint": "^1.9.2",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/commit-analyzer": "^8.0.1",
     "@semantic-release/git": "^9.0.0",
