@@ -1,6 +1,10 @@
 import { useTranslation } from "react-i18next";
 import * as styled from "./styles";
-import type { StarRatingFilterProps } from "./types";
+import type { ChangeEvent } from "react";
+
+interface StarRatingFilterProps {
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+}
 
 const options = [5, 4, 3];
 

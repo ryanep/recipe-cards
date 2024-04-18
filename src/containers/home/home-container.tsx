@@ -8,7 +8,19 @@ import { SidebarLayout } from "#/components/sidebar-layout";
 import { Spacer } from "#/components/spacer";
 import { createRecipeService } from "#/services/recipe";
 import { createSanityClient } from "#/utils/sanity";
-import type { HomeContainerProps, HomePageContext } from "./types";
+import type { NextPageContext } from "next";
+import type { Recipe } from "#/types/general";
+
+interface HomeContainerProps {
+  recipes: Recipe[];
+}
+
+interface HomePageContext extends NextPageContext {
+  query: {
+    name?: string;
+    rating?: string[];
+  };
+}
 
 const breadcrumbs: { title: string; url: string }[] = [];
 

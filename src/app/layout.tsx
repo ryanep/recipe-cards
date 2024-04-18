@@ -1,7 +1,7 @@
 import "#/styles/global.css";
 import { Inter } from "next/font/google";
 import type { Metadata } from "next";
-import {cx} from 'classix';
+import { cx } from "classix";
 import type { ReactNode } from "react";
 
 const inter = Inter({ subsets: ["latin"] });

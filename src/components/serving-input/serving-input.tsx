@@ -1,5 +1,11 @@
 import * as styled from "./styles";
-import type { ServingInputProps } from "./types";
+
+interface ServingInputProps {
+  max: number;
+  min: number;
+  onChange: (servings: number) => void;
+  servings: number;
+}
 
 export const ServingInput = ({
   max,

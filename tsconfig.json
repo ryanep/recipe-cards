@@ -9,19 +9,13 @@
     "sourceMap": false,
     "resolveJsonModule": true,
     "jsx": "preserve",
-    "lib": [
-      "dom",
-      "es6",
-      "esnext.asynciterable"
-    ],
+    "lib": ["dom", "es6", "esnext.asynciterable"],
     "target": "es2022",
     "strict": true,
     "noEmit": true,
     "baseUrl": "./src",
     "paths": {
-      "#/*": [
-        "./*"
-      ]
+      "#/*": ["./*"]
     },
     "allowJs": true,
     "incremental": true,
@@ -32,12 +26,6 @@
       }
     ]
   },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
 }

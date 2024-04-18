@@ -1,7 +1,11 @@
 import { useTranslation } from "react-i18next";
 import { MeasurementsUnit } from "#/context/settings/types";
 import * as styled from "./styles";
-import type { MeasurementUnitInputProps } from "./types";
+
+interface MeasurementUnitInputProps {
+  onUnitChange: (unit: MeasurementsUnit) => void;
+  selectedUnit: MeasurementsUnit;
+}
 
 export const MeasurementUnitInput = ({
   onUnitChange,

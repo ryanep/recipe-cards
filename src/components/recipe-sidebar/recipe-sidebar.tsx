@@ -4,7 +4,17 @@ import { MeasurementUnitInput } from "#/components/measurement-unit-input";
 import { ServingInput } from "#/components/serving-input";
 import { Spacer } from "#/components/spacer";
 import * as styled from "./styles";
-import type { RecipeSidebarProps } from "./types";
+import type { MeasurementsUnit } from "#/context/settings/types";
+
+interface RecipeSidebarProps {
+  description: string;
+  imageUrl: string;
+  name: string;
+  onServingChange: (servings: number) => void;
+  onUnitChange: (unit: MeasurementsUnit) => void;
+  servings: number;
+  units: MeasurementsUnit;
+}
 
 export const RecipeSidebar = ({
   description,

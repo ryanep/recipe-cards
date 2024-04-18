@@ -1,6 +1,12 @@
 import { useTranslation } from "react-i18next";
 import * as styled from "./styles";
-import type { IngredientsProps } from "./types";
+import { Ingredient } from "#/types/general";
+
+interface IngredientsProps {
+  ingredients: Ingredient[];
+  onIngredientClick: (ingredientId: string) => void;
+  selectedIngredients: string[];
+}
 
 export const Ingredients = ({
   ingredients,

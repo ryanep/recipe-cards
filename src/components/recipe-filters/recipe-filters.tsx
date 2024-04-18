@@ -4,7 +4,15 @@ import { Heading } from "#/components/heading";
 import { Spacer } from "#/components/spacer";
 import { StarRatingFilter } from "#/components/star-rating-filter";
 import * as styled from "./styles";
-import type { RecipeFiltersProps } from "./types";
+
+interface RecipeFiltersProps {
+  initialValues: RecipeFiltersFormValues;
+  onSubmit: (values: RecipeFiltersFormValues) => Promise<boolean>;
+}
+
+interface RecipeFiltersFormValues {
+  rating: number[];
+}
 
 export const RecipeFilters = ({
   initialValues,

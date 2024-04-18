@@ -14,7 +14,19 @@ import { createRecipeService } from "#/services/recipe";
 import { adjustUnits, calculateServings } from "#/utils/ingredient";
 import { createSanityClient } from "#/utils/sanity";
 import type { MeasurementsUnit } from "#/context/settings/types";
-import type { RecipeContainerProps, RecipePageContext } from "./types";
+
+import type { NextPageContext } from "next";
+import type { Recipe } from "#/types/general";
+
+interface RecipeContainerProps {
+  recipe: Recipe;
+}
+
+interface RecipePageContext extends NextPageContext {
+  query: {
+    id: string;
+  };
+}
 
 export const RecipeContainer = ({ recipe }: RecipeContainerProps) => {
   const { t } = useTranslation();

@@ -1,5 +1,9 @@
 import * as styled from "./styles";
-import type { RootProps } from "./types";
+import type { ReactNode } from "react";
+
+interface RootProps {
+  children: ReactNode;
+}
 
 export const Root = ({ children }: RootProps) => (
   <>

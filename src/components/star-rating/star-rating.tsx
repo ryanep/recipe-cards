@@ -1,6 +1,9 @@
 import { Star } from "#/components/star";
 import * as styled from "./styles";
-import type { StarRatingProps } from "./types";
+
+interface StarRatingProps {
+  rating: number;
+}
 
 export const StarRating = ({ rating }: StarRatingProps) => {
   const stars = Array.from({ length: rating });

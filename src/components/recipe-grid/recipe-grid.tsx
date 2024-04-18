@@ -3,7 +3,11 @@ import { Link } from "#/components/link";
 import { Spacer } from "#/components/spacer";
 import { StarRating } from "#/components/star-rating";
 import * as styled from "./styles";
-import type { RecipeGridProps } from "./types";
+import type { Recipe } from "#/types/general";
+
+interface RecipeGridProps {
+  recipes: Recipe[];
+}
 
 export const RecipeGrid = ({ recipes }: RecipeGridProps) => {
   return (

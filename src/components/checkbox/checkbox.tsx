@@ -1,5 +1,8 @@
 import * as styled from "./styles";
-import type { CheckboxProps } from "./types";
+
+interface CheckboxProps {
+  id: string;
+}
 
 export const Checkbox = ({ id }: CheckboxProps) => {
   return <styled.Input id={id} type="checkbox" />;

@@ -1,5 +1,13 @@
 import * as styled from "./styles";
-import type { StepsProps } from "./types";
+
+interface StepsProps {
+  onStepClick: (stepIndex: number) => void;
+  selectedStepIndex: number;
+  steps: {
+    description: string;
+    id: string;
+  }[];
+}
 
 export const Steps = ({
   onStepClick,

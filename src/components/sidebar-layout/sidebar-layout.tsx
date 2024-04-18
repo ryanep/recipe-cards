@@ -1,7 +1,16 @@
 import { Header } from "#/components/header";
 import { Root } from "#/components/root";
 import * as styled from "./styles";
-import type { SidebarLayoutProps } from "./types";
+import type { ReactNode } from "react";
+
+interface SidebarLayoutProps {
+  breadcrumbs: {
+    title: string;
+    url: string;
+  }[];
+  children: ReactNode;
+  sidebar: ReactNode;
+}
 
 export const SidebarLayout = ({
   breadcrumbs,
