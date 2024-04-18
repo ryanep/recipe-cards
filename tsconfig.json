@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "esModuleInterop": true,
-    "module": "commonjs",
-    "moduleResolution": "node",
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "noImplicitAny": true,
     "noUnusedLocals": true,
     "skipLibCheck": true,
@@ -10,14 +10,12 @@
     "resolveJsonModule": true,
     "jsx": "preserve",
     "lib": [
+      "dom",
       "es6",
-      "esnext.asynciterable",
-      "dom"
+      "esnext.asynciterable"
     ],
-    "target": "es5",
+    "target": "es2022",
     "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true,
     "noEmit": true,
     "baseUrl": "./src",
     "paths": {
@@ -25,18 +23,19 @@
         "./*"
       ]
     },
+    "allowJs": true,
+    "incremental": true,
+    "isolatedModules": true,
     "plugins": [
       {
-        "transform": "typescript-transform-paths"
+        "name": "next"
       }
-    ],
-    "allowJs": true,
-    "incremental": true
+    ]
   },
   "include": [
-    "./next-env.d.ts",
-    "jest.config.ts",
-    "./src"
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

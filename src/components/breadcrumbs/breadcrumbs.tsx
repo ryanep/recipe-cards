@@ -6,9 +6,7 @@ import type { BreadcrumbsProps } from "./types";
 export const Breadcrumbs = ({ breadcrumbs }: BreadcrumbsProps) => {
   return (
     <styled.Breadcrumbs>
-      <Link href="/">
-        All recipes
-      </Link>
+      <Link href="/">All recipes</Link>
       {breadcrumbs.map((breadcrumb) => (
         <Fragment key={breadcrumb.url}>
           <styled.BreadcrumbSeparator

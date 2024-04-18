@@ -3,20 +3,27 @@ import type { HeadingStyleProps, HeadingTag } from "./types";
 
 const getFontSize = (tag: HeadingTag) => {
   switch (tag) {
-    case "h1":
+    case "h1": {
       return "3.6rem";
-    case "h2":
+    }
+    case "h2": {
       return "2.8rem";
-    case "h3":
+    }
+    case "h3": {
       return "2.4rem";
-    case "h4":
+    }
+    case "h4": {
       return "1.8rem";
-    case "h5":
+    }
+    case "h5": {
       return "1.6rem";
-    case "h6":
+    }
+    case "h6": {
       return "1.4rem";
-    default:
+    }
+    default: {
       return "1.4rem;";
+    }
   }
 };
 
@@ -25,10 +32,12 @@ const getFontWeight = (tag: HeadingTag) => {
     case "h1":
     case "h2":
     case "h3":
-    case "h4":
+    case "h4": {
       return "900";
-    default:
+    }
+    default: {
       return "700";
+    }
   }
 };
 

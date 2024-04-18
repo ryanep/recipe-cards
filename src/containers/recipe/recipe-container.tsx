@@ -9,11 +9,11 @@ import { SidebarLayout } from "#/components/sidebar-layout";
 import { Spacer } from "#/components/spacer";
 import { Steps } from "#/components/steps";
 import { metricImperialMap } from "#/constants/units";
-import type { MeasurementsUnit } from "#/context/settings/types";
 import { useSettingsContext } from "#/hooks/context/settings";
 import { createRecipeService } from "#/services/recipe";
-import { calculateServings, adjustUnits } from "#/utils/ingredient";
+import { adjustUnits, calculateServings } from "#/utils/ingredient";
 import { createSanityClient } from "#/utils/sanity";
+import type { MeasurementsUnit } from "#/context/settings/types";
 import type { RecipeContainerProps, RecipePageContext } from "./types";
 
 export const RecipeContainer = ({ recipe }: RecipeContainerProps) => {
