@@ -3,8 +3,8 @@ import { MeasurementsUnit } from "#/context/settings/types";
 import * as styled from "./styles";
 
 interface MeasurementUnitInputProps {
-  onUnitChange: (unit: MeasurementsUnit) => void;
-  selectedUnit: MeasurementsUnit;
+  readonly onUnitChange: (unit: MeasurementsUnit) => void;
+  readonly selectedUnit: MeasurementsUnit;
 }
 
 export const MeasurementUnitInput = ({

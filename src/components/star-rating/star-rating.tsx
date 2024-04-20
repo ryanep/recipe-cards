@@ -2,7 +2,7 @@ import { Star } from "#/components/star";
 import * as styled from "./styles";
 
 interface StarRatingProps {
-  rating: number;
+  readonly rating: number;
 }
 
 export const StarRating = ({ rating }: StarRatingProps) => {

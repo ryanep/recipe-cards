@@ -1,0 +1,48 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Recipe {
+  id          String             @id @default(nanoid())
+  name        String
+  description String
+  rating      Int
+  imageUrl    String
+  tags        Tag[]
+  ingredients RecipeIngredient[]
+  steps       RecipeStep[]
+
+  @@map("recipes")
+}
+
+model RecipeIngredient {
+  id       String  @id @default(nanoid())
+  name     String
+  quantity Float
+  Recipe   Recipe? @relation(fields: [recipeId], references: [id])
+  recipeId String?
+
+  @@map("recipe_ingredients")
+}
+
+model RecipeStep {
+  id     String   @id @default(nanoid())
+  name   String
+  Recipe Recipe[]
+
+  @@map("recipe_steps")
+}
+
+model Tag {
+  id       String  @id @default(nanoid())
+  name     String  @unique
+  Recipe   Recipe? @relation(fields: [recipeId], references: [id])
+  recipeId String?
+
+  @@map("tags")
+}

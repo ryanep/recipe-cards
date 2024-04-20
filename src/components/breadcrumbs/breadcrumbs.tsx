@@ -3,7 +3,7 @@ import { Link } from "#/components/link";
 import * as styled from "./styles";
 
 interface BreadcrumbsProps {
-  breadcrumbs: {
+  readonly breadcrumbs: {
     title: string;
     url: string;
   }[];

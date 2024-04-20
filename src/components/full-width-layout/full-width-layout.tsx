@@ -1,14 +1,14 @@
 import { Header } from "#/components/header";
 import { Root } from "#/components/root";
-import { ReactNode } from "react";
 import * as styled from "./styles";
+import type { ReactNode } from "react";
 
 export interface FullWidthLayoutProps {
-  breadcrumbs: {
+  readonly breadcrumbs: {
     title: string;
     url: string;
   }[];
-  children: ReactNode;
+  readonly children: ReactNode;
 }
 
 export const FullWidthLayout = ({

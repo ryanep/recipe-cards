@@ -1,7 +1,7 @@
 import * as styled from "./styles";
 
 interface CheckboxProps {
-  id: string;
+  readonly id: string;
 }
 
 export const Checkbox = ({ id }: CheckboxProps) => {

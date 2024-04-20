@@ -4,12 +4,12 @@ import * as styled from "./styles";
 import type { ReactNode } from "react";
 
 interface SidebarLayoutProps {
-  breadcrumbs: {
+  readonly breadcrumbs: {
     title: string;
     url: string;
   }[];
-  children: ReactNode;
-  sidebar: ReactNode;
+  readonly children: ReactNode;
+  readonly sidebar: ReactNode;
 }
 
 export const SidebarLayout = ({

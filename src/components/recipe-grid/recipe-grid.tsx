@@ -6,7 +6,7 @@ import * as styled from "./styles";
 import type { Recipe } from "#/types/general";
 
 interface RecipeGridProps {
-  recipes: Recipe[];
+  readonly recipes: Recipe[];
 }
 
 export const RecipeGrid = ({ recipes }: RecipeGridProps) => {

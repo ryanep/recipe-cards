@@ -12,7 +12,7 @@ import type { NextPageContext } from "next";
 import type { Recipe } from "#/types/general";
 
 interface HomeContainerProps {
-  recipes: Recipe[];
+  readonly recipes: Recipe[];
 }
 
 interface HomePageContext extends NextPageContext {

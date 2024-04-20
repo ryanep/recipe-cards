@@ -3,7 +3,7 @@ import * as styled from "./styles";
 import type { ChangeEvent } from "react";
 
 interface StarRatingFilterProps {
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  readonly onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const options = [5, 4, 3];

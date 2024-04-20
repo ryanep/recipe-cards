@@ -6,8 +6,8 @@ import { StarRatingFilter } from "#/components/star-rating-filter";
 import * as styled from "./styles";
 
 interface RecipeFiltersProps {
-  initialValues: RecipeFiltersFormValues;
-  onSubmit: (values: RecipeFiltersFormValues) => Promise<boolean>;
+  readonly initialValues: RecipeFiltersFormValues;
+  readonly onSubmit: (values: RecipeFiltersFormValues) => Promise<boolean>;
 }
 
 interface RecipeFiltersFormValues {

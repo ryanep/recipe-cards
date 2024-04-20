@@ -1,10 +1,10 @@
 import * as styled from "./styles";
 
 interface ServingInputProps {
-  max: number;
-  min: number;
-  onChange: (servings: number) => void;
-  servings: number;
+  readonly max: number;
+  readonly min: number;
+  readonly onChange: (servings: number) => void;
+  readonly servings: number;
 }
 
 export const ServingInput = ({

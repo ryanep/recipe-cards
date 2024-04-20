@@ -1,9 +1,9 @@
 import * as styled from "./styles";
 
 interface StepsProps {
-  onStepClick: (stepIndex: number) => void;
-  selectedStepIndex: number;
-  steps: {
+  readonly onStepClick: (stepIndex: number) => void;
+  readonly selectedStepIndex: number;
+  readonly steps: {
     description: string;
     id: string;
   }[];

@@ -7,13 +7,13 @@ import * as styled from "./styles";
 import type { MeasurementsUnit } from "#/context/settings/types";
 
 interface RecipeSidebarProps {
-  description: string;
-  imageUrl: string;
-  name: string;
-  onServingChange: (servings: number) => void;
-  onUnitChange: (unit: MeasurementsUnit) => void;
-  servings: number;
-  units: MeasurementsUnit;
+  readonly description: string;
+  readonly imageUrl: string;
+  readonly name: string;
+  readonly onServingChange: (servings: number) => void;
+  readonly onUnitChange: (unit: MeasurementsUnit) => void;
+  readonly servings: number;
+  readonly units: MeasurementsUnit;
 }
 
 export const RecipeSidebar = ({

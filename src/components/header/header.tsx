@@ -2,7 +2,7 @@ import { Breadcrumbs } from "#/components/breadcrumbs";
 import * as styled from "./styles";
 
 interface HeaderProps {
-  breadcrumbs: {
+  readonly breadcrumbs: {
     title: string;
     url: string;
   }[];

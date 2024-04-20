@@ -13,11 +13,13 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "prisma.prisma",
+        "bradlc.vscode-tailwindcss",
         "dbaeumer.vscode-eslint",
+        "editorconfig.editorconfig",
         "esbenp.prettier-vscode",
-        "waderyan.gitblame",
-        "bradlc.vscode-tailwindcss"
+        "prisma.prisma",
+        "qwtel.sqlite-viewer",
+        "waderyan.gitblame"
       ]
     }
   }

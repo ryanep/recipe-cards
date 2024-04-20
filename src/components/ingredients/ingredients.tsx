@@ -1,11 +1,11 @@
 import { useTranslation } from "react-i18next";
 import * as styled from "./styles";
-import { Ingredient } from "#/types/general";
+import type { Ingredient } from "#/types/general";
 
 interface IngredientsProps {
-  ingredients: Ingredient[];
-  onIngredientClick: (ingredientId: string) => void;
-  selectedIngredients: string[];
+  readonly ingredients: Ingredient[];
+  readonly onIngredientClick: (ingredientId: string) => void;
+  readonly selectedIngredients: string[];
 }
 
 export const Ingredients = ({
