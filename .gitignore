@@ -3,3 +3,5 @@
 /.next
 .env
 .env.local
+*.sqlite
+*.sqlite-journal
