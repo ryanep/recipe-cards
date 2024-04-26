@@ -1,31 +1,24 @@
-import { Breadcrumbs } from "#/components/breadcrumbs";
-import * as styled from "./styles";
+import { Link } from "#/components/link";
 
-interface HeaderProps {
-  readonly breadcrumbs: {
-    title: string;
-    url: string;
-  }[];
-}
-
-export const Header = ({ breadcrumbs }: HeaderProps) => {
+export const Header = () => {
   return (
-    <styled.Header>
-      <Breadcrumbs breadcrumbs={breadcrumbs} />
-      <styled.Dropdown>
-        <styled.DropdownSummary>Settings</styled.DropdownSummary>
-        <styled.DropdownList>
+    <header className="sticky top-0 z-10 flex w-full items-center bg-black/90 p-4 font-bold shadow-md">
+      <details className="ml-auto">
+        <summary className="cursor-pointer">Settings</summary>
+
+        <ul className="absolute right-0 top-full w-52 bg-neutral-800 shadow-sm">
           <li>
-            <styled.DropdownLink
+            <Link
+              className="block p-3 text-white no-underline"
               href="https://recipe-cards.sanity.studio"
               rel="noopener"
               target="_blank"
             >
               Manage recipes
-            </styled.DropdownLink>
+            </Link>
           </li>
-        </styled.DropdownList>
-      </styled.Dropdown>
-    </styled.Header>
+        </ul>
+      </details>
+    </header>
   );
 };
