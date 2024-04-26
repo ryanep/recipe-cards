@@ -18,7 +18,7 @@
         "editorconfig.editorconfig",
         "esbenp.prettier-vscode",
         "prisma.prisma",
-        "qwtel.sqlite-viewer",
+        "yy0931.vscode-sqlite3-editor",
         "waderyan.gitblame"
       ]
     }
