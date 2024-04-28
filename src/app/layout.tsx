@@ -1,11 +1,8 @@
 import "#/styles/global.css";
 import { cx } from "classix";
-import { Inter } from "next/font/google";
 import { Header } from "#/components/header";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   description: "Recipe Cards",
@@ -19,15 +16,12 @@ interface RootLayoutProps {
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="en">
-      <body
-        className={cx(
-          inter.className,
-          "bg-black text-neutral-100 flex flex-col antialiased"
-        )}
-      >
-        <Header />
+      <body className={cx("bg-black text-neutral-100 antialiased min-h-dvh")}>
+        <div className="flex min-h-dvh flex-col">
+          <Header />
 
-        {children}
+          <main className="grow bg-neutral-900 p-5">{children}</main>
+        </div>
       </body>
     </html>
   );

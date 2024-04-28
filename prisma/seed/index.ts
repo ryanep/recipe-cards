@@ -25,13 +25,14 @@ const createIngredient = (
   return {
     name: `Ingredient ${index}`,
     quantity: 1,
+    unit: "grams",
   };
 };
 
 const createRecipe = (index: number): Prisma.RecipeCreateInput => {
   return {
     description: `Description ${index}`,
-    imageUrl: "__IMAGE_URL__",
+    imageUrl: "/__IMAGE_URL__",
     ingredients: {
       create: factory(createIngredient)(5),
     },

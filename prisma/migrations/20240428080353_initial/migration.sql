@@ -12,6 +12,7 @@ CREATE TABLE "recipe_ingredients" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "name" TEXT NOT NULL,
     "quantity" REAL NOT NULL,
+    "unit" TEXT NOT NULL,
     "recipeId" TEXT,
     CONSTRAINT "recipe_ingredients_recipeId_fkey" FOREIGN KEY ("recipeId") REFERENCES "recipes" ("id") ON DELETE SET NULL ON UPDATE CASCADE
 );
@@ -37,9 +38,6 @@ CREATE TABLE "_RecipeToRecipeStep" (
     CONSTRAINT "_RecipeToRecipeStep_A_fkey" FOREIGN KEY ("A") REFERENCES "recipes" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT "_RecipeToRecipeStep_B_fkey" FOREIGN KEY ("B") REFERENCES "recipe_steps" ("id") ON DELETE CASCADE ON UPDATE CASCADE
 );
-
--- CreateIndex
-CREATE UNIQUE INDEX "tags_name_key" ON "tags"("name");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "_RecipeToRecipeStep_AB_unique" ON "_RecipeToRecipeStep"("A", "B");

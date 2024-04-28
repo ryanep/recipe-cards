@@ -1,13 +1,33 @@
-import * as styled from "./styles";
+import { cx } from "classix";
+import type { ReactNode } from "react";
+
+type HeadingType = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
 export interface HeadingProps {
-  readonly as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-  readonly text: string;
-  readonly type: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  readonly as?: HeadingType;
+  readonly children: ReactNode;
+  readonly className?: string;
+  readonly type: HeadingType;
 }
 
-export const Heading = ({ as, text, type }: HeadingProps) => (
-  <styled.Heading as={type} tag={as ?? type}>
-    {text}
-  </styled.Heading>
-);
+export const Heading = ({ as, children, className, type }: HeadingProps) => {
+  const tagType = as ?? type;
+  const HeadingTag = tagType;
+
+  return (
+    <HeadingTag
+      className={cx(
+        className,
+        "font-black leading-tight",
+        tagType === "h1" && "text-4xl",
+        tagType === "h2" && "text-3xl",
+        tagType === "h3" && "text-2xl",
+        tagType === "h4" && "text-xl uppercase",
+        tagType === "h5" && "text-lg uppercase",
+        tagType === "h6" && "text-base uppercase"
+      )}
+    >
+      {children}
+    </HeadingTag>
+  );
+};
