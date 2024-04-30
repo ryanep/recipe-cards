@@ -1,5 +1,4 @@
-ARG VARIANT="20-buster"
-FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:0-${VARIANT}
+FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:0-20-buster
 
-# Sqli
+# SQLite
 RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev

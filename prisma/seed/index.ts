@@ -16,6 +16,7 @@ const createTag = (index: number): Prisma.TagCreateInput => {
 const createStep = (index: number): Prisma.RecipeStepCreateInput => {
   return {
     name: `Step ${index}`,
+    order: index,
   };
 };
 

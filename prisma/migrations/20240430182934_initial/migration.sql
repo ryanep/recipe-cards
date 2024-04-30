@@ -20,7 +20,8 @@ CREATE TABLE "recipe_ingredients" (
 -- CreateTable
 CREATE TABLE "recipe_steps" (
     "id" TEXT NOT NULL PRIMARY KEY,
-    "name" TEXT NOT NULL
+    "name" TEXT NOT NULL,
+    "order" INTEGER NOT NULL
 );
 
 -- CreateTable

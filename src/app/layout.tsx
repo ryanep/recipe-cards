@@ -4,14 +4,16 @@ import { Header } from "#/components/header";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
-export const metadata: Metadata = {
-  description: "Recipe Cards",
-  title: "Recipe Cards",
-};
-
 interface RootLayoutProps {
   readonly children: ReactNode;
 }
+
+export const metadata: Metadata = {
+  title: {
+    default: "Home",
+    template: "%s - Recipe Cards",
+  },
+};
 
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (

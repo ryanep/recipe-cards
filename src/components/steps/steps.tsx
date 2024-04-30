@@ -56,13 +56,11 @@ export const Steps = ({ steps }: StepsProps) => {
               value={stepIndex}
             />
 
-            <div>
-              <h3 className="font-black uppercase text-red-500">
-                Step {stepIndex + 1}
-              </h3>
+            <span className="block font-black uppercase text-blue-400">
+              Step {stepIndex + 1}
+            </span>
 
-              <p>{step.name}</p>
-            </div>
+            {step.name}
           </label>
         </li>
       ))}

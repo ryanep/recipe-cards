@@ -12,7 +12,7 @@ export interface HeadingProps {
 
 export const Heading = ({ as, children, className, type }: HeadingProps) => {
   const tagType = as ?? type;
-  const HeadingTag = tagType;
+  const HeadingTag = type;
 
   return (
     <HeadingTag
