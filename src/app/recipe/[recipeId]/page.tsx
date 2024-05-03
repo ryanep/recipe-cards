@@ -68,11 +68,11 @@ const RecipePage = async ({ params }: RecipePageProps) => {
       </div>
 
       {/* eslint-disable-next-line tailwindcss/no-arbitrary-value */}
-      <div className="grid grid-cols-[minmax(300px,_25%)_auto] gap-5">
+      <div className="grid gap-5 md:grid-cols-[minmax(300px,_25%)_auto]">
         <div>
           <Image
             alt={recipe.name}
-            className="mb-4 aspect-square max-h-80 w-full rounded-lg object-cover"
+            className="mb-4 aspect-square w-full rounded-lg object-cover md:max-h-80"
             height={500}
             priority
             src={`${recipe.imageUrl}?w=500`}
@@ -93,6 +93,10 @@ const RecipePage = async ({ params }: RecipePageProps) => {
           </Heading>
 
           <Ingredients ingredients={recipe.ingredients} />
+
+          <Heading as="h5" type="h2">
+            Steps
+          </Heading>
 
           <Steps steps={recipe.steps} />
         </div>

@@ -1,7 +1,7 @@
-export const Star = () => {
+export const StarIcon = () => {
   return (
     <svg
-      fill="#e0e03d"
+      fill="currentColor"
       height="14"
       version="1.1"
       viewBox="0 0 512 512"
