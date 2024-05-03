@@ -1,21 +1,38 @@
-COLOUR_YELLOW = "\033[1;33m"
-COLOUR_RED = "\033[1;31m"
-COLOUR_GREEN = "\033[0;32m"
-COLOUR_END = "\033[0m"
+REGISTRY_URL = docker.in.ryanep.com
+IMAGE_NAME = recipe-cards
+IMAGE_VERSION = 2.0.0-alpha.1
+IMAGE_TAG = ${IMAGE_NAME}:${IMAGE_VERSION}
 
-TASK_STARTED = @echo ${COLOUR_YELLOW} - Task started: $@ ${COLOUR_END}
-TASK_DONE = @echo ${COLOUR_GREEN} âœ“ Task succeeded: $@ ${COLOUR_END}
-TASK_FAILED = @echo ${COLOUR_RED} âœ˜ Task failed: $@ ${COLOUR_END}
+app-build:
+	npm run build
 
-.PHONY:
+container-build:
+	docker build -t ${REGISTRY_URL}/${IMAGE_TAG} -f dockerfile .
 
-release:
-	${TASK_STARTED}
-	cd ./packages/website && \
-	NODE_ENV=production npx --yes serverless --verbose
-	${TASK_FAILED}
-remove:
-	${TASK_STARTED}
-	cd ./packages/website && \
-	NODE_ENV=production npx --yes serverless remove --verbose
-	${TASK_FAILED}
+container-save:
+	docker save --output invoice-${IMAGE_VERSION}.tar ${REGISTRY_URL}/${IMAGE_TAG}
+
+container-push:
+	docker push ${REGISTRY_URL}/${IMAGE_TAG}
+
+container-start:
+	docker run -d \
+	-p 3000:3000 \
+	-e DATABASE_URL="file:./recipes.sqlite" \
+	${REGISTRY_URL}/${IMAGE_TAG} | xargs docker logs -f
+
+container-stop:
+	docker ps -q --filter ancestor=invoice | xargs docker stop
+
+database-migrate:
+	npx prisma migrate dev
+
+database-migrate-clean:
+	rm -rf ./prisma/migrations && \
+	npx prisma migrate dev --name initial-schema
+
+database-seed:
+	npx prisma db seed
+
+version:
+	sed -n 's/.*"version": *"\([^"]*\)".*/\1/p' package.json

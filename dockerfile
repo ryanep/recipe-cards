@@ -1,15 +1,24 @@
-FROM node:20-alpine
+FROM node:20.9.0-alpine as builder
 
 WORKDIR /app
 
-COPY package.json ./package.skon
-COPY package-lock.json ./package-lock.json
-COPY public ./public
-COPY ./next.config.js ./next.config.js
-COPY ./.next ./.next
+COPY . .
 
-EXPOSE 3000
+RUN npm install
+RUN npm run database:generate
+RUN npm run build
 
-RUN npm install --production
+FROM node:20.9.0-alpine as runtime
 
-CMD npm start
+WORKDIR /app
+
+COPY --from=builder ./app/.next /app/.next
+COPY --from=builder ./app/prisma /app/prisma
+COPY --from=builder ./app/next.config.mjs /app/next.config.mjs
+COPY --from=builder ./app/package.json /app/package.json
+COPY --from=builder ./app/package-lock.json /app/package-lock.json
+
+RUN npm install --omit=dev
+RUN npm run database:generate
+
+CMD ["/bin/ash", "-c", "npm run database:migrate && npm start"]
