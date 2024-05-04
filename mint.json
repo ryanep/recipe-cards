@@ -1,0 +1,19 @@
+{
+  "name": "Recipe Cards",
+  "favicon": "./public/images/favicon.png",
+  "colors": {
+    "primary": "#16A34A",
+    "light": "#4ADE80",
+    "dark": "#166534"
+  },
+  "logo": {
+    "dark": "./docs/icon.svg",
+    "light": "./docs/icon.svg"
+  },
+  "navigation": [
+    {
+      "group": "Getting Started",
+      "pages": ["docs/introduction"]
+    }
+  ]
+}
