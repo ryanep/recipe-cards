@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import { Link } from "#/components/link";
+import { buildHomePageUrl } from "#/utils/page";
 
 interface BreadcrumbsProps {
   readonly breadcrumbs: {
@@ -11,7 +12,10 @@ interface BreadcrumbsProps {
 export const Breadcrumbs = ({ breadcrumbs }: BreadcrumbsProps) => {
   return (
     <div className="flex items-center gap-2 font-bold">
-      <Link className="text-neutral-300 no-underline hover:opacity-80" href="/">
+      <Link
+        className="text-neutral-300 no-underline hover:opacity-80"
+        href={buildHomePageUrl()}
+      >
         Home
       </Link>
 

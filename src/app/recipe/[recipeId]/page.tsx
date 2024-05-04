@@ -1,10 +1,11 @@
-import { PrismaClient } from "@prisma/client";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "#/components/breadcrumbs";
 import { Heading } from "#/components/heading";
+import { Image } from "#/components/image";
 import { Ingredients } from "#/components/ingredients";
 import { Steps } from "#/components/steps";
+import { database } from "#/database";
+import { buildRecipePageUrl } from "#/utils/page";
 import type { Metadata } from "next";
 
 interface RecipePageProps {
@@ -14,8 +15,6 @@ interface RecipePageProps {
 }
 
 const getPageData = async ({ params }: RecipePageProps) => {
-  const database = new PrismaClient();
-
   const recipe = await database.recipe.findUnique({
     include: {
       ingredients: true,
@@ -57,7 +56,7 @@ const RecipePage = async ({ params }: RecipePageProps) => {
   const breadcrumbs = [
     {
       title: recipe.name,
-      url: `/recipe/${recipe.id}`,
+      url: buildRecipePageUrl(recipe.id),
     },
   ];
 
@@ -74,9 +73,9 @@ const RecipePage = async ({ params }: RecipePageProps) => {
             alt={recipe.name}
             className="mb-4 aspect-square w-full rounded-lg object-cover md:max-h-80"
             height={500}
-            priority
+            isPriority
+            isUnoptimized
             src={`${recipe.imageUrl}?w=500`}
-            unoptimized
             width={500}
           />
 

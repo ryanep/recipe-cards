@@ -1,7 +1,8 @@
-/node_modules
-/out
-/.next
 .env
 .env.local
 *.sqlite
 *.sqlite-journal
+/.next
+/images
+/node_modules
+/out

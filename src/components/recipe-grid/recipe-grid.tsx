@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { Heading } from "#/components/heading";
+import { Image } from "#/components/image";
 import { Link } from "#/components/link";
 import { StarRating } from "#/components/star-rating";
 
@@ -35,8 +35,8 @@ export const RecipeGrid = ({ recipes }: RecipeGridProps) => {
             alt={recipe.name}
             className="aspect-square h-52 w-full object-cover"
             height={300}
+            isUnoptimized
             src={`${recipe.imageUrl}?w=300`}
-            unoptimized
             width={300}
           />
 

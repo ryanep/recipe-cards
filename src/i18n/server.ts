@@ -27,6 +27,6 @@ export const getTranslation = async (namespace: Namespace) => {
 
   return {
     i18n: i18nextInstance,
-    t: i18nextInstance.getFixedT(locale, namespace, undefined),
+    t: i18nextInstance.getFixedT<Namespace>(locale, namespace, undefined),
   };
 };

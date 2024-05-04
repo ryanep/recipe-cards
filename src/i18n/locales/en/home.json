@@ -1,7 +1,7 @@
 {
   "pageTitle": "Recipes",
   "heading": "All recipes",
-  "results": "Showing {{count}} recipe",
-  "results_plural": "Showing {{count}} recipes",
+  "results": "Showing {{count}} of {{totalCount}} recipe",
+  "results_other": "Showing {{count}} of {{totalCount}} recipes",
   "filters": "Filters"
 }

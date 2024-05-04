@@ -1,9 +1,8 @@
 {
   "rating": "{{count}} star",
-  "rating_plural": "{{count}} stars",
+  "rating_other": "{{count}} stars",
   "metric": "Metric",
   "imperial": "Imperial",
   "measurement": "measurement",
-  "servings": "Servings",
-  "test": "test localised string"
+  "servings": "Servings"
 }

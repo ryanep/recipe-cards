@@ -1,11 +1,18 @@
-import { PrismaClient } from "@prisma/client";
 import { Heading } from "#/components/heading";
+import { Pagination } from "#/components/pagination";
 import { RecipeGrid } from "#/components/recipe-grid";
+import { database } from "#/database";
 import { getTranslation } from "#/i18n/server";
 import type { Metadata } from "next";
 
-const getPageData = async () => {
-  const database = new PrismaClient();
+interface HomePageProps {
+  readonly searchParams: {
+    page?: number;
+  };
+}
+
+const getPageData = async ({ searchParams }: HomePageProps) => {
+  const pageSize = 30;
 
   const recipes = await database.recipe.findMany({
     include: {
@@ -13,32 +20,53 @@ const getPageData = async () => {
       steps: true,
       tags: true,
     },
+    orderBy: {
+      name: "asc",
+    },
+    skip: searchParams.page ? pageSize * searchParams.page : 0,
+    take: pageSize,
   });
+
+  const totalRecipeCount = await database.recipe.count();
 
   return {
     recipes,
+    totalRecipeCount,
   };
 };
 
-export const metadata: Metadata = {
-  title: "Home - Recipe Cards",
+export const getMetadata = async (): Promise<Metadata> => {
+  const { t } = await getTranslation("home");
+
+  return {
+    title: t("home:pageTitle"),
+  };
 };
 
-const HomePage = async () => {
+const HomePage = async ({ searchParams }: HomePageProps) => {
   const { t } = await getTranslation("home");
-  const { recipes } = await getPageData();
+  const { recipes, totalRecipeCount } = await getPageData({ searchParams });
 
   return (
     <main>
-      <Heading as="h1" type="h1">
-        {t("home:heading")}
-      </Heading>
+      <Heading type="h1">{t("home:heading")}</Heading>
 
       <p className="mb-8 text-lg font-medium text-neutral-400">
-        Showing all {recipes.length} recipes.
+        {t("home:results", {
+          count: recipes.length,
+          totalCount: totalRecipeCount,
+        })}
       </p>
 
-      <RecipeGrid recipes={recipes} />
+      <div className="mb-8">
+        <RecipeGrid recipes={recipes} />
+      </div>
+
+      <Pagination
+        currentPage={Number(searchParams.page)}
+        pageSize={recipes.length}
+        totalItemCount={totalRecipeCount}
+      />
     </main>
   );
 };
