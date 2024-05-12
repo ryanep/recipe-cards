@@ -14,8 +14,6 @@ export const createRecipeAction = async (formData: FormData) => {
   const recipeData = formDataToObject(formData);
   const parsedRecipeData = createRecipeValidationSchema.parse(recipeData);
 
-  console.log(parsedRecipeData);
-
   const image = formData.get("image") as File | undefined;
 
   if (image) {

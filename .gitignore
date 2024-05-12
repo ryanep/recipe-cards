@@ -4,5 +4,6 @@
 *.sqlite-journal
 /.next
 /images
+/public/images/recipes
 /node_modules
 /out

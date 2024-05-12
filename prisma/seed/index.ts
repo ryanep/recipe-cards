@@ -33,8 +33,7 @@ const createIngredient = (
 const createRecipe = (index: number): Prisma.RecipeCreateInput => {
   return {
     description: `Description ${index}`,
-    imageUrl:
-      "https://cdn.sanity.io/images/21t4zq9k/production/bbd6cebbb8990a2a002b01ba5213aa4e6e0a36e7-832x468.jpg",
+    imageUrl: "/image-url",
     ingredients: {
       create: factory(createIngredient)(5),
     },
@@ -54,7 +53,7 @@ const main = async () => {
 
   const prisma = new PrismaClient();
 
-  for (let index = 0; index < 1000; index++) {
+  for (let index = 0; index < 50; index++) {
     await prisma.recipe.create({
       data: createRecipe(index),
     });

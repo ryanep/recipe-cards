@@ -36,7 +36,7 @@ export const RecipeGrid = ({ recipes }: RecipeGridProps) => {
             className="aspect-square h-52 w-full object-cover"
             height={300}
             isUnoptimized
-            src={`${recipe.imageUrl}?w=300`}
+            src={`/images/recipes/${recipe.imageUrl}`}
             width={300}
           />
 

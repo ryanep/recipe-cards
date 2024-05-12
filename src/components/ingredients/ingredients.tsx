@@ -54,11 +54,7 @@ export const Ingredients = ({ ingredients }: IngredientsProps) => {
 
             <div className="flex flex-col">
               <div className="text-sm text-green-300">
-                {/* TODO: Fix pluralisation */}
-                {t("units:grams", { count: ingredient.quantity + 1 })}
-                {/* {t(`units:${ingredient.unit}`, {
-                  count: ingredient.quantity,
-                })} */}
+                {ingredient.quantity} {ingredient.unit}
               </div>
 
               <div className="font-black">{ingredient.name}</div>

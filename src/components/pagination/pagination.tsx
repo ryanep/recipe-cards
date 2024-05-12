@@ -12,7 +12,7 @@ export const Pagination = ({
   totalItemCount,
 }: PaginationProps) => {
   const maxPageCount = 5;
-  const totalPageCount = totalItemCount / pageSize;
+  const totalPageCount = Math.ceil(totalItemCount / pageSize);
   const truncatedPageCount =
     totalPageCount < maxPageCount ? totalPageCount : maxPageCount;
 

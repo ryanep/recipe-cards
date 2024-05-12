@@ -75,7 +75,7 @@ const RecipePage = async ({ params }: RecipePageProps) => {
             height={500}
             isPriority
             isUnoptimized
-            src={`${recipe.imageUrl}?w=500`}
+            src={`/images/recipes/${recipe.imageUrl}`}
             width={500}
           />
 

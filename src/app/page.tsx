@@ -21,7 +21,7 @@ const getPageData = async ({ searchParams }: HomePageProps) => {
       tags: true,
     },
     orderBy: {
-      name: "asc",
+      createdAt: "asc",
     },
     skip: searchParams.page ? pageSize * searchParams.page : 0,
     take: pageSize,
@@ -63,7 +63,7 @@ const HomePage = async ({ searchParams }: HomePageProps) => {
       </div>
 
       <Pagination
-        currentPage={Number(searchParams.page)}
+        currentPage={searchParams.page ? Number(searchParams.page) : 1}
         pageSize={recipes.length}
         totalItemCount={totalRecipeCount}
       />
