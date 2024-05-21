@@ -22,8 +22,8 @@ export const Pagination = ({
         {currentPage !== 1 ? (
           <li>
             <Link
-              className="block rounded-md p-2 text-sm font-medium hover:bg-neutral-800"
-              href={`?page=${currentPage - 1}`}
+              className="block rounded-md p-2 text-sm font-medium hover:bg-neutral-200 dark:hover:bg-neutral-800"
+              href={currentPage === 2 ? "/" : `?page=${currentPage}`}
             >
               Previous
             </Link>
@@ -37,13 +37,13 @@ export const Pagination = ({
             <li key={pageNumber}>
               {pageNumber !== currentPage ? (
                 <Link
-                  className="flex aspect-square w-10 items-center justify-center rounded-md p-2 text-sm font-medium hover:bg-neutral-800"
-                  href={`?page=${pageNumber}`}
+                  className="flex aspect-square w-10 items-center justify-center rounded-md p-2 text-sm font-medium hover:bg-neutral-200 dark:hover:bg-neutral-800"
+                  href={pageNumber === 1 ? "/" : `?page=${pageNumber}`}
                 >
                   {pageNumber}
                 </Link>
               ) : (
-                <div className="flex aspect-square w-10 items-center justify-center rounded-md border border-neutral-700 text-sm font-medium">
+                <div className="flex aspect-square w-10 items-center justify-center rounded-md border border-neutral-300 text-sm font-medium dark:border-neutral-700">
                   {pageNumber}
                 </div>
               )}
@@ -60,7 +60,7 @@ export const Pagination = ({
         {currentPage !== totalPageCount ? (
           <li>
             <Link
-              className="block rounded-md p-2 text-sm font-medium hover:bg-neutral-800"
+              className="block rounded-md p-2 text-sm font-medium hover:bg-neutral-200 dark:hover:bg-neutral-800"
               href={`?page=${currentPage + 1}`}
             >
               Next

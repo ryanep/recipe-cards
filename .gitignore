@@ -2,8 +2,9 @@
 .env.local
 *.sqlite
 *.sqlite-journal
+*.tsbuildinfo
 /.next
 /images
-/public/images/recipes
 /node_modules
 /out
+/public/images/recipes

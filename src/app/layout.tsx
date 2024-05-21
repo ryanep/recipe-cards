@@ -18,11 +18,17 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="en">
-      <body className={cx("bg-black text-neutral-100 antialiased min-h-dvh")}>
+      <body
+        className={cx(
+          "bg-white text-neutral-900 dark:bg-neutral-900 dark:text-neutral-50 antialiased min-h-dvh"
+        )}
+      >
         <div className="flex min-h-dvh flex-col">
           <Header />
 
-          <main className="grow bg-neutral-900 p-5">{children}</main>
+          <main className="grow bg-neutral-50 p-5 dark:bg-neutral-900">
+            {children}
+          </main>
         </div>
       </body>
     </html>

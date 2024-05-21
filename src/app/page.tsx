@@ -23,7 +23,7 @@ const getPageData = async ({ searchParams }: HomePageProps) => {
     orderBy: {
       createdAt: "asc",
     },
-    skip: searchParams.page ? pageSize * searchParams.page : 0,
+    skip: searchParams.page ? pageSize * (searchParams.page - 1) : 0,
     take: pageSize,
   });
 
@@ -51,7 +51,7 @@ const HomePage = async ({ searchParams }: HomePageProps) => {
     <main>
       <Heading type="h1">{t("home:heading")}</Heading>
 
-      <p className="mb-8 text-lg font-medium text-neutral-400">
+      <p className="mb-8 text-lg font-medium text-neutral-500 dark:text-neutral-400">
         {t("home:results", {
           count: recipes.length,
           totalCount: totalRecipeCount,
@@ -64,7 +64,7 @@ const HomePage = async ({ searchParams }: HomePageProps) => {
 
       <Pagination
         currentPage={searchParams.page ? Number(searchParams.page) : 1}
-        pageSize={recipes.length}
+        pageSize={30}
         totalItemCount={totalRecipeCount}
       />
     </main>

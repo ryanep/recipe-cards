@@ -29,11 +29,11 @@ export const Steps = ({ steps }: StepsProps) => {
   };
 
   return (
-    <ul className="rounded-md border-2 border-neutral-700">
+    <ul className="rounded-md border-2 border-neutral-100 dark:border-neutral-700">
       {steps.map((step, stepIndex) => (
         <li
           className={cx(
-            "border-b-2 border-neutral-700 font-bold bg-black last:border-b-0",
+            "border-b-2 dark:border-neutral-700 font-bold border-neutral-100 bg-white dark:bg-black last:border-b-0",
             selectedStepIndex !== undefined && stepIndex <= selectedStepIndex
               ? "opacity-50"
               : undefined
@@ -56,7 +56,7 @@ export const Steps = ({ steps }: StepsProps) => {
               value={stepIndex}
             />
 
-            <span className="block font-black uppercase text-blue-400">
+            <span className="block font-black uppercase text-blue-600 dark:text-blue-400">
               Step {stepIndex + 1}
             </span>
 

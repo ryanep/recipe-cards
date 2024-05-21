@@ -13,7 +13,7 @@ export const Breadcrumbs = ({ breadcrumbs }: BreadcrumbsProps) => {
   return (
     <div className="flex items-center gap-2 font-bold">
       <Link
-        className="text-neutral-300 no-underline hover:opacity-80"
+        className="text-neutral-700 no-underline hover:opacity-80 dark:text-neutral-300"
         href={buildHomePageUrl()}
       >
         Home
@@ -33,14 +33,14 @@ export const Breadcrumbs = ({ breadcrumbs }: BreadcrumbsProps) => {
 
           {index === breadcrumbs.length ? (
             <Link
-              className="text-neutral-300 no-underline hover:opacity-80"
+              className="text-neutral-700 no-underline hover:opacity-80 dark:text-neutral-300"
               href={breadcrumb.url}
               key={breadcrumb.url}
             >
               {breadcrumb.title}
             </Link>
           ) : (
-            <span className="text-neutral-300 no-underline">
+            <span className="text-neutral-700 no-underline dark:text-neutral-300">
               {breadcrumb.title}
             </span>
           )}

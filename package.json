@@ -1,6 +1,6 @@
 {
   "name": "recipe-cards",
-  "version": "2.0.0-alpha.1",
+  "version": "2.0.0-alpha.2",
   "private": true,
   "repository": "https://github.com/ryanep/recipe-cards.git",
   "license": "MIT",
@@ -12,6 +12,7 @@
     "start": "next start",
     "format": "prettier --write .",
     "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
     "database:create-migration": "prisma migrate dev",
     "database:generate": "prisma generate",
     "database:migrate": "prisma migrate deploy",

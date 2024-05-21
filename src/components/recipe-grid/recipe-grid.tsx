@@ -27,7 +27,7 @@ export const RecipeGrid = ({ recipes }: RecipeGridProps) => {
     <div className="grid grid-cols-[repeat(auto-fill,_minmax(230px,_1fr))] gap-5">
       {recipes.map((recipe) => (
         <Link
-          className="flex flex-col overflow-hidden rounded-md bg-black text-white no-underline transition-colors hover:bg-neutral-950"
+          className="flex flex-col overflow-hidden rounded-md bg-neutral-100 no-underline transition-colors hover:bg-neutral-200 dark:bg-black dark:text-white dark:hover:bg-neutral-950"
           href={`/recipe/${recipe.id}`}
           key={recipe.id}
         >
