@@ -9,7 +9,7 @@
     "sourceMap": false,
     "resolveJsonModule": true,
     "jsx": "preserve",
-    "lib": ["dom", "es6", "esnext.asynciterable"],
+    "lib": ["dom", "es2021", "esnext.asynciterable"],
     "target": "es2022",
     "strict": true,
     "noEmit": true,
