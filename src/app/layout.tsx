@@ -18,6 +18,9 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="en">
+      <head>
+        <link href="/images/favicon.png" rel="icon" />
+      </head>
       <body
         className={cx(
           "bg-white text-neutral-900 dark:bg-neutral-900 dark:text-neutral-50 antialiased min-h-dvh"
