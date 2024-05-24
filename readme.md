@@ -24,7 +24,8 @@ To start both the website and sanity, run `npm run dev` from the root folder.
 
 ## Screenshot
 
-![Recipe Card Screenshot](docs/screenshot.png)
+![Recipe Card Screenshot](./docs/screenshot-dark.webp#gh-dark-mode-only)
+![Recipe Card Screenshot](./docs/screenshot-light.webp#gh-light-mode-only)
 
 ## License
 
