@@ -3,16 +3,24 @@ import { Pagination } from "#/components/pagination";
 import { RecipeGrid } from "#/components/recipe-grid";
 import { database } from "#/database";
 import { getTranslation } from "#/i18n/server";
+import { filtersSubmit } from "./actions";
 import type { Metadata } from "next";
 
 interface HomePageProps {
   readonly searchParams: {
     page?: number;
+    search?: string;
   };
 }
 
 const getPageData = async ({ searchParams }: HomePageProps) => {
   const pageSize = 30;
+
+  const where = {
+    name: {
+      contains: searchParams.search,
+    },
+  };
 
   const recipes = await database.recipe.findMany({
     include: {
@@ -25,9 +33,12 @@ const getPageData = async ({ searchParams }: HomePageProps) => {
     },
     skip: searchParams.page ? pageSize * (searchParams.page - 1) : 0,
     take: pageSize,
+    where,
   });
 
-  const totalRecipeCount = await database.recipe.count();
+  const totalRecipeCount = await database.recipe.count({
+    where,
+  });
 
   return {
     recipes,
@@ -43,30 +54,68 @@ export const getMetadata = async (): Promise<Metadata> => {
   };
 };
 
+const PAGE_SIZE = 30;
+
 const HomePage = async ({ searchParams }: HomePageProps) => {
   const { t } = await getTranslation("home");
   const { recipes, totalRecipeCount } = await getPageData({ searchParams });
 
   return (
     <main>
-      <Heading type="h1">{t("home:heading")}</Heading>
+      <div className="mb-8 flex items-center gap-4">
+        <div>
+          <Heading type="h1">{t("home:heading")}</Heading>
 
-      <p className="mb-8 text-lg font-medium text-neutral-500 dark:text-neutral-400">
-        {t("home:results", {
-          count: recipes.length,
-          totalCount: totalRecipeCount,
-        })}
-      </p>
+          <p className="text-lg font-medium text-neutral-500 dark:text-neutral-400">
+            {t("home:results", {
+              count: recipes.length,
+              totalCount: totalRecipeCount,
+            })}
+          </p>
+        </div>
 
-      <div className="mb-8">
-        <RecipeGrid recipes={recipes} />
+        <form action={filtersSubmit} className="ml-auto flex gap-2">
+          <div className="relative">
+            <svg
+              className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-500"
+              fill="none"
+              height="16"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.3-4.3" />
+            </svg>
+
+            <input
+              aria-label="Search recipes"
+              className="rounded-md border-2 border-neutral-200 bg-white p-2 pl-9 text-sm placeholder:text-neutral-500 dark:border-neutral-700 dark:bg-neutral-800"
+              defaultValue={searchParams.search}
+              id="name"
+              name="name"
+              placeholder="Search"
+              type="name"
+            />
+          </div>
+        </form>
       </div>
 
-      <Pagination
-        currentPage={searchParams.page ? Number(searchParams.page) : 1}
-        pageSize={30}
-        totalItemCount={totalRecipeCount}
-      />
+      <RecipeGrid recipes={recipes} />
+
+      {totalRecipeCount > PAGE_SIZE ? (
+        <div className="mt-8">
+          <Pagination
+            currentPage={searchParams.page ? Number(searchParams.page) : 1}
+            pageSize={PAGE_SIZE}
+            totalItemCount={totalRecipeCount}
+          />
+        </div>
+      ) : null}
     </main>
   );
 };

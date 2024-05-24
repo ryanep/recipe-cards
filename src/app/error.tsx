@@ -1,17 +1,18 @@
+"use client";
 import { Heading } from "#/components/heading";
 import { Link } from "#/components/link";
 import { buildHomePageUrl } from "#/utils/page";
 
-const NotFoundPage = () => {
+const ErrorPage = () => {
   return (
-    <main className="size-full place-items-center">
-      <Heading type="h1">Page not found</Heading>
+    <div className="text-center">
+      <Heading type="h1">Error</Heading>
 
       <Link className="underline" href={buildHomePageUrl()}>
-        View all recipes
+        An error occurred. Please try again.
       </Link>
-    </main>
+    </div>
   );
 };
 
-export default NotFoundPage;
+export default ErrorPage;
