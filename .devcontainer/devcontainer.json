@@ -8,12 +8,14 @@
   "remoteUser": "node",
   "features": {
     "git": "latest",
-    "node": "20.12.0"
+    "node": "20.12.0",
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
   },
   "customizations": {
     "vscode": {
       "extensions": [
         "bradlc.vscode-tailwindcss",
+        "chrmarti.regex",
         "dbaeumer.vscode-eslint",
         "editorconfig.editorconfig",
         "esbenp.prettier-vscode",
