@@ -1,3 +1,4 @@
+import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "#/components/breadcrumbs";
 import { Heading } from "#/components/heading";
@@ -6,6 +7,7 @@ import { Ingredients } from "#/components/ingredients";
 import { Steps } from "#/components/steps";
 import { database } from "#/database";
 import { buildRecipePageUrl } from "#/utils/page";
+import { increaseServingSize, reduceServingSize } from "./actions";
 import type { Metadata } from "next";
 
 interface RecipePageProps {
@@ -15,6 +17,10 @@ interface RecipePageProps {
 }
 
 const getPageData = async ({ params }: RecipePageProps) => {
+  const servingSize = cookies().get("servingSize")?.value
+    ? Number(cookies().get("servingSize")?.value)
+    : 1;
+
   const recipe = await database.recipe.findUnique({
     include: {
       ingredients: true,
@@ -36,6 +42,7 @@ const getPageData = async ({ params }: RecipePageProps) => {
 
   return {
     recipe,
+    servingSize,
   };
 };
 
@@ -51,7 +58,7 @@ export const generateMetadata = async ({
 };
 
 const RecipePage = async ({ params }: RecipePageProps) => {
-  const { recipe } = await getPageData({ params });
+  const { recipe, servingSize } = await getPageData({ params });
 
   const breadcrumbs = [
     {
@@ -83,7 +90,55 @@ const RecipePage = async ({ params }: RecipePageProps) => {
             {recipe.name}
           </Heading>
 
-          <p className="text-lg font-medium">{recipe.description}</p>
+          <p className="mb-8 text-lg font-medium">{recipe.description}</p>
+
+          <Heading as="h4" className="mb-4" type="h2">
+            Servings
+          </Heading>
+
+          <div className="flex h-10 items-center gap-0.5">
+            <form action={reduceServingSize} className="h-full">
+              <button
+                className="flex aspect-square h-full place-content-center place-items-center rounded-l-md bg-neutral-200 text-lg font-bold text-neutral-400 dark:bg-neutral-700 dark:text-neutral-400"
+                type="submit"
+              >
+                <svg
+                  fill="currentColor"
+                  height="20"
+                  version="1.1"
+                  viewBox="0 0 640 640"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  {/* eslint-disable-next-line react/jsx-max-depth */}
+                  <path d="M512 320c0 17.696-1.536 32-19.232 32h-345.536c-17.664 0-19.232-14.304-19.232-32s1.568-32 19.232-32h345.568c17.664 0 19.2 14.304 19.2 32z" />
+                </svg>
+              </button>
+            </form>
+
+            <div className="flex h-full grow place-content-center place-items-center bg-neutral-200 font-bold text-neutral-400 dark:bg-neutral-700 dark:text-neutral-400">
+              {servingSize}
+            </div>
+
+            <form action={increaseServingSize} className="h-full">
+              <button
+                className="flex aspect-square h-full place-content-center place-items-center rounded-r-md bg-neutral-200 text-lg font-bold text-neutral-400 dark:bg-neutral-700 dark:text-neutral-400"
+                type="submit"
+              >
+                <svg
+                  fill="currentColor"
+                  height="20"
+                  version="1.1"
+                  viewBox="0 0 640 640"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  {/* eslint-disable-next-line react/jsx-max-depth */}
+                  <path d="M512 320c0 17.696-1.536 32-19.232 32h-140.768v140.768c0 17.664-14.304 19.232-32 19.232s-32-1.568-32-19.232v-140.768h-140.768c-17.664 0-19.232-14.304-19.232-32s1.568-32 19.232-32h140.768v-140.768c0-17.696 14.304-19.232 32-19.232s32 1.536 32 19.232v140.768h140.768c17.696 0 19.232 14.304 19.232 32z" />
+                </svg>
+              </button>
+            </form>
+          </div>
         </div>
 
         <div className="flex flex-col gap-4">
@@ -91,7 +146,10 @@ const RecipePage = async ({ params }: RecipePageProps) => {
             Ingredients
           </Heading>
 
-          <Ingredients ingredients={recipe.ingredients} />
+          <Ingredients
+            ingredients={recipe.ingredients}
+            servingSize={servingSize}
+          />
 
           <Heading as="h5" type="h2">
             Steps

@@ -7,9 +7,10 @@ interface IngredientsProps {
     quantity: number;
     unit: string;
   }[];
+  readonly servingSize: number;
 }
 
-export const Ingredients = ({ ingredients }: IngredientsProps) => {
+export const Ingredients = ({ ingredients, servingSize }: IngredientsProps) => {
   const id = useId();
 
   return (
@@ -32,7 +33,7 @@ export const Ingredients = ({ ingredients }: IngredientsProps) => {
 
             <div className="flex flex-col">
               <div className="text-sm text-green-600 dark:text-green-300">
-                {ingredient.quantity} {ingredient.unit}
+                {ingredient.quantity * servingSize} {ingredient.unit}
               </div>
 
               <div className="font-black">{ingredient.name}</div>
