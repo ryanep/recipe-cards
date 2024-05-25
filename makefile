@@ -1,6 +1,6 @@
 REGISTRY_URL = docker.in.ryanep.com
 IMAGE_NAME = recipe-cards
-IMAGE_VERSION = 2.0.0-alpha.4
+IMAGE_VERSION = 2.0.0-alpha.5
 IMAGE_TAG = ${IMAGE_NAME}:${IMAGE_VERSION}
 
 app-build:
