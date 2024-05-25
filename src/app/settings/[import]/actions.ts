@@ -48,8 +48,6 @@ const sanityRecipeSchema = z.object({
   ),
 });
 
-const sanityBaseSchema = z.object({ _type: z.string() }).or(sanityRecipeSchema);
-
 export const importAction = async (formData: FormData) => {
   const file = formData.get("file") as File | undefined;
 
@@ -64,9 +62,11 @@ export const importAction = async (formData: FormData) => {
     .split(os.EOL)
     .filter(Boolean)
     .map((item) => {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
       return JSON.parse(item);
     })
     .filter((item) => {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       return item._type === "recipe";
     })
     .map((item) => {

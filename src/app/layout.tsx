@@ -29,7 +29,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
         <div className="flex min-h-dvh flex-col">
           <Header />
 
-          <div className="grow bg-neutral-50 p-5 dark:bg-neutral-900">
+          <div className="grow flex-col bg-neutral-50 p-5 dark:bg-neutral-900">
             {children}
           </div>
         </div>

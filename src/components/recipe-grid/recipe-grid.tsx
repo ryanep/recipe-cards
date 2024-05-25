@@ -41,7 +41,7 @@ export const RecipeGrid = ({ recipes }: RecipeGridProps) => {
           />
 
           <div className="flex grow flex-col gap-2 p-3">
-            <Heading as="h3" type="h2">
+            <Heading as="h5" type="h2">
               {recipe.name}
             </Heading>
 
