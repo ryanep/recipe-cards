@@ -11,7 +11,7 @@ interface BreadcrumbsProps {
 
 export const Breadcrumbs = ({ breadcrumbs }: BreadcrumbsProps) => {
   return (
-    <div className="flex items-center gap-2 font-bold">
+    <nav className="flex items-center gap-2 font-bold">
       <Link
         className="text-neutral-700 no-underline hover:opacity-80 dark:text-neutral-300"
         href={buildHomePageUrl()}
@@ -46,6 +46,6 @@ export const Breadcrumbs = ({ breadcrumbs }: BreadcrumbsProps) => {
           )}
         </Fragment>
       ))}
-    </div>
+    </nav>
   );
 };

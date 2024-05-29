@@ -18,7 +18,7 @@ export const Ingredients = ({ ingredients, servingSize }: IngredientsProps) => {
       {ingredients.map((ingredient, index) => (
         <li className="relative font-bold" key={ingredient.id}>
           <label
-            className="flex cursor-pointer items-center bg-white p-2 dark:bg-black"
+            className="flex cursor-pointer items-center bg-white px-4 py-2 dark:bg-black"
             htmlFor={`${id}-${index}`}
           >
             <input
