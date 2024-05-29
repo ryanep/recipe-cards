@@ -68,14 +68,14 @@ const RecipePage = async ({ params }: RecipePageProps) => {
   ];
 
   return (
-    <div>
+    <>
       <div className="mb-5">
         <Breadcrumbs breadcrumbs={breadcrumbs} />
       </div>
 
       {/* eslint-disable-next-line tailwindcss/no-arbitrary-value */}
-      <div className="grid gap-5 md:grid-cols-[minmax(300px,_25%)_auto]">
-        <div>
+      <div className="grid items-start gap-5 md:grid-cols-[minmax(300px,_25%)_auto]">
+        <aside className="sticky top-20">
           <Image
             alt={recipe.name}
             className="mb-4 aspect-square w-full rounded-lg object-cover md:max-h-80"
@@ -139,9 +139,9 @@ const RecipePage = async ({ params }: RecipePageProps) => {
               </button>
             </form>
           </div>
-        </div>
+        </aside>
 
-        <div className="flex flex-col gap-4">
+        <main className="flex flex-col gap-4">
           <Heading as="h5" type="h2">
             Ingredients
           </Heading>
@@ -156,9 +156,9 @@ const RecipePage = async ({ params }: RecipePageProps) => {
           </Heading>
 
           <Steps steps={recipe.steps} />
-        </div>
+        </main>
       </div>
-    </div>
+    </>
   );
 };
 
