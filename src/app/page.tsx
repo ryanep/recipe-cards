@@ -52,7 +52,7 @@ const getPageData = async ({ searchParams }: HomePageProps) => {
   };
 };
 
-export const getMetadata = async (): Promise<Metadata> => {
+export const generateMetadata = async (): Promise<Metadata> => {
   const { t } = await getTranslation("home");
 
   return {
