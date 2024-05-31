@@ -51,7 +51,7 @@ model RecipeStep {
 
 model Category {
   id     String   @id @default(nanoid())
-  name   String
+  name   String   @unique
   Recipe Recipe[]
 
   @@map("categories")
