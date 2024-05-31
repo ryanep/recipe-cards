@@ -32,7 +32,6 @@ const getPageData = async ({ searchParams }: HomePageProps) => {
     include: {
       ingredients: true,
       steps: true,
-      tags: true,
     },
     orderBy: {
       createdAt: "asc",

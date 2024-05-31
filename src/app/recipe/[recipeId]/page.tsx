@@ -29,7 +29,6 @@ const getPageData = async ({ params }: RecipePageProps) => {
           order: "asc",
         },
       },
-      tags: true,
     },
     where: {
       id: params.recipeId,

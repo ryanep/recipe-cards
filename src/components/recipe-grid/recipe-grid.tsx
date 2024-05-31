@@ -14,10 +14,6 @@ interface RecipeGridProps {
     }[];
     name: string;
     rating: number;
-    tags: {
-      id: string;
-      name: string;
-    }[];
   }[];
 }
 
@@ -47,19 +43,6 @@ export const RecipeGrid = ({ recipes }: RecipeGridProps) => {
             </Heading>
 
             <StarRating rating={recipe.rating} />
-
-            {recipes.length > 0 ? (
-              <ul className="mt-auto flex gap-2 overflow-scroll">
-                {recipe.tags.map((tag) => (
-                  <li
-                    className="whitespace-nowrap rounded-sm bg-neutral-800 px-2 py-1 text-xs font-bold uppercase"
-                    key={tag.id}
-                  >
-                    {tag.name}
-                  </li>
-                ))}
-              </ul>
-            ) : null}
           </div>
         </Link>
       ))}
