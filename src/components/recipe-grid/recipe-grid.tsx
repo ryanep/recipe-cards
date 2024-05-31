@@ -35,13 +35,14 @@ export const RecipeGrid = ({ recipes }: RecipeGridProps) => {
             alt={recipe.name}
             className="aspect-square h-52 w-full object-cover"
             height={300}
+            isPriority
             isUnoptimized
             src={`/images/recipes/${recipe.imageUrl}`}
             width={300}
           />
 
           <div className="flex grow flex-col gap-2 p-3">
-            <Heading as="h5" type="h2">
+            <Heading as="h3" type="h2">
               {recipe.name}
             </Heading>
 
