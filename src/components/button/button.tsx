@@ -7,7 +7,7 @@ interface ButtonProps {
 export const Button = ({ children }: ButtonProps) => {
   return (
     <button
-      className="rounded-md bg-blue-600 px-4 font-bold text-white"
+      className="block rounded-md bg-blue-600 px-4 py-2 font-bold text-white"
       type="submit"
     >
       {children}

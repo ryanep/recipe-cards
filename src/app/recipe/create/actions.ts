@@ -2,6 +2,7 @@
 import fs from "node:fs/promises";
 import { redirect } from "next/navigation";
 import { z } from "zod";
+import { database } from "#/database";
 import { formDataToObject } from "#/utils/form";
 
 const createRecipeValidationSchema = z.object({
@@ -23,7 +24,14 @@ export const createRecipeAction = async (formData: FormData) => {
     await fs.writeFile(`./images/${image.name}`, buffer, "utf8");
   }
 
-  console.log(parsedRecipeData);
+  const recipe = await database.recipe.create({
+    data: {
+      description: parsedRecipeData.description,
+      imageUrl: "",
+      name: parsedRecipeData.name,
+      rating: parsedRecipeData.rating,
+    },
+  });
 
-  return redirect("/recipe/id");
+  return redirect(`/recipe/${recipe.id}`);
 };

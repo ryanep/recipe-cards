@@ -72,7 +72,6 @@ const RecipePage = async ({ params }: RecipePageProps) => {
         <Breadcrumbs breadcrumbs={breadcrumbs} />
       </div>
 
-      {/* eslint-disable-next-line tailwindcss/no-arbitrary-value */}
       <div className="grid items-start gap-5 md:grid-cols-[minmax(300px,_25%)_auto]">
         <aside className="sticky top-20">
           <Image
