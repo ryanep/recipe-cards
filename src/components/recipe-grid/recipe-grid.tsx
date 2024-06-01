@@ -19,7 +19,6 @@ interface RecipeGridProps {
 
 export const RecipeGrid = ({ recipes }: RecipeGridProps) => {
   return (
-    // eslint-disable-next-line tailwindcss/no-arbitrary-value
     <div className="grid grid-cols-[repeat(auto-fill,_minmax(230px,_1fr))] gap-5">
       {recipes.map((recipe) => (
         <Link
