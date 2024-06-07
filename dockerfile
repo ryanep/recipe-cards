@@ -1,4 +1,4 @@
-FROM node:20.9.0-alpine as builder
+FROM node:22.2.0-alpine as builder
 
 WORKDIR /app
 
@@ -8,7 +8,7 @@ RUN npm install
 RUN npm run database:generate
 RUN npm run build
 
-FROM node:20.9.0-alpine as runtime
+FROM node:22.2.0-alpine as runtime
 
 WORKDIR /app
 

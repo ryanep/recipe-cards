@@ -8,7 +8,7 @@
   "remoteUser": "node",
   "features": {
     "git": "latest",
-    "node": "20.12.0",
+    "node": "22.2.0",
     "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
   },
   "customizations": {
