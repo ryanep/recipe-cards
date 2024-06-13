@@ -63,7 +63,7 @@ const CreateRecipePage = () => {
           />
         </label>
 
-        <Button>Create recipe</Button>
+        <Button type="submit">Create recipe</Button>
       </form>
     </div>
   );
