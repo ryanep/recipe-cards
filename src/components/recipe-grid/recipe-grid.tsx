@@ -36,7 +36,7 @@ export const RecipeGrid = ({ recipes }: RecipeGridProps) => {
           />
 
           <div className="flex grow flex-col gap-1">
-            <h2 className="font-semibold">{recipe.name}</h2>
+            <h2 className="truncate font-semibold">{recipe.name}</h2>
 
             <StarRating rating={recipe.rating} />
           </div>

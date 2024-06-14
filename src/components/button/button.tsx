@@ -18,7 +18,7 @@ export const Button = ({
     <button
       className={cx(
         "block rounded-md px-4 py-2 font-semibold text-sm text-white hover:opacity-90",
-        intent === "confirm" && "bg-blue-600R:",
+        intent === "confirm" && "bg-blue-600",
         intent === "destructive" && "bg-red-600",
         intent === "neutral" && "bg-neutral-400 dark:bg-neutral-600"
       )}
