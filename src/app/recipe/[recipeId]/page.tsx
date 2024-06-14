@@ -74,10 +74,10 @@ const RecipePage = async ({ params }: RecipePageProps) => {
       </div>
 
       <div className="grid items-start gap-5 md:grid-cols-[minmax(300px,_25%)_auto]">
-        <aside className="sticky top-20">
+        <aside className="md:sticky md:top-20">
           <Image
             alt={recipe.name}
-            className="mb-4 aspect-square w-full rounded-lg object-cover md:max-h-80"
+            className="mb-4 aspect-square w-full rounded-lg object-cover"
             height={500}
             isPriority
             isUnoptimized

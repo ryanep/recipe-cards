@@ -24,7 +24,7 @@ export const Heading = ({ as, children, className, type }: HeadingProps) => {
         tagType === "h3" && "text-2xl",
         tagType === "h4" && "text-xl uppercase",
         tagType === "h5" && "text-lg uppercase",
-        tagType === "h6" && "text-base uppercase"
+        tagType === "h6" && "text-lg"
       )}
     >
       {children}

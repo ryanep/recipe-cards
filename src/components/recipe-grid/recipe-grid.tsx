@@ -1,4 +1,3 @@
-import { Heading } from "#/components/heading";
 import { Image } from "#/components/image";
 import { Link } from "#/components/link";
 import { StarRating } from "#/components/star-rating";
@@ -22,13 +21,13 @@ export const RecipeGrid = ({ recipes }: RecipeGridProps) => {
     <div className="grid grid-cols-[repeat(auto-fill,_minmax(230px,_1fr))] gap-5">
       {recipes.map((recipe) => (
         <Link
-          className="flex flex-col overflow-hidden rounded-md bg-neutral-100 no-underline transition-colors hover:bg-neutral-200 dark:bg-black dark:text-white dark:hover:bg-neutral-950"
+          className="flex flex-col overflow-hidden no-underline transition-colors hover:opacity-90 dark:text-white dark:hover:bg-neutral-950"
           href={`/recipe/${recipe.id}`}
           key={recipe.id}
         >
           <Image
             alt={recipe.name}
-            className="aspect-square h-52 w-full object-cover"
+            className="mb-2 aspect-square w-full rounded-md object-cover"
             height={300}
             isPriority
             isUnoptimized
@@ -36,10 +35,8 @@ export const RecipeGrid = ({ recipes }: RecipeGridProps) => {
             width={300}
           />
 
-          <div className="flex grow flex-col gap-2 p-3">
-            <Heading as="h3" type="h2">
-              {recipe.name}
-            </Heading>
+          <div className="flex grow flex-col gap-1">
+            <h2 className="font-semibold">{recipe.name}</h2>
 
             <StarRating rating={recipe.rating} />
           </div>
