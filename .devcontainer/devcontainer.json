@@ -4,6 +4,7 @@
   "build": {
     "dockerfile": "./dockerfile"
   },
+  "postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
   "postCreateCommand": "npm install",
   "remoteUser": "node",
   "features": {
