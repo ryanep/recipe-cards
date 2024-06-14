@@ -1,5 +1,5 @@
 const DeleteRecipePage = () => {
-  return <div>Delete</div>;
+  return null;
 };
 
 export default DeleteRecipePage;

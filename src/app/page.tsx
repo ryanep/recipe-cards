@@ -67,7 +67,7 @@ const HomePage = async ({ searchParams }: HomePageProps) => {
 
   return (
     <main>
-      <div className="mb-8 flex items-center gap-4">
+      <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-center">
         <div>
           <Heading type="h1">{t("home:heading")}</Heading>
 
@@ -79,7 +79,7 @@ const HomePage = async ({ searchParams }: HomePageProps) => {
           </p>
         </div>
 
-        <form action={filtersSubmit} className="ml-auto flex gap-2">
+        <form action={filtersSubmit} className="flex gap-2 md:ml-auto">
           <div className="relative">
             <svg
               className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-500"
