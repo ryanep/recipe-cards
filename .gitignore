@@ -2,6 +2,7 @@
 .env.local
 *.sqlite
 *.sqlite-journal
+*.tar
 *.tsbuildinfo
 /.next
 /images
