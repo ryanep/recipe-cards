@@ -16,6 +16,7 @@ model Recipe {
   ingredients RecipeIngredient[]
   steps       RecipeStep[]
   category    Category?          @relation(fields: [categoryId], references: [id])
+  deletedAt   DateTime?
   createdAt   DateTime           @default(now())
   updatedAt   DateTime           @updatedAt
   categoryId  String?

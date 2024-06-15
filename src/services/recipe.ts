@@ -12,13 +12,17 @@ export const createRecipeService = (database: PrismaClient) => {
         },
       },
       where: {
+        deletedAt: null,
         id: recipeId,
       },
     });
   };
 
   const deleteRecipe = async (recipeId: string) => {
-    await database.recipe.delete({
+    await database.recipe.update({
+      data: {
+        deletedAt: new Date(),
+      },
       where: {
         id: recipeId,
       },

@@ -18,6 +18,7 @@ const getPageData = async ({ searchParams }: HomePageProps) => {
   const pageSize = 30;
 
   const where = {
+    deletedAt: null,
     name: {
       contains: searchParams.search,
     },

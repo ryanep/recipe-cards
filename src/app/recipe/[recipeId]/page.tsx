@@ -32,6 +32,7 @@ const getPageData = async ({ params }: RecipePageProps) => {
       },
     },
     where: {
+      deletedAt: null,
       id: params.recipeId,
     },
   });
