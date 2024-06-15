@@ -105,6 +105,4 @@ export const importAction = async (formData: FormData) => {
       },
     });
   }
-
-  console.log("imported");
 };

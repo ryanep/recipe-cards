@@ -1,4 +1,5 @@
 interface SelectProps {
+  readonly defaultValue?: number | string;
   readonly id: string;
   readonly isRequired?: boolean;
   readonly name: string;
@@ -8,10 +9,17 @@ interface SelectProps {
   }[];
 }
 
-export const Select = ({ id, isRequired, name, options }: SelectProps) => {
+export const Select = ({
+  defaultValue,
+  id,
+  isRequired,
+  name,
+  options,
+}: SelectProps) => {
   return (
     <select
       className="w-full rounded-md border-2 border-neutral-200 bg-white p-2 text-sm placeholder:text-neutral-500 dark:border-neutral-700 dark:bg-neutral-800"
+      defaultValue={defaultValue}
       id={id}
       name={name}
       required={isRequired}
