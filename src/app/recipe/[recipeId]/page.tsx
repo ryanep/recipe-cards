@@ -6,6 +6,7 @@ import { Image } from "#/components/image";
 import { Ingredients } from "#/components/ingredients";
 import { Link } from "#/components/link";
 import { Steps } from "#/components/steps";
+import { WakeLock } from "#/components/wake-lock";
 import { database } from "#/database";
 import { buildRecipePageUrl } from "#/utils/page";
 import { increaseServingSize, reduceServingSize } from "./actions";
@@ -70,6 +71,8 @@ const RecipePage = async ({ params }: RecipePageProps) => {
 
   return (
     <>
+      <WakeLock />
+
       <div className="mb-5">
         <Breadcrumbs breadcrumbs={breadcrumbs} />
       </div>
