@@ -66,6 +66,8 @@ const HomePage = async ({ searchParams }: HomePageProps) => {
   const { t } = await getTranslation("home");
   const { recipes, totalRecipeCount } = await getPageData({ searchParams });
 
+  console.log(searchParams);
+
   return (
     <main>
       <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-center">
@@ -98,9 +100,9 @@ const HomePage = async ({ searchParams }: HomePageProps) => {
 
             <select
               className="appearance-none rounded-md border-2 border-neutral-200 bg-white p-2 px-8 text-sm placeholder:text-neutral-500 dark:border-neutral-700 dark:bg-neutral-800"
-              data-test={searchParams.rating}
               defaultValue={searchParams.rating}
               name="rating"
+              value={searchParams.rating}
             >
               <option value="">Star rating</option>
               <option value="5">5 stars</option>

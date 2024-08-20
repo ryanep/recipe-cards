@@ -21,13 +21,13 @@ export const RecipeGrid = ({ recipes }: RecipeGridProps) => {
     <div className="grid grid-cols-[repeat(auto-fill,_minmax(230px,_1fr))] gap-5">
       {recipes.map((recipe) => (
         <Link
-          className="flex flex-col overflow-hidden no-underline transition-colors hover:opacity-90 dark:text-white dark:hover:bg-neutral-950"
+          className="group flex flex-col overflow-hidden no-underline transition-colors dark:text-white"
           href={`/recipe/${recipe.id}`}
           key={recipe.id}
         >
           <Image
             alt={recipe.name}
-            className="mb-2 aspect-square w-full rounded-md object-cover"
+            className="mb-2 aspect-square w-full rounded-md object-cover transition-opacity group-hover:opacity-80"
             height={300}
             isPriority
             isUnoptimized
