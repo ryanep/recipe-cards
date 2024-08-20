@@ -7,7 +7,7 @@ const CreateRecipePage = () => {
     <div>
       <Heading type="h1">Create recipe</Heading>
 
-      <RecipeForm formAction={createRecipeAction} />
+      <RecipeForm formAction={createRecipeAction} mode="create" />
     </div>
   );
 };

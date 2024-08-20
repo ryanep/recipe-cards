@@ -50,12 +50,17 @@ interface RecipeFormProps {
       order: number;
     }[];
   };
+  readonly mode: "create" | "edit";
 }
 
 const defaultIngredientCount = 1;
 const defaultStepCount = 1;
 
-export const RecipeForm = ({ formAction, initialValues }: RecipeFormProps) => {
+export const RecipeForm = ({
+  formAction,
+  initialValues,
+  mode,
+}: RecipeFormProps) => {
   const [ingredientCount, setIngredientCount] = useState(
     initialValues?.ingredients.length ?? defaultIngredientCount
   );
@@ -234,7 +239,10 @@ export const RecipeForm = ({ formAction, initialValues }: RecipeFormProps) => {
       </div>
 
       <div>
-        <Button type="submit">Create recipe</Button>
+        <Button type="submit">
+          {mode === "create" ? "Create Recipe" : null}
+          {mode === "edit" ? "Edit Recipe" : null}
+        </Button>
       </div>
     </form>
   );

@@ -32,7 +32,11 @@ const EditRecipePage = async ({ params }: EditRecipePageProps) => {
     <div>
       <Heading type="h1">Edit Recipe</Heading>
 
-      <RecipeForm formAction={saveRecipeAction} initialValues={recipe} />
+      <RecipeForm
+        formAction={saveRecipeAction}
+        initialValues={recipe}
+        mode="edit"
+      />
     </div>
   );
 };
