@@ -4,7 +4,8 @@ import { RecipeGrid } from "#/components/recipe-grid";
 import { database } from "#/database";
 import { getTranslation } from "#/i18n/server";
 import { filtersSubmit } from "./actions";
-import type { Metadata } from "next";
+
+const PAGE_SIZE = 30;
 
 interface HomePageProps {
   readonly searchParams: {
@@ -15,8 +16,6 @@ interface HomePageProps {
 }
 
 const getPageData = async ({ searchParams }: HomePageProps) => {
-  const pageSize = 30;
-
   const where = {
     deletedAt: null,
     name: {
@@ -37,8 +36,8 @@ const getPageData = async ({ searchParams }: HomePageProps) => {
     orderBy: {
       createdAt: "asc",
     },
-    skip: searchParams.page ? pageSize * (searchParams.page - 1) : 0,
-    take: pageSize,
+    skip: searchParams.page ? PAGE_SIZE * (searchParams.page - 1) : 0,
+    take: PAGE_SIZE,
     where,
   });
 
@@ -52,21 +51,9 @@ const getPageData = async ({ searchParams }: HomePageProps) => {
   };
 };
 
-export const generateMetadata = async (): Promise<Metadata> => {
-  const { t } = await getTranslation("home");
-
-  return {
-    title: t("home:pageTitle"),
-  };
-};
-
-const PAGE_SIZE = 30;
-
 const HomePage = async ({ searchParams }: HomePageProps) => {
   const { t } = await getTranslation("home");
   const { recipes, totalRecipeCount } = await getPageData({ searchParams });
-
-  console.log(searchParams);
 
   return (
     <main>
