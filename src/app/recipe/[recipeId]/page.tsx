@@ -2,12 +2,13 @@ import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "#/components/breadcrumbs";
 import { Heading } from "#/components/heading";
+import { HorizontalDotsIcon, MinusIcon, PlusIcon } from "#/components/icons";
 import { Image } from "#/components/image";
 import { Ingredients } from "#/components/ingredients";
 import { Link } from "#/components/link";
 import { Steps } from "#/components/steps";
 import { WakeLock } from "#/components/wake-lock";
-import { database } from "#/database";
+import { recipeService } from "#/services/recipe";
 import { buildRecipePageUrl } from "#/utils/page";
 import { increaseServingSize, reduceServingSize } from "./actions";
 import type { Metadata } from "next";
@@ -19,30 +20,27 @@ interface RecipePageProps {
 }
 
 const getPageData = async ({ params }: RecipePageProps) => {
+  const { getRecipe } = recipeService;
+
   const servingSize = cookies().get("servingSize")?.value
     ? Number(cookies().get("servingSize")?.value)
     : 1;
 
-  const recipe = await database.recipe.findUnique({
-    include: {
-      ingredients: true,
-      steps: {
-        orderBy: {
-          order: "asc",
-        },
-      },
-    },
-    where: {
-      deletedAt: null,
-      id: params.recipeId,
-    },
-  });
+  const recipe = await getRecipe(params);
 
   if (!recipe) {
     return notFound();
   }
 
+  const breadcrumbs = [
+    {
+      title: recipe.name,
+      url: buildRecipePageUrl(recipe.id),
+    },
+  ];
+
   return {
+    breadcrumbs,
     recipe,
     servingSize,
   };
@@ -60,14 +58,7 @@ export const generateMetadata = async ({
 };
 
 const RecipePage = async ({ params }: RecipePageProps) => {
-  const { recipe, servingSize } = await getPageData({ params });
-
-  const breadcrumbs = [
-    {
-      title: recipe.name,
-      url: buildRecipePageUrl(recipe.id),
-    },
-  ];
+  const { breadcrumbs, recipe, servingSize } = await getPageData({ params });
 
   return (
     <>
@@ -94,18 +85,7 @@ const RecipePage = async ({ params }: RecipePageProps) => {
 
             <details className="relative">
               <summary className="cursor-pointer rounded-md border-2 border-neutral-300 p-1 px-2 text-neutral-300 dark:border-neutral-600 dark:text-neutral-600">
-                <svg
-                  aria-hidden="true"
-                  fill="currentColor"
-                  height="24"
-                  stroke="currentColor"
-                  strokeWidth="0"
-                  viewBox="0 0 20 20"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
-                </svg>
+                <HorizontalDotsIcon size={24} />
               </summary>
 
               <ul className="absolute right-0 w-max rounded-md border border-neutral-200 bg-white p-1 text-sm font-medium shadow-md dark:border-neutral-800 dark:bg-neutral-950">
@@ -124,7 +104,9 @@ const RecipePage = async ({ params }: RecipePageProps) => {
             </details>
           </div>
 
-          <p className="mb-8 text-lg font-medium">{recipe.description}</p>
+          <p className="mb-8 text-lg font-medium text-neutral-500 dark:text-neutral-400">
+            {recipe.description}
+          </p>
 
           <Heading as="h4" className="mb-4" type="h2">
             Servings
@@ -136,17 +118,7 @@ const RecipePage = async ({ params }: RecipePageProps) => {
               formAction={reduceServingSize}
               type="submit"
             >
-              <svg
-                fill="currentColor"
-                height="20"
-                version="1.1"
-                viewBox="0 0 640 640"
-                width="20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                {/* eslint-disable-next-line react/jsx-max-depth */}
-                <path d="M512 320c0 17.696-1.536 32-19.232 32h-345.536c-17.664 0-19.232-14.304-19.232-32s1.568-32 19.232-32h345.568c17.664 0 19.2 14.304 19.2 32z" />
-              </svg>
+              <MinusIcon size={20} />
             </button>
 
             <div className="flex h-full grow place-content-center place-items-center bg-neutral-200 font-bold text-neutral-400 dark:bg-neutral-700 dark:text-neutral-400">
@@ -158,17 +130,7 @@ const RecipePage = async ({ params }: RecipePageProps) => {
               formAction={increaseServingSize}
               type="submit"
             >
-              <svg
-                fill="currentColor"
-                height="20"
-                version="1.1"
-                viewBox="0 0 640 640"
-                width="20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                {/* eslint-disable-next-line react/jsx-max-depth */}
-                <path d="M512 320c0 17.696-1.536 32-19.232 32h-140.768v140.768c0 17.664-14.304 19.232-32 19.232s-32-1.568-32-19.232v-140.768h-140.768c-17.664 0-19.232-14.304-19.232-32s1.568-32 19.232-32h140.768v-140.768c0-17.696 14.304-19.232 32-19.232s32 1.536 32 19.232v140.768h140.768c17.696 0 19.232 14.304 19.232 32z" />
-              </svg>
+              <PlusIcon size={20} />
             </button>
           </form>
         </aside>
