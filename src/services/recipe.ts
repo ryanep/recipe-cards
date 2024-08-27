@@ -103,8 +103,7 @@ const deleteRecipe =
     });
   };
 
-// TODO: Remove export.
-export const createRecipeService = (repositories: Repositories) => {
+const createRecipeService = (repositories: Repositories) => {
   return {
     deleteRecipe: deleteRecipe(repositories),
     getRecipe: getRecipe(repositories),

@@ -1,6 +1,6 @@
 import { Button } from "#/components/button";
 import { Modal } from "#/components/modal";
-import { deleteRecipe } from "./actions";
+import { deleteRecipeAction } from "./actions";
 
 interface DeleteRecipePageProps {
   readonly params: {
@@ -11,7 +11,7 @@ interface DeleteRecipePageProps {
 const DeleteRecipePage = ({ params }: DeleteRecipePageProps) => {
   return (
     <div className="fixed left-0 top-0 z-50 h-dvh w-dvw bg-black/20 dark:bg-black/80">
-      <form action={deleteRecipe}>
+      <form action={deleteRecipeAction}>
         <input name="recipeId" type="hidden" value={params.recipeId} />
 
         <Modal
