@@ -9,7 +9,7 @@ import { Link } from "#/components/link";
 import { Steps } from "#/components/steps";
 import { WakeLock } from "#/components/wake-lock";
 import { recipeService } from "#/services/recipe";
-import { buildRecipePageUrl } from "#/utils/page";
+import { buildEditRecipePageUrl } from "#/utils/page";
 import { increaseServingSize, reduceServingSize } from "./actions";
 import type { Metadata } from "next";
 
@@ -35,7 +35,7 @@ const getPageData = async ({ params }: RecipePageProps) => {
   const breadcrumbs = [
     {
       title: recipe.name,
-      url: buildRecipePageUrl(recipe.id),
+      url: buildEditRecipePageUrl(recipe.id),
     },
   ];
 

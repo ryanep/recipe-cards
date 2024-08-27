@@ -73,7 +73,7 @@ export const RecipeForm = ({
       <input name="recipeId" type="hidden" value={initialValues?.id} />
 
       <div>
-        <Heading as="h5" type="h2">
+        <Heading as="h5" className="mb-2" type="h2">
           General
         </Heading>
 
