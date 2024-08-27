@@ -1,8 +1,74 @@
-import type { PrismaClient } from "@prisma/client";
+import { database } from "#/database";
 
-export const createRecipeService = (database: PrismaClient) => {
-  const getRecipe = async (recipeId: string) => {
-    return database.recipe.findUnique({
+type Repositories = typeof database;
+
+interface GetRecipesParameters {
+  filters: {
+    page?: string;
+    rating?: string;
+    search?: string;
+  };
+  pageSize: number;
+}
+
+const getRecipes =
+  (repositories: Repositories) => async (parameters: GetRecipesParameters) => {
+    const { filters, pageSize } = parameters;
+
+    const where = {
+      deletedAt: null,
+      name: {
+        contains: filters.search,
+      },
+      rating: filters.rating
+        ? {
+            equals: Number(filters.rating),
+          }
+        : undefined,
+    };
+
+    const currentPage = filters.page ? Number(filters.page) : 1;
+    const skip = pageSize * (currentPage - 1);
+
+    const recipes = await repositories.recipe.findMany({
+      include: {
+        ingredients: true,
+        steps: true,
+      },
+      orderBy: {
+        createdAt: "asc",
+      },
+      skip,
+      take: pageSize,
+      where,
+    });
+
+    const totalCount = await repositories.recipe.count({
+      where,
+    });
+
+    const pageCount = skip ? totalCount - skip : pageSize;
+
+    return {
+      pageInfo: {
+        currentPage,
+        pageCount,
+        pageSize,
+        totalCount,
+      },
+      recipes,
+    };
+  };
+
+interface GetRecipeParameters {
+  recipeId: string;
+}
+
+const getRecipe =
+  (repositories: Repositories) => (parameters: GetRecipeParameters) => {
+    const { recipeId } = parameters;
+
+    return repositories.recipe.findUnique({
       include: {
         ingredients: true,
         steps: {
@@ -18,8 +84,16 @@ export const createRecipeService = (database: PrismaClient) => {
     });
   };
 
-  const deleteRecipe = async (recipeId: string) => {
-    await database.recipe.update({
+interface DeleteRecipeParameters {
+  recipeId: string;
+}
+
+const deleteRecipe =
+  (repositories: Repositories) =>
+  async (parameters: DeleteRecipeParameters) => {
+    const { recipeId } = parameters;
+
+    await repositories.recipe.update({
       data: {
         deletedAt: new Date(),
       },
@@ -29,8 +103,13 @@ export const createRecipeService = (database: PrismaClient) => {
     });
   };
 
+// TODO: Remove export.
+export const createRecipeService = (repositories: Repositories) => {
   return {
-    deleteRecipe,
-    getRecipe,
+    deleteRecipe: deleteRecipe(repositories),
+    getRecipe: getRecipe(repositories),
+    getRecipes: getRecipes(repositories),
   };
 };
+
+export const recipeService = createRecipeService(database);
