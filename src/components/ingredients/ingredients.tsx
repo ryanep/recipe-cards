@@ -14,14 +14,14 @@ export const Ingredients = ({ ingredients, servingSize }: IngredientsProps) => {
   const id = useId();
 
   return (
-    <ul className="grid w-full flex-wrap gap-0.5 overflow-hidden rounded-md border-2 border-neutral-100 bg-neutral-100 md:grid-cols-2 lg:grid-cols-3 dark:border-neutral-700 dark:bg-neutral-800">
+    <ul className="grid w-full flex-wrap gap-1 md:grid-cols-2 lg:grid-cols-3">
       {ingredients.map((ingredient, index) => {
         const inputId = `${id}-${index}`;
 
         return (
           <li className="relative font-bold" key={ingredient.id}>
             <label
-              className="flex h-full cursor-pointer items-center bg-white px-4 py-2 dark:bg-black"
+              className="flex h-full cursor-pointer items-center rounded-md bg-white px-4 py-2 shadow-sm dark:bg-black"
               htmlFor={inputId}
             >
               <span className="sr-only">{ingredient.name}</span>

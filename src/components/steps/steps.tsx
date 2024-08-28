@@ -29,11 +29,11 @@ export const Steps = ({ steps }: StepsProps) => {
   };
 
   return (
-    <ul className="rounded-md border-2 border-neutral-100 dark:border-neutral-700">
+    <ul className="overflow-hidden rounded-md shadow-sm">
       {steps.map((step, stepIndex) => (
         <li
           className={cx(
-            "border-b-2 dark:border-neutral-700 font-bold border-neutral-100 bg-white dark:bg-black last:border-b-0",
+            "border-b-2 dark:border-neutral-800 font-bold border-neutral-100 bg-white dark:bg-black last:border-b-0 motion-safe:transition-opacity",
             selectedStepIndex !== undefined && stepIndex <= selectedStepIndex
               ? "opacity-50"
               : undefined
