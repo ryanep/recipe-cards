@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-max-depth */
 import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "#/components/breadcrumbs";

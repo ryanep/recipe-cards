@@ -77,61 +77,72 @@ export const RecipeForm = ({
           General
         </Heading>
 
-        <label className="block" htmlFor="name">
-          <span className="block">Recipe name</span>
+        <div className="mb-8 flex flex-col gap-6 md:flex-row">
+          <label
+            className="group relative inline-block aspect-square w-[300px] cursor-pointer"
+            htmlFor="image"
+          >
+            <div className="sr-only">
+              <Input id="image" name="image" type="file" />
+            </div>
 
-          <Input
-            defaultValue={initialValues?.name}
-            id="name"
-            isRequired
-            name="name"
-            type="text"
-          />
-        </label>
+            {initialValues?.imageUrl ? (
+              <Image
+                alt={initialValues.name ?? ""}
+                className="aspect-square rounded-md object-cover"
+                height={300}
+                src={`/images/recipes/${initialValues.imageUrl}`}
+                width={300}
+              />
+            ) : null}
 
-        <label className="block" htmlFor="description">
-          <span className="block">Description</span>
+            <div className="invisible absolute left-0 top-0 flex size-full items-center justify-center bg-black/60 font-bold backdrop-blur-sm group-hover:visible">
+              Upload image
+            </div>
+          </label>
 
-          <Textarea
-            defaultValue={initialValues?.description}
-            id="description"
-            isRequired
-            name="description"
-          />
-        </label>
+          <div className="flex grow flex-col gap-4">
+            <label className="block" htmlFor="name">
+              <span className="mb-2 block font-bold">Recipe name</span>
 
-        <label className="block" htmlFor="image">
-          <span className="block">Image</span>
+              <Input
+                defaultValue={initialValues?.name}
+                id="name"
+                isRequired
+                name="name"
+                type="text"
+              />
+            </label>
 
-          <Input id="image" name="image" type="file" />
-        </label>
+            <label className="flex grow flex-col" htmlFor="description">
+              <span className="mb-2 block font-bold">Description</span>
 
-        {initialValues?.imageUrl ? (
-          <Image
-            alt={initialValues.name ?? ""}
-            className="aspect-square rounded-md object-cover"
-            height={300}
-            src={`/images/recipes/${initialValues.imageUrl}`}
-            width={300}
-          />
-        ) : null}
+              <Textarea
+                defaultValue={initialValues?.description}
+                id="description"
+                isRequired
+                name="description"
+              />
+            </label>
 
-        <label className="block" htmlFor="rating">
-          <span className="block">Rating</span>
+            <label className="block" htmlFor="rating">
+              <span className="mb-2 block font-bold">Rating</span>
 
-          <Select
-            defaultValue={initialValues?.rating}
-            id="rating"
-            isRequired
-            name="rating"
-            options={ratingOptions}
-          />
-        </label>
+              <Select
+                defaultValue={initialValues?.rating}
+                id="rating"
+                isRequired
+                name="rating"
+                options={ratingOptions}
+              />
+            </label>
+          </div>
+        </div>
       </div>
 
       <div>
         <div className="flex gap-2">
-          <Heading as="h5" type="h2">
+          <Heading as="h5" className="mb-2" type="h2">
             Ingredients
           </Heading>
 
@@ -200,7 +211,7 @@ export const RecipeForm = ({
 
       <div>
         <div className="flex gap-2">
-          <Heading as="h5" type="h2">
+          <Heading as="h5" className="mb-2" type="h2">
             Steps
           </Heading>
 
@@ -225,13 +236,13 @@ export const RecipeForm = ({
             />
 
             <label htmlFor={`step-${index}`}>
-              Step {index + 1}
-              <Input
+              <span>Step {index + 1}</span>
+
+              <Textarea
                 defaultValue={initialValues?.steps[index]?.name}
                 id={`step-${index}`}
                 isRequired
                 name="step[]"
-                type="text"
               />
             </label>
           </div>

@@ -1,10 +1,11 @@
 "use server";
 
-"use server";
-import fs from "node:fs/promises";
+import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import sharp from "sharp";
 import { z } from "zod";
 import { database } from "#/database";
+import { buildRecipePageUrl } from "#/utils/page";
 
 const createRecipeValidationSchema = z.object({
   description: z.string(),
@@ -111,25 +112,27 @@ export const saveRecipeAction = async (formData: FormData) => {
   const image = formData.get("image") as File | undefined;
 
   if (image) {
+    const outputFileType = "webp";
     const imageArrayBuffer = await image.arrayBuffer();
     const buffer = new Uint8Array(imageArrayBuffer);
+    const outputFilePath = `./public/images/recipes/${parsedRecipeData.id}.${outputFileType}`;
 
-    await fs.writeFile(
-      `./public/images/recipes/${parsedRecipeData.id}.jpg`,
-      buffer,
-      "utf8"
-    );
+    await sharp(buffer).resize(384).webp().toFile(outputFilePath);
+
+    await database.recipe.update({
+      data: {
+        imageUrl: `${parsedRecipeData.id}.${outputFileType}`,
+      },
+      where: {
+        id: parsedRecipeData.id,
+      },
+    });
   }
 
-  await database.recipe.update({
-    data: {
-      // TODO: Support other file extensions.
-      imageUrl: `${parsedRecipeData.id}.jpg`,
-    },
-    where: {
-      id: parsedRecipeData.id,
-    },
-  });
+  const recipePath = buildRecipePageUrl(parsedRecipeData.id);
 
-  return redirect(`/recipe/${parsedRecipeData.id}`);
+  revalidatePath(recipePath);
+  revalidatePath(`${recipePath}/edit`);
+
+  return redirect(recipePath);
 };
