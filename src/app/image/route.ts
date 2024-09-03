@@ -5,16 +5,20 @@ export const GET = async (request: Request) => {
   const { searchParams } = new URL(request.url);
 
   const filePath = path.resolve(
-    `./public/images/recipes/${searchParams.get("id")}.jpg`
+    `./public/images/recipes/${searchParams.get("id")}.webp`
   );
 
-  const imageBuffer = await fs.readFile(filePath);
+  try {
+    const imageBuffer = await fs.readFile(filePath);
 
-  const response = new Response(imageBuffer, {
-    headers: {
-      "Content-Type": "image/jpg",
-    },
-  });
+    const response = new Response(imageBuffer, {
+      headers: {
+        "Content-Type": "image/jpg",
+      },
+    });
 
-  return response;
+    return response;
+  } catch {
+    return new Response(null, { status: 404 });
+  }
 };

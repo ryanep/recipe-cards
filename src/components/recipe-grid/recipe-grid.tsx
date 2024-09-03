@@ -31,7 +31,7 @@ export const RecipeGrid = ({ recipes }: RecipeGridProps) => {
             height={300}
             isPriority
             isUnoptimized
-            src={`/images/recipes/${recipe.imageUrl}`}
+            src={`/image?id=${recipe.id}`}
             width={300}
           />
 

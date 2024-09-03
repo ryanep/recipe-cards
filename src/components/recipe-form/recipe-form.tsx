@@ -91,7 +91,7 @@ export const RecipeForm = ({
                 alt={initialValues.name ?? ""}
                 className="aspect-square rounded-md object-cover"
                 height={300}
-                src={`/images/recipes/${initialValues.imageUrl}`}
+                src={`/image?id=${initialValues.id}`}
                 width={300}
               />
             ) : null}
