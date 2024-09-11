@@ -39,8 +39,8 @@
   "devDependencies": {
     "@commitlint/cli": "^19.4.0",
     "@commitlint/config-conventional": "^19.2.2",
-    "@ryanep/eslint-config": "^1.5.0",
-    "@ryanep/prettier-config": "^1.1.1",
+    "@ryanep/eslint-config": "^1.8.0",
+    "@ryanep/prettier-config": "^1.2.2",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^13.0.0",
     "@semantic-release/git": "^10.0.1",
