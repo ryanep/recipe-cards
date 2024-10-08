@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 export const WakeLock = () => {
   const isWakeLockSupported =
-    typeof window !== "undefined" && "wakeLock" in navigator;
+    typeof globalThis !== "undefined" && "wakeLock" in navigator;
 
   useEffect(() => {
     let wakeLock: null | WakeLockSentinel = null;
