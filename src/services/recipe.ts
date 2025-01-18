@@ -1,7 +1,5 @@
 import { database } from "#/database";
 
-type Repositories = typeof database;
-
 interface GetRecipesParameters {
   filters: {
     page?: string;
@@ -10,6 +8,8 @@ interface GetRecipesParameters {
   };
   pageSize: number;
 }
+
+type Repositories = typeof database;
 
 const getRecipes =
   (repositories: Repositories) => async (parameters: GetRecipesParameters) => {

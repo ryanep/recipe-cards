@@ -15,19 +15,22 @@ import { increaseServingSize, reduceServingSize } from "./actions";
 import type { Metadata } from "next";
 
 interface RecipePageProps {
-  readonly params: {
+  readonly params: Promise<{
     recipeId: string;
-  };
+  }>;
 }
 
-const getPageData = async ({ params }: RecipePageProps) => {
+const getPageData = async ({
+  recipeId,
+}: Awaited<RecipePageProps["params"]>) => {
+  const cookieStore = await cookies();
   const { getRecipe } = recipeService;
 
-  const servingSize = cookies().get("servingSize")?.value
-    ? Number(cookies().get("servingSize")?.value)
+  const servingSize = cookieStore.get("servingSize")?.value
+    ? Number(cookieStore.get("servingSize")?.value)
     : 1;
 
-  const recipe = await getRecipe(params);
+  const recipe = await getRecipe({ recipeId });
 
   if (!recipe) {
     return notFound();
@@ -47,10 +50,12 @@ const getPageData = async ({ params }: RecipePageProps) => {
   };
 };
 
-export const generateMetadata = async ({
-  params,
-}: RecipePageProps): Promise<Metadata> => {
-  const { recipe } = await getPageData({ params });
+export const generateMetadata = async (
+  props: RecipePageProps
+): Promise<Metadata> => {
+  const parameters = await props.params;
+
+  const { recipe } = await getPageData(parameters);
 
   return {
     description: recipe.description,
@@ -59,7 +64,9 @@ export const generateMetadata = async ({
 };
 
 const RecipePage = async ({ params }: RecipePageProps) => {
-  const { breadcrumbs, recipe, servingSize } = await getPageData({ params });
+  const parameters = await params;
+
+  const { breadcrumbs, recipe, servingSize } = await getPageData(parameters);
 
   return (
     <>

@@ -109,11 +109,13 @@ export const saveRecipeAction = async (formData: FormData) => {
     }),
   ]);
 
-  const image = formData.get("image") as File | undefined;
+  const imageData = formData.get("image");
 
-  if (image) {
+  console.log(imageData);
+
+  if (imageData && imageData instanceof File && imageData.size > 0) {
     const outputFileType = "webp";
-    const imageArrayBuffer = await image.arrayBuffer();
+    const imageArrayBuffer = await imageData.arrayBuffer();
     const buffer = new Uint8Array(imageArrayBuffer);
     const outputFilePath = `./public/images/recipes/${parsedRecipeData.id}.${outputFileType}`;
 

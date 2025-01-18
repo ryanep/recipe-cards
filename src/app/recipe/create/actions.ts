@@ -81,10 +81,10 @@ export const createRecipeAction = async (formData: FormData) => {
     },
   });
 
-  const image = formData.get("image") as File | undefined;
+  const imageData = formData.get("image");
 
-  if (image) {
-    const imageArrayBuffer = await image.arrayBuffer();
+  if (imageData && imageData instanceof File) {
+    const imageArrayBuffer = await imageData.arrayBuffer();
     const buffer = new Uint8Array(imageArrayBuffer);
 
     await fs.writeFile(

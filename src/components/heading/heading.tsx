@@ -1,14 +1,14 @@
 import { cx } from "classix";
 import type { ReactNode } from "react";
 
-type HeadingType = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-
-export interface HeadingProps {
+interface HeadingProps {
   readonly as?: HeadingType;
   readonly children: ReactNode;
   readonly className?: string;
   readonly type: HeadingType;
 }
+
+type HeadingType = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
 export const Heading = ({ as, children, className, type }: HeadingProps) => {
   const tagType = as ?? type;

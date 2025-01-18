@@ -8,15 +8,17 @@ import { saveRecipeAction } from "./actions";
 import type { Metadata } from "next";
 
 interface EditRecipePageProps {
-  readonly params: {
+  readonly params: Promise<{
     recipeId: string;
-  };
+  }>;
 }
 
-const getPageData = async ({ params }: EditRecipePageProps) => {
+const getPageData = async ({
+  recipeId,
+}: Awaited<EditRecipePageProps["params"]>) => {
   const { getRecipe } = recipeService;
 
-  const recipe = await getRecipe(params);
+  const recipe = await getRecipe({ recipeId });
 
   if (!recipe) {
     return notFound();
@@ -42,7 +44,8 @@ const getPageData = async ({ params }: EditRecipePageProps) => {
 export const generateMetadata = async ({
   params,
 }: EditRecipePageProps): Promise<Metadata> => {
-  const { recipe } = await getPageData({ params });
+  const parameters = await params;
+  const { recipe } = await getPageData(parameters);
 
   return {
     title: `Edit ${recipe.name}`,
@@ -50,7 +53,8 @@ export const generateMetadata = async ({
 };
 
 const EditRecipePage = async ({ params }: EditRecipePageProps) => {
-  const { breadcrumbs, recipe } = await getPageData({ params });
+  const parameters = await params;
+  const { breadcrumbs, recipe } = await getPageData(parameters);
 
   return (
     <main>

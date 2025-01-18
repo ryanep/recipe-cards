@@ -3,16 +3,18 @@ import { Modal } from "#/components/modal";
 import { deleteRecipeAction } from "./actions";
 
 interface DeleteRecipePageProps {
-  readonly params: {
+  readonly params: Promise<{
     recipeId: string;
-  };
+  }>;
 }
 
-const DeleteRecipePage = ({ params }: DeleteRecipePageProps) => {
+const DeleteRecipePage = async ({ params }: DeleteRecipePageProps) => {
+  const parameters = await params;
+
   return (
     <div className="fixed left-0 top-0 z-50 h-dvh w-dvw bg-black/20 dark:bg-black/80">
       <form action={deleteRecipeAction}>
-        <input name="recipeId" type="hidden" value={params.recipeId} />
+        <input name="recipeId" type="hidden" value={parameters.recipeId} />
 
         <Modal
           actionButton={

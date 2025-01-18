@@ -6,25 +6,36 @@ import { getTranslation } from "#/i18n/server";
 import { recipeService } from "#/services/recipe";
 
 interface HomePageProps {
-  readonly searchParams: {
+  readonly searchParams: Promise<{
     page?: string;
     rating?: string;
     search?: string;
-  };
+  }>;
 }
 
-const getPageData = async ({ searchParams }: HomePageProps) => {
+const getPageData = async ({
+  page,
+  rating,
+  search,
+}: Awaited<HomePageProps["searchParams"]>) => {
   const { getRecipes } = recipeService;
 
-  return getRecipes({
-    filters: searchParams,
+  const recipes = await getRecipes({
+    filters: {
+      page,
+      rating,
+      search,
+    },
     pageSize: DEFAULT_PAGE_SIZE,
   });
+
+  return recipes;
 };
 
 const HomePage = async ({ searchParams }: HomePageProps) => {
+  const searchParameters = await searchParams;
   const { t } = await getTranslation("home");
-  const { pageInfo, recipes } = await getPageData({ searchParams });
+  const { pageInfo, recipes } = await getPageData(searchParameters);
 
   return (
     <main>
