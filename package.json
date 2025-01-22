@@ -1,5 +1,5 @@
 {
-  "name": "recipe-cards",
+  "name": "@ryanep/recipe-cards",
   "version": "0.0.0-development",
   "private": true,
   "repository": "https://github.com/ryanep/recipe-cards.git",
