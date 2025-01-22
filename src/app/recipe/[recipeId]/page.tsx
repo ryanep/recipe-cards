@@ -24,13 +24,12 @@ const getPageData = async ({
   recipeId,
 }: Awaited<RecipePageProps["params"]>) => {
   const cookieStore = await cookies();
-  const { getRecipe } = recipeService;
 
   const servingSize = cookieStore.get("servingSize")?.value
     ? Number(cookieStore.get("servingSize")?.value)
     : 1;
 
-  const recipe = await getRecipe({ recipeId });
+  const recipe = await recipeService.getRecipe({ recipeId });
 
   if (!recipe) {
     return notFound();

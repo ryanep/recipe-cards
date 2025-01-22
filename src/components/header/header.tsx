@@ -1,5 +1,10 @@
 import { Link } from "#/components/link";
-import { buildCreateRecipePageUrl, buildHomePageUrl } from "#/utils/page";
+import { config } from "#/config";
+import {
+  buildAssistantPageUrl,
+  buildCreateRecipePageUrl,
+  buildHomePageUrl,
+} from "#/utils/page";
 
 export const Header = () => {
   return (
@@ -8,7 +13,31 @@ export const Header = () => {
         Recipe Cards
       </Link>
 
-      <div className="ml-auto">
+      <div className="ml-auto flex gap-4">
+        {config.OPENAI_API_KEY ? (
+          <Link
+            className="flex items-center gap-2 hover:opacity-80"
+            href={buildAssistantPageUrl()}
+          >
+            <svg
+              aria-hidden="true"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </Link>
+        ) : null}
+
         <Link
           className="flex items-center gap-2 hover:opacity-80"
           href={buildCreateRecipePageUrl()}

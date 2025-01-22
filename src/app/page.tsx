@@ -18,9 +18,7 @@ const getPageData = async ({
   rating,
   search,
 }: Awaited<HomePageProps["searchParams"]>) => {
-  const { getRecipes } = recipeService;
-
-  const recipes = await getRecipes({
+  const recipes = await recipeService.getRecipes({
     filters: {
       page,
       rating,

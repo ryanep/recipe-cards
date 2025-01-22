@@ -111,8 +111,6 @@ export const saveRecipeAction = async (formData: FormData) => {
 
   const imageData = formData.get("image");
 
-  console.log(imageData);
-
   if (imageData && imageData instanceof File && imageData.size > 0) {
     const outputFileType = "webp";
     const imageArrayBuffer = await imageData.arrayBuffer();

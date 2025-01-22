@@ -16,9 +16,7 @@ interface EditRecipePageProps {
 const getPageData = async ({
   recipeId,
 }: Awaited<EditRecipePageProps["params"]>) => {
-  const { getRecipe } = recipeService;
-
-  const recipe = await getRecipe({ recipeId });
+  const recipe = await recipeService.getRecipe({ recipeId });
 
   if (!recipe) {
     return notFound();

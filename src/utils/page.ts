@@ -13,3 +13,7 @@ export const buildEditRecipePageUrl = (recipeId: string) => {
 export const buildCreateRecipePageUrl = () => {
   return `/recipe/create`;
 };
+
+export const buildAssistantPageUrl = () => {
+  return `/assistant`;
+};

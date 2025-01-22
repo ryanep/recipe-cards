@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-base-to-string */
 "use server";
 import { redirect, RedirectType } from "next/navigation";
 
