@@ -1,0 +1,11 @@
+{
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "driver": "SQLite",
+      "name": "Database",
+      "database": "./prisma/recipes.sqlite"
+    }
+  ],
+  "sqltools.useNodeRuntime": true
+}

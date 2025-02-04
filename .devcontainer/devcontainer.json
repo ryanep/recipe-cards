@@ -22,7 +22,8 @@
         "esbenp.prettier-vscode",
         "prisma.prisma",
         "waderyan.gitblame",
-        "yy0931.vscode-sqlite3-editor"
+        "mtxr.sqltools",
+        "mtxr.sqltools-driver-sqlite"
       ]
     }
   }
