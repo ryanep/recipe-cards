@@ -19,7 +19,7 @@ export const Modal = ({ actionButton, children, title }: ModalProps) => {
 
   return (
     <dialog
-      className="fixed left-1/2 top-1/2 m-0 flex w-96 -translate-x-1/2 -translate-y-1/2 flex-col gap-4 rounded-md border border-neutral-400 bg-white/95 text-neutral-900 shadow-lg backdrop-blur-sm dark:border-neutral-800 dark:bg-black/90 dark:text-neutral-50"
+      className="fixed left-1/2 top-1/2 m-0 flex w-96 -translate-x-1/2 -translate-y-1/2 flex-col gap-4 rounded-md border border-neutral-400 bg-white/95 text-neutral-900 shadow-lg backdrop-blur-xs dark:border-neutral-800 dark:bg-black/90 dark:text-neutral-50"
       open
     >
       <header className="flex justify-between gap-4 border-b border-neutral-200 px-4 py-3 dark:border-neutral-800">

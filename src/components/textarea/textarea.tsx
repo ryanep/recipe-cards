@@ -15,7 +15,7 @@ export const Textarea = ({
 }: TextareaProps) => {
   return (
     <textarea
-      className="w-full grow resize-none rounded-md border border-neutral-200 bg-white p-2 text-sm shadow-sm placeholder:text-neutral-500 dark:border-neutral-700 dark:bg-neutral-800"
+      className="w-full grow resize-none rounded-md border border-neutral-200 bg-white p-2 text-sm shadow-xs placeholder:text-neutral-500 dark:border-neutral-700 dark:bg-neutral-800"
       defaultValue={defaultValue}
       id={id}
       name={name}

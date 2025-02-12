@@ -96,7 +96,7 @@ export const RecipeForm = ({
               />
             ) : null}
 
-            <div className="invisible absolute left-0 top-0 flex size-full items-center justify-center bg-black/60 font-bold backdrop-blur-sm group-hover:visible">
+            <div className="invisible absolute left-0 top-0 flex size-full items-center justify-center bg-black/60 font-bold backdrop-blur-xs group-hover:visible">
               Upload image
             </div>
           </label>

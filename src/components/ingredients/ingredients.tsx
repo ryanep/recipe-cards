@@ -21,7 +21,7 @@ export const Ingredients = ({ ingredients, servingSize }: IngredientsProps) => {
         return (
           <li className="relative font-bold" key={ingredient.id}>
             <label
-              className="flex h-full cursor-pointer items-center rounded-md bg-white px-4 py-2 shadow-sm dark:bg-black"
+              className="flex h-full cursor-pointer items-center rounded-md bg-white px-4 py-2 shadow-xs dark:bg-black"
               htmlFor={inputId}
             >
               <span className="sr-only">{ingredient.name}</span>
@@ -33,7 +33,7 @@ export const Ingredients = ({ ingredients, servingSize }: IngredientsProps) => {
                 value={index}
               />
 
-              <span className="mr-3 flex aspect-square w-5 shrink-0 items-center justify-center rounded-sm border-2 border-neutral-700 text-white peer-checked:border-green-600 peer-checked:bg-green-600 peer-checked:before:text-xs peer-checked:before:font-bold peer-checked:before:content-['✓']" />
+              <span className="mr-3 flex aspect-square w-5 shrink-0 items-center justify-center rounded-xs border-2 border-neutral-700 text-white peer-checked:border-green-600 peer-checked:bg-green-600 peer-checked:before:text-xs peer-checked:before:font-bold peer-checked:before:content-['✓']" />
 
               <span className="flex flex-col">
                 <span className="block text-sm text-green-600 dark:text-green-300">

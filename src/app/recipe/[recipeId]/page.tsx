@@ -75,7 +75,7 @@ const RecipePage = async ({ params }: RecipePageProps) => {
         <Breadcrumbs breadcrumbs={breadcrumbs} />
       </div>
 
-      <div className="grid items-start gap-5 md:grid-cols-[minmax(300px,_25%)_auto]">
+      <div className="grid items-start gap-5 md:grid-cols-[minmax(300px,25%)_auto]">
         <aside className="md:sticky md:top-20">
           <Image
             alt={recipe.name}
@@ -96,13 +96,13 @@ const RecipePage = async ({ params }: RecipePageProps) => {
               </summary>
 
               <ul className="absolute right-0 w-max rounded-md border border-neutral-200 bg-white p-1 text-sm font-medium shadow-md dark:border-neutral-800 dark:bg-neutral-950">
-                <li className="cursor-pointer rounded-sm border-b border-neutral-200 px-2 py-1.5 hover:bg-black/5 dark:border-neutral-800 dark:hover:bg-white/10">
+                <li className="cursor-pointer rounded-xs border-b border-neutral-200 px-2 py-1.5 hover:bg-black/5 dark:border-neutral-800 dark:hover:bg-white/10">
                   <Link className="block" href={`/recipe/${recipe.id}/edit`}>
                     Edit
                   </Link>
                 </li>
 
-                <li className="cursor-pointer rounded-sm px-2 py-1.5 text-red-600 hover:bg-black/5 dark:hover:bg-white/10">
+                <li className="cursor-pointer rounded-xs px-2 py-1.5 text-red-600 hover:bg-black/5 dark:hover:bg-white/10">
                   <Link className="block" href={`/recipe/${recipe.id}/delete`}>
                     Delete recipe
                   </Link>

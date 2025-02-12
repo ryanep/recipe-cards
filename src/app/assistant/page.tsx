@@ -76,7 +76,7 @@ const AssistantPage = () => {
           <span className="mb-4 block">What would you like a recipe for?</span>
 
           <input
-            className="mb-4 w-full rounded bg-neutral-800 p-2"
+            className="mb-4 w-full rounded-sm bg-neutral-800 p-2"
             id="prompt"
             name="prompt"
             type="text"

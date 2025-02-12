@@ -18,7 +18,7 @@ interface RecipeGridProps {
 
 export const RecipeGrid = ({ recipes }: RecipeGridProps) => {
   return (
-    <div className="grid grid-cols-[repeat(auto-fill,_minmax(230px,_1fr))] gap-5">
+    <div className="grid grid-cols-[repeat(auto-fill,minmax(230px,1fr))] gap-5">
       {recipes.map((recipe) => (
         <Link
           className="group flex flex-col overflow-hidden no-underline transition-colors dark:text-white"

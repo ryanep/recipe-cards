@@ -19,7 +19,7 @@ export const Input = ({
 }: InputProps) => {
   return (
     <input
-      className="w-full rounded-md border border-neutral-200 bg-white p-2 text-sm shadow-sm placeholder:text-neutral-500 dark:border-neutral-700 dark:bg-neutral-800"
+      className="w-full rounded-md border border-neutral-200 bg-white p-2 text-sm shadow-xs placeholder:text-neutral-500 dark:border-neutral-700 dark:bg-neutral-800"
       defaultValue={defaultValue}
       id={id}
       name={name}
