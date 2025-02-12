@@ -5,12 +5,13 @@ import {
   buildCreateRecipePageUrl,
   buildHomePageUrl,
 } from "#/utils/page";
+import { Logo } from "#/components/logo";
 
 export const Header = () => {
   return (
     <header className="sticky top-0 z-10 flex w-full items-center bg-white/90 p-4 font-bold shadow-xs backdrop-blur-xs dark:bg-black/90">
-      <Link className="hover:opacity-80" href={buildHomePageUrl()}>
-        Recipe Cards
+      <Link className="hover:opacity-80 flex gap-2" href={buildHomePageUrl()}>
+        <Logo />
       </Link>
 
       <div className="ml-auto flex gap-4">
