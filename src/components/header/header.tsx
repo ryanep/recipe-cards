@@ -1,16 +1,16 @@
 import { Link } from "#/components/link";
+import { Logo } from "#/components/logo";
 import { config } from "#/config";
 import {
   buildAssistantPageUrl,
   buildCreateRecipePageUrl,
   buildHomePageUrl,
 } from "#/utils/page";
-import { Logo } from "#/components/logo";
 
 export const Header = () => {
   return (
-    <header className="sticky top-0 z-10 flex w-full items-center bg-white/90 p-4 font-bold shadow-xs backdrop-blur-xs dark:bg-black/90">
-      <Link className="hover:opacity-80 flex gap-2" href={buildHomePageUrl()}>
+    <header className="shadow-xs backdrop-blur-xs sticky top-0 z-10 flex w-full items-center bg-white/90 p-4 font-bold dark:bg-black/90">
+      <Link className="flex gap-2 hover:opacity-80" href={buildHomePageUrl()}>
         <Logo />
       </Link>
 

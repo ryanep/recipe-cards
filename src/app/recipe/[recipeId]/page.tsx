@@ -96,13 +96,13 @@ const RecipePage = async ({ params }: RecipePageProps) => {
               </summary>
 
               <ul className="absolute right-0 w-max rounded-md border border-neutral-200 bg-white p-1 text-sm font-medium shadow-md dark:border-neutral-800 dark:bg-neutral-950">
-                <li className="cursor-pointer rounded-xs border-b border-neutral-200 px-2 py-1.5 hover:bg-black/5 dark:border-neutral-800 dark:hover:bg-white/10">
+                <li className="rounded-xs cursor-pointer border-b border-neutral-200 px-2 py-1.5 hover:bg-black/5 dark:border-neutral-800 dark:hover:bg-white/10">
                   <Link className="block" href={`/recipe/${recipe.id}/edit`}>
                     Edit
                   </Link>
                 </li>
 
-                <li className="cursor-pointer rounded-xs px-2 py-1.5 text-red-600 hover:bg-black/5 dark:hover:bg-white/10">
+                <li className="rounded-xs cursor-pointer px-2 py-1.5 text-red-600 hover:bg-black/5 dark:hover:bg-white/10">
                   <Link className="block" href={`/recipe/${recipe.id}/delete`}>
                     Delete recipe
                   </Link>

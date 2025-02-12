@@ -29,7 +29,7 @@ export const Steps = ({ steps }: StepsProps) => {
   };
 
   return (
-    <ul className="overflow-hidden rounded-md shadow-xs">
+    <ul className="shadow-xs overflow-hidden rounded-md">
       {steps.map((step, stepIndex) => (
         <li
           className={cx(

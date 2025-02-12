@@ -1,10 +1,10 @@
 export const Logo = () => {
   return (
     <svg
-      width="30"
+      fill="none"
       height="24"
       viewBox="0 0 386 377"
-      fill="none"
+      width="30"
       xmlns="http://www.w3.org/2000/svg"
     >
       <title>Logo</title>
@@ -20,15 +20,15 @@ export const Logo = () => {
         d="M386 140.07C386 192.002 346.472 234.101 297.712 234.101C248.952 234.101 209.425 192.002 209.425 140.07C209.425 88.1378 248.952 46.0387 297.712 46.0387C346.472 46.0387 386 88.1378 386 140.07Z"
         fill="#ffffff"
       />
-      <rect x="64.5" y="161" width="258" height="164" fill="#ffffff" />
-      <ellipse cx="193.5" cy="325.5" rx="129" ry="51.5" fill="#ffffff" />
+      <rect fill="#ffffff" height="164" width="258" x="64.5" y="161" />
+      <ellipse cx="193.5" cy="325.5" fill="#ffffff" rx="129" ry="51.5" />
       <ellipse
         cx="193.5"
         cy="323"
+        fill="black"
+        fillOpacity="0.3"
         rx="126"
         ry="49"
-        fill="black"
-        fill-opacity="0.3"
       />
     </svg>
   );
