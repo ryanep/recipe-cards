@@ -1,6 +1,0 @@
-{
-  "hooks": {
-    "pre-commit": "npx @ls-lint/ls-lint && npx lint-staged",
-    "commit-msg": "npx commitlint --edit $HUSKY_GIT_PARAMS"
-  }
-}
