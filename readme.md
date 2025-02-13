@@ -8,19 +8,18 @@
 
 ## Introduction
 
-Recipe Cards provides a clean and interactive interface to make it easier to find and follow recipes. This repository is a monorepo containing two packages; the front-end application and Sanity installation.
+Recipe Cards is a web application that helps manage your personal recipe
+collection and provides a clean an interactive interface to help whilst cooking.
 
 ## Features
 
-- View all recipe cards.
-- Filter recipe cards by name and star rating.
-- Recipe star ratings.
-- Change between measurement system and serving amount.
-- Check off ingredients and completed steps.
+- Add, view, update and delete recipes.
+- Interactively check off completed ingredients and steps.
+- Generate new recipes using AI assistant.
 
-## Getting started
+## Development
 
-To start both the website and sanity, run `npm run dev` from the root folder.
+To start the application, run `npm run dev` from the root of the repository.
 
 ## Screenshot
 
