@@ -7,17 +7,18 @@
   "author": "Ryan Elliott-Potter <me@ryanep.com>",
   "type": "module",
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "format": "prettier --write .",
-    "lint": "eslint .",
-    "typecheck": "tsc --noEmit",
     "database:create-migration": "prisma migrate dev",
     "database:generate": "prisma generate",
     "database:migrate": "prisma migrate deploy",
     "database:seed": "prisma db seed",
+    "dev": "next dev",
     "docs": "mintlify dev",
+    "format": "prettier --write .",
+    "lint": "eslint .",
+    "prepare": "husky",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
     "upgrade": "npm-check-updates --interactive"
   },
   "dependencies": {
