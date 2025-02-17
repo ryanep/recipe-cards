@@ -21,7 +21,7 @@ const initI18next = async (locale: Locale, namespace: Namespace) => {
   return i18nInstance;
 };
 
-export const getTranslation = async (namespace: Namespace) => {
+export const getTranslation = async (namespace: Namespace = "common") => {
   const locale = fallbackLocale;
   const i18nextInstance = await initI18next(locale, namespace);
 

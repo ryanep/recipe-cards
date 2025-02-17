@@ -1,4 +1,5 @@
 {
+  "pageTitle": "{{name}} - Recipe Cards",
   "rating": "{{count}} star",
   "rating_other": "{{count}} stars",
   "metric": "Metric",

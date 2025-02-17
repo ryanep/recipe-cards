@@ -10,12 +10,12 @@ interface RootLayoutProps {
 }
 
 export const generateMetadata = async (): Promise<Metadata> => {
-  const { t } = await getTranslation("home");
+  const { t } = await getTranslation(["common", "home"]);
 
   return {
     title: {
-      default: `${t("heading")} - Recipe Cards`,
-      template: "%s - Recipe Cards",
+      default: t("common:pageTitle", { name: t("home:pageTitle") }),
+      template: t("common:pageTitle", { name: "%s" }),
     },
   };
 };
